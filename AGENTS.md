@@ -29,6 +29,7 @@ Current routes:
 - `/`
 - `/pricing`
 - `/about`
+- `/privacy`
 - `/menu/demo`
 - `/menu/demo-cafe`
 - `/sufra-old-town` redirects to `/menu/demo` as a legacy route
@@ -38,10 +39,12 @@ The homepage demo section should point to the existing `/menu/demo` route with a
 
 Guest-facing menu routes should use the simplified menu layout: no marketing site header, only the small `Designed with 🤍 by Sufra AR` credit footer, and the floating back-to-top control.
 
+The marketing footer includes a `/privacy` link that opens in a new tab plus the copyright notice. Do not add those to guest-facing menu route footers.
+
 Viewer routes use query params, for example:
 
 ```text
-/menu/demo?dish=steak&view=viewer&lang=en
+/menu/demo?dish=pizza&view=viewer&lang=en
 ```
 
 Important components/functions in `src/App.jsx`:
@@ -111,13 +114,12 @@ Restaurant configs may include a static `schedule` object with translated status
 Required category ids:
 
 ```text
-main-course
-salads
+main-dishes
 baked-goods
-drinks
+seafood
 ```
 
-Food categories use All / Veg filters; Meat is not shown as a filter or badge in the demo UI. Drink categories use Alcoholic / Non-alcoholic filters and badges. Drinks are photo-only and should not render `model-viewer`, AR launch, or a Photo / 3D selector.
+Food categories use All / Veg filters; Meat is not shown as a filter or badge in the demo UI. The final demo menu has no active drinks category. If a future client/demo menu adds drinks, drink categories should use Alcoholic / Non-alcoholic filters and badges, and drinks should remain photo-only without `model-viewer`, AR launch, or a Photo / 3D selector.
 
 Each dish should have:
 
@@ -153,11 +155,11 @@ Asset folders:
 Use public paths:
 
 ```js
-image: '/images/dishes/steak.jpg'
-model: '/models/dishes/steak.glb'
+image: '/images/dishes/pizza.webp'
+model: '/models/dishes/pizza.glb'
 ```
 
-Do not duplicate assets. Current filenames include spaces and uppercase letters; reference them exactly. Prefer lowercase kebab-case for future assets.
+Do not duplicate assets. Current demo image filenames include exact uploaded names such as `Lobiani.webp` and `Sushi.webp`; reference them exactly. Prefer lowercase kebab-case for future assets.
 
 ## AR Rules
 

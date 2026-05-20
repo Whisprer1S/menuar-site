@@ -173,7 +173,7 @@ function scrollToTopInstant() {
 
 function getRouteFromPath() {
   const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
-  const staticPages = ['about', 'pricing'];
+  const staticPages = ['about', 'pricing', 'privacy'];
   const pathParts = path.split('/');
 
   if (!path) return { page: 'home', slug: defaultRestaurantSlug, params: getParams() };
@@ -477,6 +477,7 @@ function App() {
 
   if (route.page === 'pricing') return <PricingPage controls={controls} language={siteLanguage} style={themeStyle} />;
   if (route.page === 'about') return <AboutPage controls={controls} language={siteLanguage} style={themeStyle} />;
+  if (route.page === 'privacy') return <PrivacyPage controls={controls} language={siteLanguage} style={themeStyle} />;
   if (route.page === 'menu') {
     return (
       <GuestMenuShell language={menuLanguage} menuTheme={menuTheme} style={themeStyle}>
@@ -1390,6 +1391,39 @@ function AboutPage({ controls, language, style }) {
   );
 }
 
+function PrivacyPage({ controls, language, style }) {
+  const sections = tArray(language, 'privacySections');
+
+  return (
+    <Shell controls={controls} language={language} restaurant={defaultRestaurant} style={style}>
+      <main className="page-content">
+        <section className="info-page privacy-page">
+          <p className="eyebrow">{t(language, 'privacy')}</p>
+          <h1>{t(language, 'privacyTitle')}</h1>
+          <p className="privacy-updated">{t(language, 'privacyLastUpdated')}</p>
+          <div className="section-copy">
+            {tArray(language, 'privacyIntro').map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          </div>
+          <div className="privacy-sections">
+            {sections.map((section) => (
+              <article className="privacy-section" key={section.title}>
+                <h2>{section.title}</h2>
+                {section.text && <p>{section.text}</p>}
+                {section.items?.length > 0 && (
+                  <ul>
+                    {section.items.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                )}
+                {section.email && <a className="privacy-email" href={`mailto:${brand.email}`}>{brand.email}</a>}
+              </article>
+            ))}
+          </div>
+        </section>
+      </main>
+    </Shell>
+  );
+}
+
 function InfoPage({ children, eyebrow, paragraphs, title, variant }) {
   const className = variant ? `info-page ${variant}-page` : 'info-page';
 
@@ -1444,6 +1478,7 @@ function Footer({ language, restaurant }) {
         <nav className="footer-nav" aria-label={t(language, 'footerNavigation')}>
           <a href="/">{t(language, 'home')}</a>
           <a href="/about">{t(language, 'about')}</a>
+          <a href="/privacy" target="_blank" rel="noreferrer">{t(language, 'privacy')}</a>
         </nav>
         <div className="footer-contact">
           <p className="footer-section-label">{t(language, 'contact')}</p>
@@ -1462,6 +1497,7 @@ function Footer({ language, restaurant }) {
         </div>
       </div>
       <p className="powered">{t(language, 'powered')}</p>
+      <p className="footer-copyright">{t(language, 'footerCopyright')}</p>
     </footer>
   );
 }

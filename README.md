@@ -30,6 +30,7 @@ npm run build
 /demo-cafe         -> legacy direct route kept for compatibility
 /pricing           -> full pricing page
 /about             -> about Sufra AR
+/privacy           -> privacy policy
 ```
 
 ## Project Structure
@@ -127,27 +128,27 @@ Example:
 
 ```js
 {
-  id: 'steak',
-  categoryId: 'main-course',
+  id: 'pizza',
+  categoryId: 'baked-goods',
   type: 'meat',
-  priceGEL: 42,
-  calories: 780,
-  image: '/images/dishes/steak.jpg',
-  model: '/models/dishes/steak.glb',
+  priceGEL: 32,
+  calories: 980,
+  image: '/images/dishes/pizza.webp',
+  model: '/models/dishes/pizza.glb',
   hasModel: true,
   arScale: '1 1 1',
   arPlacement: 'floor',
-  cameraOrbit: '35deg 72deg 2.8m',
-  fieldOfView: '28deg',
+  cameraOrbit: '35deg 70deg 2.5m',
+  fieldOfView: '30deg',
 }
 ```
 
-The current demo menu uses `main-course`, `salads`, `baked-goods`, and `drinks`. Food categories show All / Veg filters only; Meat is not shown as a visible filter or badge. Drink categories use Alcoholic / Non-alcoholic filters and badges. Drinks are photo-only and should not show AR/model-viewer.
+The current demo menu uses `main-dishes`, `baked-goods`, and `seafood`. Food categories show All / Veg filters only; Meat is not shown as a visible filter or badge. If a future menu adds drinks, drinks should stay photo-only and should not show AR/model-viewer.
 
-If a custom 3D model is not ready, use:
+If a dish should be photo-only, use:
 
 ```js
-model: '/models/dishes/placeholder-dish.glb',
+model: '',
 hasModel: false,
 ```
 
