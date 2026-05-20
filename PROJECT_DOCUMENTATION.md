@@ -75,6 +75,7 @@ Routes:
 | `/` | Product landing page with hero, value section, QR demo section, pricing preview, footer | `LandingPage` inside `Shell` | The QR demo section links to the real guest-facing `/menu/demo` route instead of embedding a duplicate interactive menu. |
 | `/pricing` | Full pricing page | `PricingPage` -> `PricingSection` | Pricing data comes from `src/data/plans.js`; visible translated text/features come from `src/data/translations.js`. |
 | `/about` | About page | `AboutPage` -> `InfoPage` | Uses translated text from `src/data/translations.js`. |
+| `/privacy` | Privacy Policy page | `PrivacyPage` inside `Shell` | Uses translated structured privacy content from `src/data/translations.js`; linked from the marketing footer in a new tab. |
 | `/menu/demo` | Primary public demo menu page | `MenuExperience` inside `GuestMenuShell` | Loads `src/data/restaurants/sufra-old-town.js`; the file name is legacy, but the public slug is `demo`. |
 | `/menu/demo-cafe` | Second sample restaurant menu page | `MenuExperience` inside `GuestMenuShell` | Loads `src/data/restaurants/demo-cafe.js`, which currently reuses most of the demo config with a different slug/name/subtitle. |
 | `/sufra-old-town` | Legacy redirect | `getRouteFromPath` | Old public route. Do not use for new links; it is immediately normalized to `/menu/demo`. |
@@ -83,12 +84,12 @@ Routes:
 
 The homepage QR demo section is generated in React and encodes `https://sufraar.com/menu/demo` for client previews. `/menu/demo` remains the single real demo menu route and continues to reuse the existing demo restaurant config, images, and GLB models.
 
-Marketing routes use the full `SiteHeader` and `Footer`. Guest-facing menu routes use a simplified menu layout with no marketing header, a small `Designed with 🤍 by Sufra AR` credit footer, and a floating back-to-top button that appears after the guest scrolls down.
+Marketing routes use the full `SiteHeader` and `Footer`, including the Privacy Policy link and copyright notice. Guest-facing menu routes use a simplified menu layout with no marketing header, a small `Designed with 🤍 by Sufra AR` credit footer, and a floating back-to-top button that appears after the guest scrolls down.
 
 Viewer query route:
 
 ```text
-/menu/demo?dish=steak&view=viewer&lang=en
+/menu/demo?dish=pizza&view=viewer&lang=en
 ```
 
 When `view=viewer` and `dish=<dish id>` matches a dish in the active restaurant config, `App` renders `ModelViewerPage`.
@@ -111,28 +112,17 @@ Current project structure:
 │   ├── favicon.svg
 │   ├── images
 │   │   └── dishes
-│   │       ├── adjaruli khachapuri.jfif
-│   │       ├── Bruschetta.jpg
-│   │       ├── Chicken Alfredo.jpg
-│   │       ├── Chicken Salad.jpg
 │   │       ├── fine dining table phone.jpg
-│   │       ├── mtis khinkali.webp
-│   │       ├── mtsvadi.jfif
-│   │       ├── orange juice.jpg
-│   │       ├── steak.jpg
-│   │       └── Tiramisu.jpg
+│   │       ├── Lobiani.webp
+│   │       ├── pizza.webp
+│   │       ├── Sushi.webp
+│   │       └── wrap.webp
 │   └── models
 │       └── dishes
-│           ├── adjaruli-khachapuri.glb
-│           ├── Bruschetta.glb
-│           ├── Chicken Alfredo.glb
-│           ├── Chicken Salad.glb
-│           ├── khinkali.glb
-│           ├── khinkali.glb.glb
-│           ├── orange juice.glb
-│           ├── placeholder-dish.glb
-│           ├── steak.glb
-│           └── tiramisu.glb
+│           ├── lobiani.glb
+│           ├── pizza.glb
+│           ├── sushi.glb
+│           └── wrap.glb
 └── src
     ├── App.jsx
     ├── main.jsx
@@ -194,13 +184,12 @@ Important helper functions in `src/App.jsx`:
 Current demo category ids:
 
 ```text
-main-course
-salads
+main-dishes
 baked-goods
-drinks
+seafood
 ```
 
-Every active demo dish should reference one of those ids with `categoryId`. Food categories use All / Veg filters; Meat is not shown as a filter or badge in the demo UI. Drink categories use `drinkType` values such as `alcoholic` and `non-alcoholic` instead of Veg/Meat labels.
+Every active demo dish should reference one of those ids with `categoryId`. Food categories use All / Veg filters; Meat is not shown as a filter or badge in the demo UI. The final demo menu has no active drinks category. If a future menu adds drinks, drink categories should use `drinkType` values such as `alcoholic` and `non-alcoholic` instead of Veg/Meat labels.
 
 Drinks are photo-only. They should use existing dish photos, set `hasModel: false`, and should not render `model-viewer`, the Photo / 3D selector, or `View on your table`.
 
@@ -210,27 +199,27 @@ Each dish should include:
 
 ```js
 {
-  id: 'steak',
-  categoryId: 'main-course',
+  id: 'pizza',
+  categoryId: 'baked-goods',
   type: 'meat', // food items use 'veg' or 'meat'; drinks use type: 'drink' plus drinkType
-  name: { en: 'Steak', ka: 'Steak', ru: 'Steak' },
+  name: { en: 'Pepperoni Pizza', ka: '...', ru: '...' },
   description: {
-    en: 'Grilled steak served with herbs and sauce.',
+    en: 'Oven-baked pepperoni pizza with melted cheese and crisp golden crust.',
     ka: '...',
     ru: '...',
   },
-  priceGEL: 42,
-  calories: 780,
-  image: '/images/dishes/steak.jpg',
-  model: '/models/dishes/steak.glb',
+  priceGEL: 32,
+  calories: 980,
+  image: '/images/dishes/pizza.webp',
+  model: '/models/dishes/pizza.glb',
   hasModel: true,
   ingredients: [
-    { name: 'Beef', benefits: ['Protein', 'Iron'] },
+    { name: 'Mozzarella', benefits: ['Calcium', 'Protein'] },
   ],
   ingredientHotspots: [
     {
-      id: 'beef',
-      name: 'Beef',
+      id: 'mozzarella',
+      name: 'Mozzarella',
       position: '0m 0.08m 0m',
       normal: '0m 1m 0m',
       benefits: ['Protein', 'Iron'],
@@ -238,8 +227,8 @@ Each dish should include:
   ],
   arScale: '1 1 1',
   arPlacement: 'floor',
-  cameraOrbit: '35deg 72deg 2.8m',
-  fieldOfView: '28deg',
+  cameraOrbit: '35deg 70deg 2.5m',
+  fieldOfView: '30deg',
 }
 ```
 
@@ -247,15 +236,14 @@ Base price is always `priceGEL`. Dish prices always display in GEL through `form
 
 Current category mapping in `sufra-old-town.js`:
 
-- `main-course`: Mountain Khinkali, Steak, Chicken Alfredo
-- `salads`: Chicken Salad
-- `baked-goods`: Adjaruli Khachapuri, Bruschetta
-- `drinks`: Orange Juice (`drinkType: non-alcoholic`, photo-only)
+- `main-dishes`: Chicken Wrap
+- `baked-goods`: Lobiani, Pepperoni Pizza
+- `seafood`: Sushi Platter
 
-If a dish does not have a real model yet:
+If a dish should be photo-only:
 
 ```js
-model: '/models/dishes/placeholder-dish.glb',
+model: '',
 hasModel: false,
 ```
 
@@ -295,18 +283,18 @@ public/models/dishes
 Assets are referenced from React/config using public URL paths:
 
 ```js
-image: '/images/dishes/steak.jpg'
-model: '/models/dishes/steak.glb'
+image: '/images/dishes/pizza.webp'
+model: '/models/dishes/pizza.glb'
 ```
 
 Rules:
 
 - Do not duplicate assets.
 - Do not move or rename existing assets unless an asset-cleanup task explicitly asks for it.
-- Be careful with current filenames containing spaces and uppercase letters.
+- Be careful with current filenames containing uppercase letters or exact uploaded spellings.
 - Use the exact path currently in config.
 - For future assets, prefer lowercase kebab-case filenames, for example `chicken-alfredo.jpg` and `chicken-alfredo.glb`.
-- If an asset is missing, use `placeholder-dish.glb` for models and add a clear config comment rather than inventing duplicate files.
+- If a dish should be photo-only, use `model: ''` and `hasModel: false` rather than inventing duplicate files.
 
 Hero image currently used by the landing page:
 
@@ -795,7 +783,7 @@ Vercel behavior:
 - Build command should be `npm.cmd run build` locally; Vercel normally runs `npm run build`.
 - Output directory is `dist`.
 - SSL is handled by Vercel.
-- `vercel.json` rewrites all routes to `/index.html`, so direct visits like `/pricing`, `/menu/demo-cafe`, and `/menu/demo?dish=steak&view=viewer` work with client-side routing.
+- `vercel.json` rewrites all routes to `/index.html`, so direct visits like `/pricing`, `/menu/demo-cafe`, and `/menu/demo?dish=pizza&view=viewer` work with client-side routing.
 
 Current `vercel.json`:
 
@@ -821,41 +809,27 @@ SEO/favicon notes:
 
 Images in `public/images/dishes`:
 
-- `adjaruli khachapuri.jfif`
-- `Bruschetta.jpg`
-- `Chicken Alfredo.jpg`
-- `Chicken Salad.jpg`
 - `fine dining table phone.jpg`
-- `mtis khinkali.webp`
-- `mtsvadi.jfif`
-- `orange juice.jpg`
-- `steak.jpg`
-- `Tiramisu.jpg`
+- `Lobiani.webp`
+- `pizza.webp`
+- `Sushi.webp`
+- `wrap.webp`
 
 Models in `public/models/dishes`:
 
-- `adjaruli-khachapuri.glb`
-- `Bruschetta.glb`
-- `Chicken Alfredo.glb`
-- `Chicken Salad.glb`
-- `khinkali.glb`
-- `khinkali.glb.glb`
-- `orange juice.glb`
-- `placeholder-dish.glb`
-- `steak.glb`
-- `tiramisu.glb`
+- `lobiani.glb`
+- `pizza.glb`
+- `sushi.glb`
+- `wrap.glb`
 
 Current dish-to-asset mapping in `sufra-old-town.js`:
 
 | Dish id | Image | Model | Notes |
 | --- | --- | --- | --- |
-| `adjaruli-khachapuri` | `/images/dishes/adjaruli khachapuri.jfif` | `/models/dishes/adjaruli-khachapuri.glb` | Real model |
-| `mountain-khinkali` | `/images/dishes/mtis khinkali.webp` | `/models/dishes/khinkali.glb` | Prefer `khinkali.glb`; duplicate `khinkali.glb.glb` exists but is not used |
-| `steak` | `/images/dishes/steak.jpg` | `/models/dishes/steak.glb` | Real model |
-| `bruschetta` | `/images/dishes/Bruschetta.jpg` | `/models/dishes/Bruschetta.glb` | Real model |
-| `chicken-salad` | `/images/dishes/Chicken Salad.jpg` | `/models/dishes/Chicken Salad.glb` | Real model |
-| `chicken-alfredo` | `/images/dishes/Chicken Alfredo.jpg` | `/models/dishes/Chicken Alfredo.glb` | Real model |
-| `orange-juice` | `/images/dishes/orange juice.jpg` | none configured | Photo-only drink; existing GLB asset is not referenced |
+| `wrap` | `/images/dishes/wrap.webp` | `/models/dishes/wrap.glb` | Real model |
+| `lobiani` | `/images/dishes/Lobiani.webp` | `/models/dishes/lobiani.glb` | Real model |
+| `pizza` | `/images/dishes/pizza.webp` | `/models/dishes/pizza.glb` | Real model |
+| `sushi` | `/images/dishes/Sushi.webp` | `/models/dishes/sushi.glb` | Real model |
 
 ## 22. Current Known Issues / Future Improvements
 
@@ -865,9 +839,9 @@ Known issues/cleanup notes from inspection:
 - `src/data/siteContent.js` contains supporting English content objects, while current visible copy mostly comes from `src/data/translations.js`; `App.jsx` currently uses only `siteContent.hero.image`.
 - `src/data/restaurants/sufra-old-town.js` still has a legacy filename. The current public route is `/menu/demo`; `/sufra-old-town` redirects to `/menu/demo` and should not be used for new public links.
 - `src/data/brand.js` contains some translated about/description copy, but current visible page copy mostly comes from `src/data/translations.js`; contact identity still comes from `brand.js`.
-- `public/models/dishes/khinkali.glb.glb` appears to duplicate `khinkali.glb`. The app currently uses `/models/dishes/khinkali.glb`. Do not delete or move it unless doing an explicit asset cleanup.
-- Several asset filenames include spaces and uppercase letters. This is supported if paths are exact, but future assets should prefer lowercase kebab-case.
-- Drinks are photo-only; Orange Juice has `hasModel: false` and no configured model path.
+- The active demo config uses exact uploaded image filenames, including `Lobiani.webp` and `Sushi.webp`. Do not rename or move them unless doing an explicit approved asset cleanup.
+- Future assets should prefer lowercase kebab-case.
+- The final demo has no active drinks category; if drinks are added later, keep them photo-only with `hasModel: false` and no configured model path.
 - `ingredientHotspots` positions are retained as data but are not currently rendered as visible model-viewer hotspot labels.
 - iOS Quick Look may handle scale differently than WebXR/Scene Viewer.
 - The temporary `Test` category/dish has been removed from the active demo menu config. The test GLB asset may remain in `public/models/dishes` for future calibration work unless an explicit asset cleanup removes it.

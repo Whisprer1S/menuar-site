@@ -18,9 +18,9 @@ export const brand = {
   facebookLabel: 'Facebook',
   facebookUrl: 'https://www.facebook.com/share/199UTeER2Z/?mibextid=wwXIfr',
   shortDescription: {
-    en: 'Premium WebAR menu experiences for restaurants and cafes.',
-    ka: 'პრემიუმ WebAR მენიუ რესტორნებისა და კაფეებისთვის.',
-    ru: 'Премиальные WebAR-меню для ресторанов и кафе.',
+    en: 'Premium WebAR menu for restaurants and cafes.',
+    ka: 'პრემიუმ WebAR მენიუ რესტორნებისა და კაფეებისთვის',
+    ru: 'Премиальное WebAR-меню для ресторанов и кафе.',
   },
   aboutTitle: {
     en: 'A clearer way to choose',
