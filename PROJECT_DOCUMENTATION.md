@@ -540,7 +540,7 @@ Theme CSS variables are set in `getThemeStyle`:
 Design contrast rules:
 
 - The global site can be light or dark.
-- The menu defaults to dark and should remain visually separated from dark pages.
+- The menu defaults to light for first-time guests, while the menu theme toggle and saved `sufra-menu-theme` preference still support dark mode.
 - Dropdowns must stay readable in both light and dark themes.
 - Buttons must keep black/white contrast.
 
@@ -674,7 +674,7 @@ Current visual direction:
 Hybrid design:
 
 - Landing/product/static pages are light premium by default.
-- The actual menu experience is a dark mobile-first app-style UI by default.
+- The actual menu experience is a light mobile-first app-style UI by default, with a dark mode available from the menu theme toggle.
 - The footer remains black.
 
 Important CSS areas:

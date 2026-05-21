@@ -339,7 +339,7 @@ function App() {
   const [siteLanguage, setSiteLanguage] = useState(() => routeLanguage || getSavedLanguage(['sufra-site-language', 'sufra-language']));
   const [menuLanguage, setMenuLanguage] = useState(() => routeLanguage || getSavedLanguage(['sufra-menu-language', 'sufra-language']));
   const [themeMode, setThemeMode] = useState(() => localStorage.getItem('sufra-theme') || 'light');
-  const [menuTheme, setMenuTheme] = useState(() => localStorage.getItem('sufra-menu-theme') || 'dark');
+  const [menuTheme, setMenuTheme] = useState(() => localStorage.getItem('sufra-menu-theme') || 'light');
   const [route, setRoute] = useState(() => getRouteFromPath());
   const activeRestaurant = findRestaurantBySlug(route.slug);
   const restaurant = activeRestaurant || defaultRestaurant;
