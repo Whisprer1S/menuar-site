@@ -880,12 +880,6 @@ function MenuExperience({ controls, isPreview = false, language, menuTheme, onDi
         <HeaderControls controls={controls} />
       </div>
 
-      <RestaurantSchedule
-        language={language}
-        menuTheme={menuTheme || controls.themeMode}
-        schedule={restaurant.schedule}
-      />
-
       <div className="category-strip">
         <div className="category-rail-wrap">
           <div className="category-rail" aria-label={t(language, 'menuLabel')}>
@@ -976,60 +970,6 @@ function MenuExperience({ controls, isPreview = false, language, menuTheme, onDi
         />
       )}
     </section>
-  );
-}
-
-function RestaurantSchedule({ language, menuTheme, schedule }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const days = schedule?.days || [];
-  const status = text(schedule?.status, language);
-
-  useEffect(() => {
-    if (!isOpen) return undefined;
-
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') setIsOpen(false);
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen]);
-
-  if (!schedule || !status || !days.length) return null;
-
-  return (
-    <>
-      <div className="schedule-banner">
-        <div className="schedule-status">
-          <span className="schedule-status-dot" aria-hidden="true" />
-          <span>{status}</span>
-        </div>
-        <button onClick={() => setIsOpen(true)} type="button">
-          {t(language, 'seeSchedule')}
-        </button>
-      </div>
-
-      {isOpen && (
-        <div className={`schedule-backdrop menu-theme-${menuTheme}`} role="presentation" onClick={() => setIsOpen(false)}>
-          <section className="schedule-modal" role="dialog" aria-modal="true" aria-labelledby="schedule-title" onClick={(event) => event.stopPropagation()}>
-            <div className="schedule-modal-header">
-              <h2 id="schedule-title">{t(language, 'workingHours')}</h2>
-              <button aria-label={t(language, 'close')} className="sheet-icon-button" onClick={() => setIsOpen(false)} type="button">
-                <X size={18} />
-              </button>
-            </div>
-            <div className="schedule-list">
-              {days.map((item) => (
-                <div className="schedule-row" key={text(item.day, 'en')}>
-                  <span>{text(item.day, language)}</span>
-                  <strong>{item.hours}</strong>
-                </div>
-              ))}
-            </div>
-          </section>
-        </div>
-      )}
-    </>
   );
 }
 
@@ -1332,7 +1272,6 @@ function ModelViewerPage({ dish, language, menuTheme, onBack, restaurant, select
             <p>{text(dish.description, language)}</p>
             {calories && (
               <div className="viewer-calories-row">
-                <span>{t(language, 'calories')}</span>
                 <strong>{calories}</strong>
               </div>
             )}

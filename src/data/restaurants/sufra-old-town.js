@@ -18,16 +18,6 @@ const menuCategories = [
   },
 ];
 
-const weeklySchedule = [
-  { day: { en: "Monday", ka: "ორშაბათი", ru: "Понедельник" }, hours: "00:00 - 23:59" },
-  { day: { en: "Tuesday", ka: "სამშაბათი", ru: "Вторник" }, hours: "00:00 - 23:59" },
-  { day: { en: "Wednesday", ka: "ოთხშაბათი", ru: "Среда" }, hours: "00:00 - 23:59" },
-  { day: { en: "Thursday", ka: "ხუთშაბათი", ru: "Четверг" }, hours: "00:00 - 23:59" },
-  { day: { en: "Friday", ka: "პარასკევი", ru: "Пятница" }, hours: "00:00 - 23:59" },
-  { day: { en: "Saturday", ka: "შაბათი", ru: "Суббота" }, hours: "00:00 - 23:59" },
-  { day: { en: "Sunday", ka: "კვირა", ru: "Воскресенье" }, hours: "00:00 - 23:59" },
-];
-
 const defaultPlatformScale = { default: 1, ios: 1, android: 1 };
 
 const sufraOldTown = {
@@ -48,14 +38,6 @@ const sufraOldTown = {
     en: "Tbilisi, Georgia",
     ka: "Tbilisi, Georgia",
     ru: "Tbilisi, Georgia",
-  },
-  schedule: {
-    status: {
-      en: "Open until 23:59 today.",
-      ka: "დღეს ღიაა 23:59-მდე.",
-      ru: "Сегодня открыто до 23:59.",
-    },
-    days: weeklySchedule,
   },
   mapUrl:
     "https://www.google.com/maps/search/?api=1&query=Tbilisi%2C%20Georgia",
