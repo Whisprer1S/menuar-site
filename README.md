@@ -57,7 +57,6 @@ public/models/dishes
 
 - Guest-facing menu routes use a clean menu-only layout: no marketing website header, a small `Designed with 🤍 by Sufra AR` credit footer, and a floating back-to-top button after scrolling.
 - The menu shows all current categories as one continuous grouped menu. Category pills scroll to their sections and update as the guest scrolls.
-- Restaurant configs can include a static weekly schedule. When present, the menu shows an open-status row and a working-hours modal.
 - Viewer ingredient chips are clickable and open a small normal UI info card. `ingredientHotspots` may remain in menu data, but visible labels no longer float over the 3D model.
 - `My selection` is a local-only saved dishes list with compact dish card/viewer-page add controls and a subtle bottom `View selection` access button after dishes are saved. It stores dish ids and quantities per restaurant in `localStorage` with `sufra-selection-${restaurant.slug}`.
 - `My selection` is not checkout, ordering, payment, table submission, or a backend feature.
@@ -92,7 +91,6 @@ src/data/restaurants/new-restaurant.js
 - `theme`
 - `categories`
 - `dishes`
-- `schedule`, if the venue should show working hours
 
 4. Import and register it in:
 

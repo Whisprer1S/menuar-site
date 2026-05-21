@@ -153,7 +153,6 @@ Main data files:
   - Main default demo menu config.
   - This file keeps its legacy filename for safety, but its public slug is `demo` and its public route is `/menu/demo`.
   - Contains category definitions, dish data, image/model paths, ingredient tags, ingredient hotspots, AR scale/camera settings, and theme values.
-  - Can include a static `schedule` object for a translated open-status row and weekly hours modal.
 - `src/data/restaurants/demo-cafe.js`
   - Second sample restaurant config.
   - Imports and spreads `sufraOldTown`, then changes `slug`, `restaurantName`, and `subtitle`.
@@ -248,23 +247,6 @@ hasModel: false,
 ```
 
 Calories are optional numeric values per dish. When present, `ModelViewerPage` shows them in the dish details card as a short value such as `620 Cal`. Demo calorie values are estimates only; real client menus should use client-provided values.
-
-Restaurant configs can include static working hours:
-
-```js
-schedule: {
-  status: {
-    en: 'Open until 23:59 today.',
-    ka: 'დღეს ღიაა 23:59-მდე.',
-    ru: 'Сегодня открыто до 23:59.',
-  },
-  days: [
-    { day: { en: 'Monday', ka: 'ორშაბათი', ru: 'Понедельник' }, hours: '00:00 - 23:59' },
-  ],
-}
-```
-
-If `schedule` is missing, the schedule row/modal should not render.
 
 ## 8. Asset Rules
 

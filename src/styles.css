@@ -836,51 +836,6 @@ h2 {
   background: var(--menu-active-bg);
 }
 
-.schedule-banner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.8rem;
-  margin-bottom: 0.85rem;
-  padding: 0.72rem 0.82rem;
-  color: var(--menu-text);
-  background: color-mix(in srgb, var(--menu-panel) 86%, transparent);
-  border: 1px solid var(--menu-border);
-  border-radius: 18px;
-}
-
-.schedule-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.48rem;
-  min-width: 0;
-  color: var(--menu-text);
-  font-size: 0.82rem;
-  font-weight: 700;
-  line-height: 1.35;
-}
-
-.schedule-status-dot {
-  width: 0.48rem;
-  height: 0.48rem;
-  flex: 0 0 auto;
-  border-radius: 999px;
-  background: var(--menu-active-bg);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--menu-active-bg) 12%, transparent);
-}
-
-.schedule-banner button {
-  flex: 0 0 auto;
-  padding: 0;
-  border: 0;
-  color: var(--menu-muted);
-  background: transparent;
-  font-size: 0.78rem;
-  font-weight: 800;
-  text-decoration: underline;
-  text-underline-offset: 0.22rem;
-}
-
 .category-strip {
   position: sticky;
   top: 0.55rem;
@@ -1104,29 +1059,21 @@ h2 {
 }
 
 .viewer-calories-row {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
+  justify-content: center;
+  width: fit-content;
   padding: 0.72rem 0.82rem;
   background: color-mix(in srgb, var(--menu-card) 48%, transparent);
   border: 1px solid var(--menu-border);
   border-radius: 16px;
 }
 
-.viewer-calories-row span {
-  color: var(--menu-muted);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 .viewer-calories-row strong {
   color: var(--menu-text);
   font-size: 0.88rem;
   font-weight: 800;
-  text-align: right;
+  text-align: center;
 }
 
 .dish-meta-row {
@@ -1286,75 +1233,6 @@ h2 {
   font-size: 0.9rem;
   font-weight: 800;
   line-height: 1.15;
-}
-
-.schedule-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 32;
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-  background: var(--menu-backdrop);
-  backdrop-filter: blur(16px);
-}
-
-.schedule-modal {
-  display: grid;
-  gap: 1rem;
-  width: min(420px, 100%);
-  max-height: min(82dvh, 620px);
-  overflow: hidden;
-  padding: 1rem;
-  color: var(--menu-text);
-  background: var(--menu-bg);
-  border: 1px solid var(--menu-border-strong);
-  border-radius: 26px;
-  box-shadow: var(--menu-shadow);
-  animation: selection-sheet-in 180ms ease both;
-}
-
-.schedule-modal-header {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.schedule-modal-header h2 {
-  margin: 0;
-  color: var(--menu-text);
-  font-size: 1.35rem;
-}
-
-.schedule-list {
-  display: grid;
-  gap: 0.48rem;
-  overflow-y: auto;
-}
-
-.schedule-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.78rem 0.84rem;
-  background: var(--menu-panel);
-  border: 1px solid var(--menu-border);
-  border-radius: 16px;
-}
-
-.schedule-row span {
-  color: var(--menu-text);
-  font-size: 0.9rem;
-  font-weight: 750;
-}
-
-.schedule-row strong {
-  flex: 0 0 auto;
-  color: var(--menu-muted);
-  font-size: 0.84rem;
-  font-weight: 800;
 }
 
 .selection-backdrop {

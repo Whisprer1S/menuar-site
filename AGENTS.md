@@ -109,8 +109,6 @@ Main files:
 
 Keep restaurant/menu data in config files, not hardcoded in components.
 
-Restaurant configs may include a static `schedule` object with translated status text and weekly hours. If a restaurant has no schedule, the menu schedule row should hide cleanly.
-
 Required category ids:
 
 ```text
