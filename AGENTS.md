@@ -13,12 +13,14 @@ Public product/brand name: `Sufra AR`.
 
 - Do not add a backend.
 - Do not add a database.
+- Do not add a CMS.
 - Do not add login, dashboard, or payment flows unless explicitly requested.
 - Do not break AR/model-viewer.
 - Do not duplicate image/model assets.
 - Do not move assets unless explicitly requested.
 - Do not remove working routes.
 - Keep the experience mobile-first.
+- Keep the design premium, minimal, black/white/off-white, and hospitality-ready.
 - Keep code beginner-friendly and scalable.
 - Run `npm.cmd run build` before finishing code changes.
 
@@ -92,6 +94,30 @@ Preview:
 ```powershell
 npm.cmd run preview
 ```
+
+## Codex Work Behavior
+
+- Plan before coding.
+- Inspect relevant files first.
+- Identify affected files.
+- Explain assumptions and risks.
+- Make the smallest safe change.
+- Avoid unrelated refactors.
+- Preserve existing behavior.
+- Run `npm.cmd run build` when relevant.
+- End with changed files, testing result, risks, manual checks, and suggested commit message.
+
+## Codex Skills
+
+Use this section only as a routing guide.
+
+- `senior-software-developer` - General engineering workflow for planning, fixes, features, refactors, tests, and summaries.
+- `sufra-ar-frontend-guardian` - UI, styling, routes, translations, pricing, theme, and responsive menu UX.
+- `sufra-ar-webar-model-viewer` - AR, 3D, `<model-viewer>`, GLB handling, iOS Quick Look, and Android Scene Viewer/WebXR.
+- `sufra-ar-release-qa` - Staging/main safety, Vercel deployment readiness, builds, PR checks, and manual QA.
+- `sufra-ar-documentation-sync` - Documentation updates for changed behavior, config, routes, AR, pricing, or setup.
+- `sufra-ar-client-config` - Restaurant configs, slugs, dish data, client menu setup, and asset path checks.
+- `sufra-ar-ui-ux-designer`: use for UI/UX design, layout, spacing, typography, visual hierarchy, responsive behavior, accessibility, interaction states, and premium mobile-first polish.
 
 ## File/Data Rules
 
