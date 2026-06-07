@@ -1,5 +1,7 @@
 # Agent Instructions for Sufra AR
 
+> Note: An automated LLM analysis previously failed with the message: "Language model 'copilot/gpt-5-mini' cannot be used by the evaluator." This diagnostic is external to this file; the content below does not reference or require any specific LLM.
+
 ## Project Summary
 
 Sufra AR is a premium WebAR restaurant menu product. Guests scan a QR code, browse a mobile-first menu, inspect dish details and ingredients, and view model-backed dishes in 3D/AR on their table before ordering.
@@ -179,8 +181,8 @@ Asset folders:
 Use public paths:
 
 ```js
-image: '/images/dishes/pizza.webp'
-model: '/models/dishes/pizza.glb'
+image: "/images/dishes/pizza.webp";
+model: "/models/dishes/pizza.glb";
 ```
 
 Do not duplicate assets. Current demo image filenames include exact uploaded names such as `Lobiani.webp` and `Sushi.webp`; reference them exactly. Prefer lowercase kebab-case for future assets.

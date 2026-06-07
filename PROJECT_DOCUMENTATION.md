@@ -291,7 +291,7 @@ Hero image currently used by the landing page:
 ```html
 <script
   type="module"
-  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+  src="https://unpkg.com/@google/model-viewer@4.2.0/dist/model-viewer.min.js"
 ></script>
 ```
 
