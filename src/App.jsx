@@ -24,7 +24,7 @@ import {
 import { brand } from './data/brand.js';
 import { formatPrice } from './data/currencies.js';
 import { pricingPlans } from './data/plans.js';
-import { siteContent } from './data/siteContent.js';
+import { circularRevealItems, siteContent } from './data/siteContent.js';
 import { getTranslation, translations } from './data/translations.js';
 import {
   defaultRestaurant,
@@ -221,6 +221,7 @@ function getThemeStyle(restaurant, themeMode) {
     '--recommended-cta-bg': isDark ? '#F7F7F5' : '#121212',
     '--recommended-cta-text': isDark ? '#121212' : '#FFFFFF',
     '--recommended-cta-border': isDark ? '#F7F7F5' : '#121212',
+    '--reveal-glow': isDark ? 'rgba(255, 255, 255, 0.32)' : 'rgba(255, 255, 255, 0.18)',
     '--heading-font': theme.headingFont,
     '--body-font': theme.bodyFont,
   };
@@ -629,6 +630,7 @@ function LandingPage({ language }) {
             <a className="secondary-link" href="#pricing">{t(language, 'seePricing')}</a>
           </div>
         </div>
+        <CircularReveal language={language} />
       </section>
 
       <ProductValueSection language={language} />
@@ -637,6 +639,66 @@ function LandingPage({ language }) {
 
       <PricingSection compact language={language} />
     </main>
+  );
+}
+
+function CircularReveal({ language }) {
+  const items = circularRevealItems[language] || circularRevealItems.en;
+  const [activeIndex, setActiveIndex] = useState(null);
+  const activeItem = activeIndex === null ? null : items[activeIndex];
+
+  return (
+    <div className="circular-reveal-wrap">
+      <div className="circular-reveal-stage">
+        <div className="circular-reveal-plate">
+          <div
+            aria-live="polite"
+            className={`circular-reveal-media ${activeItem ? 'has-image' : ''}`}
+            id="circular-reveal-media"
+          >
+            {activeItem ? (
+              <img
+                alt={activeItem.alt}
+                className={`fit-${activeItem.fit}`}
+                key={activeItem.image}
+                src={activeItem.image}
+              />
+            ) : (
+              <span>Sufra AR</span>
+            )}
+          </div>
+        </div>
+
+        <div className="circular-reveal-orbit">
+          {items.map((item, index) => {
+            const angle = (index * 90) - 90;
+
+            return (
+              <div
+                className="circular-reveal-label-position"
+                key={item.image}
+                style={{
+                  '--reveal-angle': `${angle}deg`,
+                  '--reveal-counter-angle': `${-angle}deg`,
+                }}
+              >
+                <button
+                  aria-controls="circular-reveal-media"
+                  aria-pressed={activeIndex === index}
+                  className={activeIndex === index ? 'active' : ''}
+                  onClick={() => setActiveIndex(index)}
+                  onFocus={() => setActiveIndex(index)}
+                  onMouseEnter={() => setActiveIndex(index)}
+                  type="button"
+                >
+                  <span>{item.text}</span>
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
   );
 }
 
