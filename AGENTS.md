@@ -145,7 +145,7 @@ baked-goods
 seafood
 ```
 
-Food categories use All / Veg filters; Meat is not shown as a filter or badge in the demo UI. The final demo menu has no active drinks category. If a future client/demo menu adds drinks, drink categories should use Alcoholic / Non-alcoholic filters and badges, and drinks should remain photo-only without `model-viewer`, AR launch, or a Photo / 3D selector.
+Food categories use All / Veg filters; Meat is not shown as a filter or badge in the demo UI. The final demo menu has no active drinks category. If a future client/demo menu adds drinks, drink categories should use Alcoholic / Non-alcoholic filters and badges, and drinks should remain photo-only without `model-viewer` or AR launch.
 
 Each dish should have:
 
@@ -171,7 +171,7 @@ Use `arScale: '1 1 1'` by default. Dish real-world size should come from the cor
 
 `platformScale` is optional future calibration metadata and should be omitted unless platform-specific AR testing proves it is needed.
 
-Dishes with real models can show the Photo / 3D selector in the viewer. Dishes without models, including drinks, should show the existing dish photo only.
+Viewer pages are photo-first. Dishes with real models keep `<model-viewer>` mounted behind the dish photo poster so the native AR slot can launch `View on your table`; there is no customer-facing Photo / 3D selector. Dishes without models, including drinks, show the existing dish photo only and do not render AR controls.
 
 Asset folders:
 
@@ -204,7 +204,7 @@ Preserve:
 - dish-specific `src={dish.model}`
 - AR slot button text/action
 
-Do not re-enable unrealistic free scaling unless explicitly requested. Users should be able to rotate/orbit in preview and launch AR on mobile. iOS Quick Look may handle scale differently than WebXR/Scene Viewer.
+Do not re-enable unrealistic free scaling unless explicitly requested. The customer-facing viewer stays photo-first while model-backed dishes retain the native AR launch path on mobile. iOS Quick Look may handle scale differently than WebXR/Scene Viewer.
 
 Optional `platformScale` values default to `1` for all platforms. Do not add Android scale overrides unless real Android testing proves a specific model needs calibration. Keep one shared GLB per dish instead of duplicating iOS/Android model files.
 

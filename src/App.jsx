@@ -1237,7 +1237,6 @@ function IngredientInfoCard({ ingredient, language, onClose }) {
 function ModelViewerPage({ dish, language, menuTheme, onBack, restaurant, selectionControls, style }) {
   const modelViewerRef = useRef(null);
   const canShowModel = hasDishModel(dish);
-  const [viewerMode, setViewerMode] = useState(() => (canShowModel ? '3d' : 'photo'));
   const [arPlatform] = useState(() => getArPlatform());
   const arModes = getArModesForPlatform(arPlatform);
   const platformScaleMultiplier = getPlatformScaleMultiplier(dish, arPlatform);
@@ -1250,16 +1249,13 @@ function ModelViewerPage({ dish, language, menuTheme, onBack, restaurant, select
 
   useEffect(() => {
     setSelectedIngredientName(null);
-    setViewerMode(canShowModel ? '3d' : 'photo');
-  }, [canShowModel, dish.id]);
+  }, [dish.id]);
 
   useEffect(() => {
-    if (canShowModel && viewerMode === '3d') {
+    if (canShowModel) {
       modelViewerRef.current?.setAttribute('scale', modelScale);
     }
-  }, [canShowModel, modelScale, viewerMode]);
-
-  const showModel = canShowModel && viewerMode === '3d';
+  }, [canShowModel, dish.id, modelScale]);
 
   return (
     <div className={`viewer-shell menu-theme-${menuTheme}`} style={style}>
@@ -1269,25 +1265,7 @@ function ModelViewerPage({ dish, language, menuTheme, onBack, restaurant, select
           {/* Base dish arScale is multiplied by optional platformScale values.
              Multipliers default to 1; iOS Quick Look may still use dimensions baked into the USDZ/GLB conversion. */}
           <div className="viewer-model-area">
-            {canShowModel && (
-              <div className="viewer-media-toggle" aria-label={t(language, 'viewerMediaToggle')} role="group">
-                <button
-                  className={viewerMode === 'photo' ? 'active' : ''}
-                  onClick={() => setViewerMode('photo')}
-                  type="button"
-                >
-                  {t(language, 'photo')}
-                </button>
-                <button
-                  className={viewerMode === '3d' ? 'active' : ''}
-                  onClick={() => setViewerMode('3d')}
-                  type="button"
-                >
-                  {t(language, 'threeD')}
-                </button>
-              </div>
-            )}
-            {showModel ? (
+            {canShowModel ? (
               <model-viewer
                 ref={modelViewerRef}
                 alt={text(dish.name, language)}
@@ -1301,17 +1279,25 @@ function ModelViewerPage({ dish, language, menuTheme, onBack, restaurant, select
                 disable-zoom
                 exposure="0.95"
                 field-of-view={dish.fieldOfView}
+                loading="eager"
                 max-camera-orbit="auto 85deg auto"
                 min-camera-orbit="auto 35deg auto"
                 poster={dish.image}
                 data-ar-platform={arPlatform}
                 data-ar-scale={modelScale}
                 data-platform-scale={platformScaleMultiplier}
+                reveal="manual"
                 scale={modelScale}
                 shadow-intensity="1"
                 src={dish.model}
                 touch-action="pan-y"
               >
+                <img
+                  alt={text(dish.name, language)}
+                  className="viewer-poster-image"
+                  slot="poster"
+                  src={dish.image}
+                />
                 <button className="ar-button" slot="ar-button" type="button">
                   <span className="wipe-label" data-text={t(language, 'viewOnTable')}>{t(language, 'viewOnTable')}</span>
                 </button>
@@ -1356,7 +1342,6 @@ function ModelViewerPage({ dish, language, menuTheme, onBack, restaurant, select
             )}
             <div className="viewer-meta-row">
               <strong>{formatPrice(dish.priceGEL)}</strong>
-              {canShowModel && <span>{t(language, 'modelHint')}</span>}
             </div>
           </div>
         </section>
