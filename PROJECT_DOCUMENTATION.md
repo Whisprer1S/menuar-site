@@ -13,8 +13,8 @@ Core value:
 - The website opens a mobile-first menu experience.
 - Guests browse a grouped menu, use category pills as scroll shortcuts, search dishes, filter by food or drink type, inspect ingredients, and switch language.
 - Guests open dish Details directly into the full viewer page.
-- Dishes with models can switch between Photo and 3D; photo-only dishes such as drinks do not show AR.
-- The AR viewer uses `<model-viewer>` for model-backed dishes so guests can preview dishes in 3D and view them on their table before ordering.
+- Dish viewer pages show the dish photo first. Model-backed dishes expose `View on your table` directly on the photo; photo-only dishes such as drinks do not show AR.
+- The AR viewer keeps `<model-viewer>` mounted behind the photo poster for model-backed dishes so its native AR slot can launch the dish on the guest's table.
 
 This is a frontend-only MVP/product shell. There is no backend, no database, no login system, no dashboard, and no payments.
 
@@ -190,7 +190,7 @@ seafood
 
 Every active demo dish should reference one of those ids with `categoryId`. Food categories use All / Veg filters; Meat is not shown as a filter or badge in the demo UI. The final demo menu has no active drinks category. If a future menu adds drinks, drink categories should use `drinkType` values such as `alcoholic` and `non-alcoholic` instead of Veg/Meat labels.
 
-Drinks are photo-only. They should use existing dish photos, set `hasModel: false`, and should not render `model-viewer`, the Photo / 3D selector, or `View on your table`.
+Drinks are photo-only. They should use existing dish photos, set `hasModel: false`, and should not render `model-viewer` or `View on your table`.
 
 The menu renders these categories together as one continuous grouped menu. Category pills remain horizontally swipeable, stay sticky near the top while the guest scrolls, and scroll the page to the matching category section instead of permanently hiding the other sections. The active pill is updated from the visible section while the guest scrolls.
 
@@ -308,8 +308,10 @@ Flow:
 
 3. `App` detects `view=viewer` and renders `ModelViewerPage`.
 4. `ModelViewerPage` shows dish info, clickable ingredient chips/info, a small `Add to selection` or quantity control, and the media area.
-5. Model-backed dishes show a Photo / 3D selector. Photo uses `dish.image`; 3D passes `dish.model`, `dish.arScale`, `dish.arPlacement`, `dish.cameraOrbit`, and `dish.fieldOfView` into `<model-viewer>`.
+5. Model-backed dishes show `dish.image` as a persistent poster while `<model-viewer>` remains mounted with `dish.model`, `dish.arScale`, `dish.arPlacement`, `dish.cameraOrbit`, and `dish.fieldOfView`. The native AR slot exposes `View on your table` directly on the photo.
 6. Dishes without models, including drinks, stay photo-only and do not render `<model-viewer>` or the AR launch button.
+
+The selected viewer model uses `loading="eager"` with `reveal="manual"` so the GLB and AR capability initialize while the customer-facing photo poster remains visible. Menu cards still use images only and do not preload models.
 
 Current model-viewer realism settings:
 
@@ -322,6 +324,8 @@ Current model-viewer realism settings:
 - `ar-scale="fixed"`
 - `disable-zoom`
 - `camera-controls`
+- `loading="eager"` on the selected dish viewer only
+- `reveal="manual"` to keep the photo poster visible
 - `min-camera-orbit="auto 35deg auto"`
 - `max-camera-orbit="auto 85deg auto"`
 - `auto-rotate`
@@ -357,7 +361,7 @@ Rules:
 - Use `arScale: '1 1 1'` by default so real-world size comes from the correctly exported GLB.
 - Keep platform scale multipliers at `1` by default.
 - Do not re-enable unrealistic free zoom/scale unless explicitly requested.
-- User should be able to rotate/orbit horizontally in 3D preview, but vertical orbit is limited to prevent viewing unfinished model undersides. This does not change AR placement behavior.
+- The customer-facing viewer remains photo-first; model-viewer stays mounted only to preserve the native AR launch path and model configuration.
 - AR must keep launching normally on mobile for model-backed food dishes.
 - Do not remove `<model-viewer>` or the AR slot button.
 - Test viewer routes after AR changes.
@@ -385,7 +389,7 @@ Rendering behavior:
 - `ingredientHotspots` can remain in dish configs as ingredient metadata and future positioning data.
 - Visible floating hotspot labels are no longer rendered over the 3D model.
 - Viewer ingredient chips are rendered from `dish.ingredients` as clickable buttons.
-- Tapping a chip opens a small white `IngredientInfoCard` overlay inside the black viewer preview area.
+- Tapping a chip opens a small white `IngredientInfoCard` overlay inside the viewer photo area.
 - Benefits are matched by ingredient name, using `dish.ingredients` first and `ingredientHotspots` as a fallback.
 - Visible name/benefits are translated through `translateIngredientName` and `translateIngredientBenefit`.
 - The real AR launch remains clean and should not show ingredient labels.
@@ -684,7 +688,7 @@ Important CSS areas:
 - Pricing: `.pricing-section`, `.pricing-carousel-shell`, `.pricing-grid`, `.pricing-card`
 - Menu app: `.menu-app`, `.menu-theme-dark`, `.menu-theme-light`
 - Dish UI: `.dish-card`, `.viewer-info-card`, `.selection-sheet`
-- AR viewer: `model-viewer`, `.viewer-photo`, `.viewer-media-toggle`, `.ingredient-info-card`, `.ar-button`
+- AR viewer: `model-viewer`, `.viewer-photo`, `.viewer-poster-image`, `.ingredient-info-card`, `.ar-button`
 - Footer: `.site-footer`
 
 ## 18. Mobile-First Rules
