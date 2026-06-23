@@ -502,7 +502,7 @@ Must stay English:
 - `Sufra AR`
 - `Designed with 🤍 by Sufra AR`
 - Email address
-- Instagram handle
+- phone number and WhatsApp URL
 - Currency codes/symbols
 
 Brand slogan translations:
@@ -612,11 +612,6 @@ src/data/brand.js
 Current contact info:
 
 - Email: `sufraar@gmail.com`
-- Instagram: `https://www.instagram.com/sufraar/`
-- Instagram handle: `@sufraar`
-- TikTok: `https://www.tiktok.com/@sufra.ar`
-- TikTok handle: `@sufra.ar`
-- Facebook: `https://www.facebook.com/share/199UTeER2Z/?mibextid=wwXIfr`
 - WhatsApp / phone: `(+995) 598 11 99 81`
 - WhatsApp link: `https://wa.me/message/BMXAZDQRTUXEG1`
 
@@ -629,8 +624,9 @@ const demoRequestHref = `mailto:${brand.email}?subject=Sufra%20AR%20Demo%20Reque
 Usage:
 
 - Pricing Basic/Pro/Custom CTAs use demo request mailto.
+- Privacy contact uses `sufraar@gmail.com`.
 - Footer email uses `mailto:sufraar@gmail.com`.
-- Instagram, TikTok, Facebook, and WhatsApp links use `target="_blank"` and `rel="noreferrer"`.
+- Footer WhatsApp uses `target="_blank"` and `rel="noreferrer"`.
 
 Desktop note:
 
@@ -645,22 +641,19 @@ Footer must include:
 - Logo + slogan
 - Short Sufra AR description
 - Nav links: Home, About
-- Contact section label above contact/social links
+- Contact section label above the contact/social links
 - Email link
-- Instagram link
-- TikTok link
-- Facebook link
 - WhatsApp / phone link
 - `Designed with 🤍 by Sufra AR`
 
 Rules:
 
-- Instagram, TikTok, Facebook, and WhatsApp should appear only in the footer contact/social area, not in the footer nav.
+- Email and WhatsApp are currently the only visible contact/social options in the public marketing footer.
 - Logo text stays `Sufra AR`.
 - Slogan uses the language-specific text from `brand.slogan`.
 - Footer credit text stays `Designed with 🤍 by Sufra AR`.
 - Footer nav labels should translate.
-- Email address, phone number, social handles, and URLs should not translate.
+- Email address, phone number, and URLs should not translate.
 
 ## 17. Design Direction
 
