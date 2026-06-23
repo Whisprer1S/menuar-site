@@ -11,12 +11,6 @@ export const brand = {
   email: 'sufraar@gmail.com',
   phoneDisplay: '(+995) 598 11 99 81',
   whatsappUrl: 'https://wa.me/message/BMXAZDQRTUXEG1',
-  instagramHandle: '@sufraar',
-  instagramUrl: 'https://www.instagram.com/sufraar/',
-  tiktokHandle: '@sufra.ar',
-  tiktokUrl: 'https://www.tiktok.com/@sufra.ar',
-  facebookLabel: 'Facebook',
-  facebookUrl: 'https://www.facebook.com/share/199UTeER2Z/?mibextid=wwXIfr',
   shortDescription: {
     en: 'Premium WebAR menu for restaurants and cafes.',
     ka: 'პრემიუმ WebAR მენიუ რესტორნებისა და კაფეებისთვის',

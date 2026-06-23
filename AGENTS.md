@@ -235,7 +235,7 @@ Do not translate:
 - `Sufra AR`
 - `Designed with 🤍 by Sufra AR`
 - email address
-- Instagram handle
+- phone number and WhatsApp URL
 - currency codes/symbols
 
 The brand slogan is translated by language:
@@ -254,39 +254,16 @@ The menu renders all current restaurant categories as one continuous grouped men
 
 ## Contact Info
 
-Email:
+Email (used for mailto CTAs, privacy contact, and footer contact):
 
 ```text
 sufraar@gmail.com
 ```
 
-Instagram:
+Public footer contact options:
 
 ```text
-https://www.instagram.com/sufraar/
-```
-
-Handle:
-
-```text
-@sufraar
-```
-
-TikTok:
-
-```text
-https://www.tiktok.com/@sufra.ar
-```
-
-Facebook:
-
-```text
-https://www.facebook.com/share/199UTeER2Z/?mibextid=wwXIfr
-```
-
-WhatsApp / phone:
-
-```text
+sufraar@gmail.com
 (+995) 598 11 99 81
 https://wa.me/message/BMXAZDQRTUXEG1
 ```
@@ -294,8 +271,8 @@ https://wa.me/message/BMXAZDQRTUXEG1
 Contact link rules:
 
 - Email links must be real `mailto:` anchors.
-- Instagram/TikTok/Facebook links must use `target="_blank"` and `rel="noreferrer"`.
 - WhatsApp links must use `target="_blank"` and `rel="noreferrer"`.
+- The public marketing footer currently shows email and WhatsApp only in the contact/social area.
 - Do not use `href="#"` for contact actions.
 
 Current mailto subjects in `src/App.jsx`:

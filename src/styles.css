@@ -1887,20 +1887,9 @@ model-viewer,
   min-width: 0;
 }
 
-.footer-contact svg,
-.social-glyph {
+.footer-contact svg {
   width: 1rem;
   height: 1rem;
   flex: 0 0 auto;
   color: #e0e0e0;
-}
-
-.social-glyph {
-  display: inline-grid;
-  place-items: center;
-  border: 1px solid color-mix(in srgb, #ffffff 35%, transparent);
-  border-radius: 999px;
-  font-size: 0.52rem;
-  font-weight: 800;
-  letter-spacing: 0;
 }

@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Bookmark,
   ChevronUp,
-  ExternalLink,
   GlassWater,
   Globe,
   Grid,
@@ -12,7 +11,6 @@ import {
   Mail,
   Minus,
   Moon,
-  Music2,
   Phone,
   Plus,
   Search,
@@ -1376,9 +1374,6 @@ function NotFoundPage({ controls, language, style }) {
 
 function FooterContactIcon({ kind }) {
   if (kind === 'email') return <Mail size={16} />;
-  if (kind === 'instagram') return <span className="social-glyph">IG</span>;
-  if (kind === 'tiktok') return <Music2 size={16} />;
-  if (kind === 'facebook') return <ExternalLink size={16} />;
   if (kind === 'whatsapp') return <Phone size={16} />;
   return null;
 }
@@ -1386,9 +1381,6 @@ function FooterContactIcon({ kind }) {
 function Footer({ language, restaurant }) {
   const footerContacts = [
     { key: 'email', href: 'mailto:' + brand.email, label: brand.email, ariaLabel: t(language, 'email') + ': ' + brand.email },
-    { key: 'instagram', href: brand.instagramUrl, label: brand.instagramHandle, ariaLabel: t(language, 'instagram') + ': ' + brand.instagramHandle, external: true },
-    { key: 'tiktok', href: brand.tiktokUrl, label: brand.tiktokHandle, ariaLabel: 'TikTok: ' + brand.tiktokHandle, external: true },
-    { key: 'facebook', href: brand.facebookUrl, label: brand.facebookLabel, ariaLabel: brand.facebookLabel, external: true },
     { key: 'whatsapp', href: brand.whatsappUrl, label: `${t(language, 'whatsapp')}: ${brand.phoneDisplay}`, ariaLabel: `${t(language, 'whatsapp')}: ${brand.phoneDisplay}`, external: true },
   ];
 
