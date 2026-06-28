@@ -23,12 +23,12 @@ npm run build
 ## Routes
 
 ```text
-/                  -> product landing page with pricing preview and QR demo section
+/                  -> product landing page with QR demo and early-access request-demo section
 /menu/demo         -> primary public demo menu
 /menu/demo-cafe    -> second sample restaurant menu
 /sufra-old-town    -> legacy route that redirects to /menu/demo
 /demo-cafe         -> legacy direct route kept for compatibility
-/pricing           -> full pricing page
+/pricing           -> request-demo / early-access page; public pricing is currently hidden
 /about             -> about Sufra AR
 /privacy           -> privacy policy
 ```
@@ -40,7 +40,6 @@ src/App.jsx                       -> app layout, routing, menu UI, modal, AR vie
 src/styles.css                    -> global styling and responsive UI
 src/data/brand.js                 -> Sufra AR brand identity and contact links
 src/data/currencies.js            -> GEL-only price formatter
-src/data/plans.js                 -> pricing plan content
 src/data/siteContent.js           -> landing and about copy
 src/data/restaurants/index.js     -> restaurant registry and default restaurant
 src/data/restaurants/*.js         -> restaurant menu configs

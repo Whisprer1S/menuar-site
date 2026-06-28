@@ -36,7 +36,7 @@ Important entry files:
 
 - `index.html` loads Google Fonts, favicon, and the model-viewer CDN script.
 - `src/main.jsx` mounts `<App />`.
-- `src/App.jsx` currently contains routing, layout components, menu UI, dish modal, pricing, pages, footer, and model-viewer page.
+- `src/App.jsx` currently contains routing, layout components, menu UI, dish modal, early-access/demo request UI, pages, footer, and model-viewer page.
 - `src/styles.css` contains all current styling.
 
 ## 3. Core Rules / Non-Negotiables
@@ -72,8 +72,8 @@ Routes:
 
 | Route | Displays | Handler/component | Notes |
 | --- | --- | --- | --- |
-| `/` | Product landing page with hero, value section, QR demo section, pricing preview, footer | `LandingPage` inside `Shell` | The QR demo section links to the real guest-facing `/menu/demo` route instead of embedding a duplicate interactive menu. |
-| `/pricing` | Full pricing page | `PricingPage` -> `PricingSection` | Pricing data comes from `src/data/plans.js`; visible translated text/features come from `src/data/translations.js`. |
+| `/` | Product landing page with hero, value section, QR demo section, early-access request-demo section, footer | `LandingPage` inside `Shell` | The QR demo section links to the real guest-facing `/menu/demo` route instead of embedding a duplicate interactive menu. Public pricing is currently hidden. |
+| `/pricing` | Request-demo / early-access page | `RequestDemoPage` -> `EarlyAccessSection` | Kept as a safe route fallback, but it does not display pricing cards, amounts, or package details. |
 | `/about` | About page | `AboutPage` -> `InfoPage` | Uses translated text from `src/data/translations.js`. |
 | `/privacy` | Privacy Policy page | `PrivacyPage` inside `Shell` | Uses translated structured privacy content from `src/data/translations.js`; linked from the marketing footer in a new tab. |
 | `/menu/demo` | Primary public demo menu page | `MenuExperience` inside `GuestMenuShell` | Loads `src/data/restaurants/sufra-old-town.js`; the file name is legacy, but the public slug is `demo`. |
@@ -130,7 +130,6 @@ Current project structure:
     └── data
         ├── brand.js
         ├── currencies.js
-        ├── plans.js
         ├── siteContent.js
         ├── translations.js
         └── restaurants
@@ -156,9 +155,6 @@ Main data files:
 - `src/data/restaurants/demo-cafe.js`
   - Second sample restaurant config.
   - Imports and spreads `sufraOldTown`, then changes `slug`, `restaurantName`, and `subtitle`.
-- `src/data/plans.js`
-  - Base pricing plan ids, English titles, prices, CTA names, and feature lists.
-  - `App.jsx` uses plan ids and pulls translated display text from `src/data/translations.js`.
 - `src/data/currencies.js`
   - GEL-only `formatPrice(priceGEL)` helper.
 - `src/data/translations.js`
@@ -175,7 +171,6 @@ Important helper functions in `src/App.jsx`:
 - `t(language, key)` reads translations through `getTranslation`.
 - `tArray(language, key)` reads translated arrays such as feature lists.
 - `text(value, language)` reads translated config objects with English fallback.
-- `getPlanTitle(plan, language)`, `getPlanFeatures(plan, language)`, and `getPlanPrice(plan, language)` adapt pricing plan data to the active language.
 - `translateIngredientName(name, language)` and `translateIngredientBenefit(benefit, language)` translate ingredient callout text.
 
 ## 7. Restaurant/Menu Config Rules
@@ -440,7 +435,7 @@ Dish and selection prices are rendered with:
 formatPrice(dish.priceGEL)
 ```
 
-Prices display as plain GEL text, for example `12 GEL`. Pricing plan prices are also displayed in GEL as static plan copy.
+Dish and selection prices display as plain GEL text, for example `12 GEL`. Public pricing plan prices are currently hidden.
 
 ## 12. Language / Translation System
 
@@ -490,8 +485,8 @@ What should translate:
 - Back/viewer buttons
 - AR helper text
 - Ingredient labels/benefits
-- Pricing section/page
-- Pricing features and buttons
+- Early-access/request-demo section
+- Contact/demo request buttons
 - About page
 - Footer contact label
 - Footer nav/contact labels
@@ -548,58 +543,24 @@ Design contrast rules:
 - Dropdowns must stay readable in both light and dark themes.
 - Buttons must keep black/white contrast.
 
-## 14. Pricing System
+## 14. Public Pricing / Early Access
 
-Base plan data lives in:
+Public pricing is currently hidden while Sufra AR tests restaurant interest and engagement.
+
+The homepage renders `EarlyAccessSection` instead of pricing cards. The `/pricing` route is kept for route safety, but it renders `RequestDemoPage` with the same early-access/request-demo content instead of plan amounts or package details.
+
+The early-access section is translated through `src/data/translations.js` with keys:
 
 ```text
-src/data/plans.js
+earlyAccessLabel
+earlyAccessTitle
+earlyAccessSubtitle
+earlyAccessSteps
 ```
 
-The current plan ids and prices:
+The section CTAs are email and WhatsApp only, using `brand.email` and `brand.whatsappUrl`.
 
-- Basic - 99 GEL / month
-- Pro - 149 GEL / month, shown with the translated `Best value` badge
-- Custom - Prices may vary
-
-Pricing display is rendered by `PricingSection` in `src/App.jsx`.
-
-Plan feature text is translated through `src/data/translations.js` with keys:
-
-- `pricingBasicFeatures`
-- `pricingProFeatures`
-- `pricingCustomFeatures`
-
-Current English feature bullets:
-
-Basic:
-
-- Maximum AR quantity: 20
-- Full text and photo menu
-- Ingredient tags
-- Basic restaurant branding
-
-Pro:
-
-- Everything in Basic
-- Unlimited AR dishes
-- 1 free AR dish change per month
-- Custom restaurant branding
-- Priority menu updates
-- Multi-location-ready structure
-
-Custom:
-
-- Custom solution for larger or special projects
-- Flexible AR menu structure
-- Custom scope based on restaurant needs
-- Contact us for pricing
-
-Basic and Pro cards show a subtle `+ setup fee` note near the monthly price. Custom shows `Prices may vary` and `Please contact us`; it does not show a fixed setup fee.
-
-Pricing sections also show a subtle note: monthly subscription starts 1 month after the setup fee payment.
-
-There is no payment integration. CTAs are mailto links.
+There is no payment integration. CTAs are contact links only: email mailto and WhatsApp.
 
 ## 15. Contact Links
 
@@ -623,7 +584,7 @@ const demoRequestHref = `mailto:${brand.email}?subject=Sufra%20AR%20Demo%20Reque
 
 Usage:
 
-- Pricing Basic/Pro/Custom CTAs use demo request mailto.
+- Early-access email CTAs use demo request mailto.
 - Privacy contact uses `sufraar@gmail.com`.
 - Footer email uses `mailto:sufraar@gmail.com`.
 - Footer WhatsApp uses `target="_blank"` and `rel="noreferrer"`.
@@ -678,7 +639,7 @@ Important CSS areas:
 
 - Header/logo/control styling: `.site-header`, `.logo`, `.header-controls`, `.control-pill`
 - Hero: `.product-hero`
-- Pricing: `.pricing-section`, `.pricing-carousel-shell`, `.pricing-grid`, `.pricing-card`
+- Early-access/demo request: `.early-access-section`, `.early-access-grid`, `.early-access-card`
 - Menu app: `.menu-app`, `.menu-theme-dark`, `.menu-theme-light`
 - Dish UI: `.dish-card`, `.viewer-info-card`, `.selection-sheet`
 - AR viewer: `model-viewer`, `.viewer-photo`, `.viewer-poster-image`, `.ingredient-info-card`, `.ar-button`
@@ -697,7 +658,7 @@ Rules:
 - Search must remain usable on mobile. When a query is active, search runs across all dishes in the current restaurant, not only the selected category.
 - Dish viewer details and selection controls must fit mobile screens.
 - AR button must be obvious and reachable for model-backed food dishes.
-- Pricing cards should swipe horizontally on mobile using CSS scroll-snap and initially center the Pro plan.
+- The early-access/demo request section should stay readable and thumb-friendly on mobile.
 - Desktop can show the mobile app-style menu centered inside the page.
 - Text must not overflow, especially Georgian and Russian.
 
@@ -845,11 +806,10 @@ Checklist:
 5. Inspect `src/data/restaurants/index.js` and relevant restaurant config.
 6. Inspect `src/data/translations.js` before editing visible copy.
 7. Inspect `src/data/currencies.js` before changing prices/currency.
-8. Inspect `src/data/plans.js` before changing pricing plan ids/prices.
-9. Run `npm.cmd run build` before finishing.
-10. Do not edit AR/model-viewer before understanding `ModelViewerPage`, `openViewer`, query routing, and dish `arScale`.
-11. Make small changes.
-12. Test affected local routes.
-13. Avoid duplicate assets.
-14. Preserve mobile-first behavior.
-15. Preserve `/`, `/pricing`, `/about`, `/menu/demo`, `/menu/demo-cafe`, and the legacy `/sufra-old-town` redirect.
+8. Run `npm.cmd run build` before finishing.
+9. Do not edit AR/model-viewer before understanding `ModelViewerPage`, `openViewer`, query routing, and dish `arScale`.
+10. Make small changes.
+11. Test affected local routes.
+12. Avoid duplicate assets.
+13. Preserve mobile-first behavior.
+14. Preserve `/`, `/pricing`, `/about`, `/menu/demo`, `/menu/demo-cafe`, and the legacy `/sufra-old-town` redirect.

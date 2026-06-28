@@ -21,7 +21,6 @@ import {
 } from 'lucide-react';
 import { brand } from './data/brand.js';
 import { formatPrice } from './data/currencies.js';
-import { pricingPlans } from './data/plans.js';
 import { siteContent } from './data/siteContent.js';
 import { getTranslation, translations } from './data/translations.js';
 import {
@@ -43,38 +42,6 @@ function t(language, key) {
 function tArray(language, key) {
   const value = getTranslation(language, key);
   return Array.isArray(value) ? value : [];
-}
-
-function getPlanTitle(plan, language) {
-  const titleKeys = {
-    basic: 'pricingBasic',
-    pro: 'pricingPro',
-    custom: 'pricingCustom',
-  };
-  return t(language, titleKeys[plan.id]) || plan.title;
-}
-
-function getPlanFeatures(plan, language) {
-  const featureKeys = {
-    basic: 'pricingBasicFeatures',
-    pro: 'pricingProFeatures',
-    custom: 'pricingCustomFeatures',
-  };
-  const translatedFeatures = tArray(language, featureKeys[plan.id]);
-  return translatedFeatures.length ? translatedFeatures : plan.features;
-}
-
-function getPlanPrice(plan, language) {
-  if (plan.id === 'custom') return t(language, 'pricingCustomPrice');
-  return `${plan.price.split(' / ')[0]} / ${t(language, 'pricingMonth')}`;
-}
-
-function getPlanSetupNote(plan, language) {
-  return plan.id === 'custom' ? '' : t(language, 'pricingSetupFee');
-}
-
-function getPlanCta(plan, language) {
-  return plan.id === 'custom' ? t(language, 'pricingContactUs') : t(language, 'getStarted');
 }
 
 function translateIngredientName(name, language) {
@@ -473,7 +440,7 @@ function App() {
     );
   }
 
-  if (route.page === 'pricing') return <PricingPage controls={controls} language={siteLanguage} style={themeStyle} />;
+  if (route.page === 'pricing') return <RequestDemoPage controls={controls} language={siteLanguage} style={themeStyle} />;
   if (route.page === 'about') return <AboutPage controls={controls} language={siteLanguage} style={themeStyle} />;
   if (route.page === 'privacy') return <PrivacyPage controls={controls} language={siteLanguage} style={themeStyle} />;
   if (route.page === 'menu') {
@@ -623,8 +590,8 @@ function LandingPage({ language }) {
           <h1>{t(language, 'heroTitle')}</h1>
           <p>{t(language, 'heroSubtitle')}</p>
           <div className="hero-actions">
-            <a className="primary-link" href="#menu">{t(language, 'viewMenu')}</a>
-            <a className="secondary-link" href="#pricing">{t(language, 'seePricing')}</a>
+            <a className="primary-link" href={buildRestaurantUrl(defaultRestaurantSlug)}>{t(language, 'viewMenu')}</a>
+            <a className="secondary-link" href="#request-demo">{t(language, 'requestDemo')}</a>
           </div>
         </div>
       </section>
@@ -633,7 +600,7 @@ function LandingPage({ language }) {
 
       <DemoQrSection language={language} />
 
-      <PricingSection compact language={language} />
+      <EarlyAccessSection language={language} />
     </main>
   );
 }
@@ -705,61 +672,31 @@ function ProductValueSection({ language }) {
   );
 }
 
-function PricingSection({ compact = false, language }) {
-  const pricingGridRef = useRef(null);
-  const hasSetInitialScroll = useRef(false);
-
-  useEffect(() => {
-    const grid = pricingGridRef.current;
-    if (!grid || hasSetInitialScroll.current || !window.matchMedia('(max-width: 719px)').matches) return;
-
-    const proCard = grid.querySelector('[data-plan-id="pro"]');
-    if (!proCard) return;
-
-    hasSetInitialScroll.current = true;
-    requestAnimationFrame(() => {
-      const left = proCard.offsetLeft - ((grid.clientWidth - proCard.clientWidth) / 2);
-      grid.scrollTo({ left: Math.max(0, left), behavior: 'auto' });
-    });
-  }, []);
-
+function EarlyAccessSection({ language }) {
   return (
-    <section className={compact ? 'pricing-section compact' : 'pricing-section'} id="pricing">
+    <section className="early-access-section" id="request-demo">
       <div className="section-heading">
-        <p className="eyebrow">{t(language, 'pricingLabel')}</p>
-        <p>{t(language, 'pricingSubtitle')}</p>
+        <p className="eyebrow">{t(language, 'earlyAccessLabel')}</p>
+        <h2>{t(language, 'earlyAccessTitle')}</h2>
+        <p>{t(language, 'earlyAccessSubtitle')}</p>
       </div>
-      <div className="pricing-carousel-shell">
-        <p className="pricing-scroll-hint">{t(language, 'swipePlans')}</p>
-        <div className="pricing-grid" ref={pricingGridRef}>
-          {pricingPlans.map((plan) => (
-            <article className={`pricing-card ${plan.badge ? 'recommended' : ''}`} data-plan-id={plan.id} key={plan.id}>
-              {plan.badge && <span className="plan-badge">{t(language, 'pricingRecommended')}</span>}
-              <h3>{getPlanTitle(plan, language)}</h3>
-              <ul>
-                {getPlanFeatures(plan, language).map((feature) => (
-                  <li key={feature}>{feature}</li>
-                ))}
-              </ul>
-              <div className="plan-bottom">
-                <div className="plan-price">
-                  <strong>{getPlanPrice(plan, language)}</strong>
-                  {getPlanSetupNote(plan, language) && (
-                    <span className="plan-setup-note">{getPlanSetupNote(plan, language)}</span>
-                  )}
-                </div>
-                <a
-                  className={plan.id === 'pro' ? 'primary-link' : 'secondary-link'}
-                  href={demoRequestHref}
-                >
-                  {getPlanCta(plan, language)}
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
+      <div className="early-access-grid">
+        {tArray(language, 'earlyAccessSteps').map((step, index) => (
+          <article className="early-access-card" key={step.title}>
+            <span>{index + 1}</span>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </article>
+        ))}
       </div>
-      <p className="pricing-subscription-note">{t(language, 'pricingSubscriptionNote')}</p>
+      <div className="contact-actions centered early-access-actions">
+        <a className="primary-link" href={brand.whatsappUrl} target="_blank" rel="noreferrer">
+          {t(language, 'whatsapp')}
+        </a>
+        <a className="secondary-link" href={demoRequestHref}>
+          {t(language, 'email')}
+        </a>
+      </div>
     </section>
   );
 }
@@ -1288,11 +1225,11 @@ function ModelViewerPage({ dish, language, menuTheme, onBack, restaurant, select
   );
 }
 
-function PricingPage({ controls, language, style }) {
+function RequestDemoPage({ controls, language, style }) {
   return (
     <Shell controls={controls} language={language} restaurant={defaultRestaurant} style={style}>
       <main className="page-content">
-        <PricingSection language={language} />
+        <EarlyAccessSection language={language} />
       </main>
     </Shell>
   );
