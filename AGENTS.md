@@ -31,7 +31,7 @@ Public product/brand name: `Sufra AR`.
 Current routes:
 
 - `/`
-- `/pricing`
+- `/pricing` renders the request-demo / early-access page; public pricing is currently hidden
 - `/about`
 - `/privacy`
 - `/menu/demo`
@@ -61,7 +61,8 @@ Important components/functions in `src/App.jsx`:
 - `LandingPage`
 - `MenuExperience`
 - `ModelViewerPage`
-- `PricingSection`
+- `EarlyAccessSection`
+- `RequestDemoPage`
 - `AboutPage`
 - `Footer`
 
@@ -132,7 +133,6 @@ Main files:
 - `src/data/restaurants/demo-cafe.js` - second sample config
 - `src/data/translations.js` - visible UI translations
 - `src/data/currencies.js` - GEL-only price formatter
-- `src/data/plans.js` - pricing plan ids/prices/base features
 - `src/data/brand.js` - brand identity and contact info
 
 Keep restaurant/menu data in config files, not hardcoded in components.
