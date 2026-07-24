@@ -1,0 +1,24 @@
+:root {
+  --ink: #0F0D0B;
+  --ink-soft: #1A1613;
+  --stone: #EFEAE2;
+  --stone-light: #F8F6F1;
+  --card: #FFFFFF;
+  --border: #D8D0C4;
+  --text: #111111;
+  --text-muted: #6F6A63;
+  --text-on-dark: #F5F1EA;
+  --text-on-dark-muted: #A8A099;
+  --accent: #D97B45;
+  --font-display: 'Noto Serif Georgian', Georgia, serif;
+  --font-body: 'FiraGO', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+}
