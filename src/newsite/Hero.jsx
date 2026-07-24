@@ -39,7 +39,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="hero">
+    <section id="hero" className="hero">
       <div className="hero__inner">
         <motion.div
           className="hero__text"
