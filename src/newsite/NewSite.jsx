@@ -3,6 +3,7 @@ import Nav from './Nav.jsx';
 import Hero from './Hero.jsx';
 import HowItWorks from './HowItWorks.jsx';
 import Features from './Features.jsx';
+import Pricing from './Pricing.jsx';
 
 export default function NewSite() {
   return (
@@ -11,6 +12,7 @@ export default function NewSite() {
       <Hero />
       <HowItWorks />
       <Features />
+      <Pricing />
     </div>
   );
 }

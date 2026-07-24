@@ -1,0 +1,208 @@
+.pricing {
+  background: var(--stone);
+  color: var(--text);
+  padding: clamp(5rem, 10vw, 8rem) 1.5rem;
+}
+
+.pricing__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.pricing__header {
+  text-align: center;
+}
+
+.pricing__label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0;
+}
+
+.pricing__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  color: var(--text);
+  margin: 1rem 0 0;
+}
+
+.pricing__sub {
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  max-width: 54ch;
+  margin: 1.25rem auto 0;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.tier {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.tier--featured {
+  border: 2px solid var(--accent);
+}
+
+.tier__pill {
+  align-self: flex-start;
+  background: var(--accent);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.tier__name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text);
+  margin: 0;
+}
+
+.tier__blurb {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0.5rem 0 0;
+}
+
+.tier__price {
+  margin-top: 1.5rem;
+}
+
+.tier__price-label {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.tier__price-value {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  line-height: 1;
+  color: var(--text);
+  margin: 0.25rem 0 0;
+}
+
+.tier__price-monthly {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  margin: 0.625rem 0 0;
+}
+
+.tier__divider {
+  height: 1px;
+  background: var(--border);
+  border: 0;
+  margin: 1.5rem 0;
+}
+
+.tier__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tier__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.tier__check {
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.tier__cta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tier__cta--filled {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: var(--ink);
+}
+
+.tier__cta--outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.tier__arrow {
+  display: inline-flex;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tier__cta:hover .tier__arrow,
+.tier__cta:focus-visible .tier__arrow {
+  transform: translateX(5px);
+}
+
+.pricing__footnote {
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  max-width: 60ch;
+  margin: 2.5rem auto 0;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .pricing__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .pricing {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
