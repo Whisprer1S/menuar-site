@@ -58,13 +58,13 @@ export default function Hero() {
               animate={{ y: 0 }}
               transition={{ duration: 0.7, ease: EASE }}
             >
-              The menu they&rsquo;ll remember.
+              The menu they&rsquo;ll remember
             </motion.h1>
           </div>
 
           <motion.p className="hero__para" variants={item}>
-            Diners scan a QR code and see your dishes in photorealistic 3D
-            &mdash; on their own table, before they order.
+            Diners scan a QR code and see your dishes in photorealistic 3D, on
+            their own table, before they order
           </motion.p>
 
           <motion.div className="hero__actions" variants={item}>

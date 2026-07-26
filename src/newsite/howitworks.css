@@ -12,11 +12,12 @@
 
 .how__label {
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--accent);
   margin: 0;
+  text-align: center;
 }
 
 .how__title {
@@ -25,7 +26,8 @@
   line-height: 1.15;
   color: var(--text);
   max-width: 20ch;
-  margin: 1rem 0 0;
+  margin: 1rem auto 0;
+  text-align: center;
 }
 
 .how__intro {
@@ -34,7 +36,8 @@
   max-width: 52ch;
   font-size: 1.0625rem;
   line-height: 1.6;
-  margin: 1.5rem 0 0;
+  margin: 1.5rem auto 0;
+  text-align: center;
 }
 
 .how__steps {
@@ -55,7 +58,7 @@
   font-family: var(--font-display);
   font-size: 2.5rem;
   color: var(--accent);
-  opacity: 0.35;
+  opacity: 0.5;
   line-height: 1;
 }
 

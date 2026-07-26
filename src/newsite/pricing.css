@@ -16,7 +16,7 @@
 
 .pricing__label {
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--accent);

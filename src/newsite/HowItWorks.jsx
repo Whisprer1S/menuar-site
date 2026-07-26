@@ -7,17 +7,17 @@ const STEPS = [
   {
     num: '01',
     title: 'We talk',
-    body: 'You tell us about the venue, your menu and how you want it to feel. We look at your space and your dishes and agree what goes into the menu.',
+    body: 'You tell us about the venue, your menu and how you want it to feel. We look at your space and your dishes and agree what goes into the menu',
   },
   {
     num: '02',
     title: 'We build it',
-    body: 'Design, photography and 3D scanning of your signature dishes. Every model is made from your real food, so what a guest sees is what arrives at the table.',
+    body: 'Design, photography and 3D scanning of your signature dishes. Every model is made from your real food, so what a guest sees is what arrives at the table',
   },
   {
     num: '03',
     title: 'You hand it to your guests',
-    body: 'QR codes for your tables and a live menu in three languages. Menu changes and new dishes are handled by us, not left to you.',
+    body: 'QR codes for your tables and a live menu in three languages. Menu changes and new dishes are handled by us, not left to you',
   },
 ];
 
@@ -60,11 +60,11 @@ export default function HowItWorks() {
         <motion.div {...headerMotion}>
           <p className="how__label">How it works</p>
           <h2 className="how__title">
-            A menu built for your restaurant, not a template.
+            A menu built for your restaurant, not a template
           </h2>
           <p className="how__intro">
             We don&rsquo;t hand you a page builder. We build the whole thing for
-            you, then keep it up to date as your menu changes.
+            you, then keep it up to date as your menu changes
           </p>
         </motion.div>
 
