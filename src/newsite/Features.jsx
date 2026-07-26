@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import './features.css';
 
 const MODEL_SRC =
-  'https://xmwekpuaorzqlvkcfeyu.supabase.co/storage/v1/object/public/ar-models/a1111111-1111-4111-8111-111111111111/1ff6a5e5-92e0-44d3-8451-788347f98691.glb';
+  'https://xmwekpuaorzqlvkcfeyu.supabase.co/storage/v1/object/public/ar-models/a1111111-1111-4111-8111-111111111111/2886bb3d-500a-4534-9c11-97f886d0c263.glb';
 
 const CARDS = [
   {
@@ -13,25 +13,25 @@ const CARDS = [
   },
   {
     id: 'menu',
-    image: '/images/feature-menu.png',
+    image: '/images/feature-menu.jpg',
     title: 'Every dish photographed',
     body: 'A clean, fast menu where every plate is shot properly, not a PDF someone zoomed into',
   },
   {
     id: 'ingredients',
-    image: '/images/feature-ingredients.png',
+    image: '/images/feature-ingredients.jpg',
     title: 'Ingredients at a glance',
     body: 'Allergies, vegetarian, spice level, all tagged on the dish so nobody has to ask',
   },
   {
     id: 'language',
-    image: '/images/feature-language.png',
+    image: '/images/feature-language.jpg',
     title: 'Read in their language',
     body: 'Georgian, English and Russian on the same menu, so a tourist orders instead of leaving',
   },
   {
     id: 'selection',
-    image: '/images/feature-selection.png',
+    image: '/images/feature-selection.jpg',
     title: 'Chosen before you arrive',
     body: 'Guests add dishes as they browse and read the list back, so ordering takes seconds',
   },
@@ -75,22 +75,26 @@ export default function Features() {
                     <model-viewer
                       class="feat-card__model"
                       src={MODEL_SRC}
-                      camera-controls=""
                       auto-rotate=""
                       auto-rotate-delay="1000"
-                      rotation-per-second="18deg"
+                      rotation-per-second="12deg"
+                      touch-action="pan-y"
                       ar={true}
                       ar-modes="webxr scene-viewer quick-look"
-                      min-camera-orbit="auto 25deg auto"
-                      max-camera-orbit="auto 85deg auto"
-                      camera-orbit="15deg 70deg auto"
+                      camera-orbit="15deg 75deg 68%"
+                      field-of-view="28deg"
                       interaction-prompt="none"
                       shadow-intensity="1"
                       exposure="1"
                       alt="A dish shown in 3D on your table"
                     ></model-viewer>
                   ) : (
-                    <img src={card.image} alt="" loading="lazy" />
+                    <img
+                      src={card.image}
+                      alt=""
+                      loading="lazy"
+                      style={{ objectPosition: 'top' }}
+                    />
                   )}
                 </div>
                 <div className="feat-card__text">
