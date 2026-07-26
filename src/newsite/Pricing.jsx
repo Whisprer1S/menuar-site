@@ -8,8 +8,7 @@ const TIERS = [
     name: 'Essential',
     featured: false,
     blurb: 'A beautiful menu for a focused offering',
-    buildFee: '₾___',
-    monthly: 'then ₾__ / month',
+    monthly: '₾99',
     arDishes: 3,
     features: [
       'Your full menu, designed to match the venue',
@@ -23,8 +22,7 @@ const TIERS = [
     name: 'Signature',
     featured: true,
     blurb: 'For venues that want their table to stop people mid scroll',
-    buildFee: '₾___',
-    monthly: 'then ₾__ / month',
+    monthly: '₾149',
     arDishes: 6,
     features: [
       'Everything in Essential',
@@ -38,8 +36,7 @@ const TIERS = [
     name: 'Bespoke',
     featured: false,
     blurb: 'A one of a kind menu built from a blank page',
-    buildFee: '₾___',
-    monthly: 'then ₾__ / month',
+    monthly: '₾199',
     arDishes: 10,
     features: [
       'Everything in Signature',
@@ -148,9 +145,16 @@ export default function Pricing() {
               <p className="tier__blurb">{tier.blurb}</p>
 
               <div className="tier__price">
-                <p className="tier__price-label">Build</p>
-                <p className="tier__price-value">{tier.buildFee}</p>
-                <p className="tier__price-monthly">{tier.monthly}</p>
+                <p className="tier__price-value">
+                  {tier.monthly}
+                  <span className="tier__price-monthly"> / month</span>
+                </p>
+                <p
+                  className="tier__price-monthly"
+                  style={{ fontSize: '0.8rem' }}
+                >
+                  + one off setup fee
+                </p>
               </div>
 
               <hr className="tier__divider" />
