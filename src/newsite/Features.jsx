@@ -66,7 +66,7 @@ export default function Features() {
             const style = {
               '--rot': `${ROTATIONS[i]}deg`,
               '--ty': forward ? '-14px' : '0px',
-              zIndex: forward ? 20 : i + 1,
+              '--z': `${forward ? 20 : i + 1}`,
             };
             return (
               <div key={card.id} className="feat-card" style={style}>
@@ -81,8 +81,9 @@ export default function Features() {
                       touch-action="pan-y"
                       ar={true}
                       ar-modes="webxr scene-viewer quick-look"
-                      camera-orbit="15deg 75deg 68%"
-                      field-of-view="28deg"
+                      camera-orbit="10deg 72deg 55%"
+                      camera-target="0m 0m 0m"
+                      field-of-view="30deg"
                       interaction-prompt="none"
                       shadow-intensity="1"
                       exposure="1"

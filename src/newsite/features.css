@@ -41,9 +41,11 @@
   width: 100%;
   max-width: 300px;
   position: relative;
+  z-index: var(--z, 1);
 }
 
 .feat-card__tile {
+  position: relative;
   aspect-ratio: 9 / 16;
   border-radius: 16px;
   overflow: hidden;
@@ -62,7 +64,10 @@
   object-fit: cover;
 }
 
+/* Pinned to the tile so the model can never paint outside the rounded card. */
 .feat-card__model {
+  position: absolute;
+  inset: 0;
   background: transparent;
 }
 
@@ -107,12 +112,14 @@
   }
 
   .feat-card:not(:first-child) {
-    margin-left: calc(var(--card-w) * -0.36);
+    margin-left: calc(var(--card-w) * -0.2);
   }
 
-  .feat-card:hover {
-    transform: translateY(-16px) rotate(0deg);
-    z-index: 60;
+  @media (hover: hover) and (pointer: fine) {
+    .feat-card:hover {
+      transform: translateY(-18px) rotate(0deg) scale(1.04);
+      z-index: 60;
+    }
   }
 
   .feat-card__text {
