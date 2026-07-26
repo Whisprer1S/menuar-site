@@ -6,12 +6,6 @@ const MODEL_SRC =
 
 const CARDS = [
   {
-    id: 'ar',
-    isModel: true,
-    title: 'See it on your table',
-    body: 'Point a phone at the table and the dish appears at full size, made from your real food so what they see is what arrives',
-  },
-  {
     id: 'menu',
     image: '/images/feature-menu.jpg',
     title: 'Every dish photographed',
@@ -37,8 +31,9 @@ const CARDS = [
   },
 ];
 
-// Fan rotations (deg) and default lift per card. Card 1 sits slightly forward.
-const ROTATIONS = [-4, -2, 0, 2, 4];
+// Fan rotations (deg) for the four screenshot cards, unchanged from the
+// original five card fan now that the AR card has its own zone.
+const ROTATIONS = [-2, 0, 2, 4];
 
 export default function Features() {
   const reduce = useReducedMotion();
@@ -60,51 +55,60 @@ export default function Features() {
           Everything a guest needs, in the palm of their hand
         </h2>
 
-        <motion.div className="features__stack" {...stackMotion}>
-          {CARDS.map((card, i) => {
-            const forward = i === 0;
-            const style = {
-              '--rot': `${ROTATIONS[i]}deg`,
-              '--ty': forward ? '-14px' : '0px',
-              '--z': `${forward ? 20 : i + 1}`,
-            };
-            return (
-              <div key={card.id} className="feat-card" style={style}>
-                <div className="feat-card__tile">
-                  {card.isModel ? (
-                    <model-viewer
-                      class="feat-card__model"
-                      src={MODEL_SRC}
-                      auto-rotate=""
-                      auto-rotate-delay="1000"
-                      rotation-per-second="12deg"
-                      touch-action="pan-y"
-                      ar={true}
-                      ar-modes="webxr scene-viewer quick-look"
-                      camera-orbit="10deg 72deg 55%"
-                      camera-target="0m 0m 0m"
-                      field-of-view="30deg"
-                      interaction-prompt="none"
-                      shadow-intensity="1"
-                      exposure="1"
-                      alt="A dish shown in 3D on your table"
-                    ></model-viewer>
-                  ) : (
+        <motion.div className="features__layout" {...stackMotion}>
+          <div className="features__ar">
+            <div className="ar-card__tile">
+              <model-viewer
+                class="ar-card__model"
+                src={MODEL_SRC}
+                auto-rotate=""
+                auto-rotate-delay="1000"
+                rotation-per-second="12deg"
+                touch-action="pan-y"
+                ar={true}
+                ar-modes="webxr scene-viewer quick-look"
+                camera-orbit="10deg 72deg 0.94m"
+                camera-target="0m 0m 0m"
+                field-of-view="28deg"
+                interaction-prompt="none"
+                shadow-intensity="1"
+                exposure="1"
+                alt="A dish shown in 3D on your table"
+              ></model-viewer>
+            </div>
+            <div className="ar-card__caption">
+              <p className="ar-card__eyebrow">THE DIFFERENCE</p>
+              <p className="ar-card__line">
+                Guests see the real dish on their own table before they order
+              </p>
+            </div>
+          </div>
+
+          <div className="features__stack">
+            {CARDS.map((card, i) => {
+              const style = {
+                '--rot': `${ROTATIONS[i]}deg`,
+                '--ty': '0px',
+                '--z': `${i + 1}`,
+              };
+              return (
+                <div key={card.id} className="feat-card" style={style}>
+                  <div className="feat-card__tile">
                     <img
                       src={card.image}
                       alt=""
                       loading="lazy"
                       style={{ objectPosition: 'top' }}
                     />
-                  )}
+                  </div>
+                  <div className="feat-card__text">
+                    <h3 className="feat-card__title">{card.title}</h3>
+                    <p className="feat-card__body">{card.body}</p>
+                  </div>
                 </div>
-                <div className="feat-card__text">
-                  <h3 className="feat-card__title">{card.title}</h3>
-                  <p className="feat-card__body">{card.body}</p>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </motion.div>
       </div>
     </section>
