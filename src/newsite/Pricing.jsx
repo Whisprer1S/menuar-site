@@ -125,10 +125,11 @@ export default function Pricing() {
       <div className="pricing__inner">
         <motion.div className="pricing__header" {...headerMotion}>
           <p className="pricing__label">Pricing</p>
-          <h2 className="pricing__title">One build, then we keep it running</h2>
+          <h2 className="pricing__title">We build it, then we keep it running</h2>
           <p className="pricing__sub">
-            Every menu is built by hand, so each one starts with a one-off build
-            fee, then a small monthly for hosting, updates and new dishes
+            Every menu is built for the venue it belongs to, so we quote the
+            setup after we talk. The monthly covers hosting and updates, and it
+            stays small
           </p>
         </motion.div>
 
