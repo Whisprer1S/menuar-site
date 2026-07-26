@@ -49,6 +49,13 @@ export default function Features() {
 
   return (
     <section id="the-menu" className="features">
+      <img
+        className="features__deco"
+        src="/images/vitamin-c.svg"
+        alt=""
+        aria-hidden="true"
+      />
+
       <div className="features__inner">
         <p className="features__label">Inside the menu</p>
         <h2 className="features__title">
