@@ -58,13 +58,14 @@ export default function Hero() {
               animate={{ y: 0 }}
               transition={{ duration: 0.7, ease: EASE }}
             >
-              The menu they&rsquo;ll remember
+              A digital menu your guests will actually enjoy using
             </motion.h1>
           </div>
 
           <motion.p className="hero__para" variants={item}>
-            Diners scan a QR code and see your dishes in photorealistic 3D, on
-            their own table, before they order
+            Beautiful on every phone, in three languages, with your signature
+            dishes in photorealistic 3D. Guests scan a QR code at the table and
+            the menu opens instantly
           </motion.p>
 
           <motion.div className="hero__actions" variants={item}>
@@ -106,6 +107,18 @@ export default function Hero() {
               Talk to us
             </a>
           </motion.div>
+
+          <motion.div className="hero__scan" variants={item}>
+            <span className="hero__scan-card">
+              <img src="/images/qr-demo.svg.svg" alt="QR code for the demo menu" />
+            </span>
+            <span className="hero__scan-text">
+              <span className="hero__scan-line">Scan to try it</span>
+              <span className="hero__scan-line">
+                This is the same code that sits on the table
+              </span>
+            </span>
+          </motion.div>
         </motion.div>
 
         <motion.div
@@ -115,41 +128,52 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <div className="hero__model-stage">
-            <model-viewer
-              ref={modelRef}
-              class="hero__model"
-              src={MODEL_SRC}
-              camera-controls=""
-              auto-rotate=""
-              auto-rotate-delay="1000"
-              rotation-per-second="18deg"
-              ar={true}
-              ar-modes="webxr scene-viewer quick-look"
-              min-camera-orbit="auto 25deg auto"
-              max-camera-orbit="auto 85deg auto"
-              camera-orbit="15deg 70deg auto"
-              interaction-prompt="none"
-              shadow-intensity="1"
-              exposure="1"
-              alt="A dish shown in 3D"
-            ></model-viewer>
+            <div className="hero__phone">
+              <img
+                src="/images/feature-menu.jpg"
+                alt="The Menuar menu open on a phone"
+              />
+            </div>
 
-            {!loaded && (
-              <div className="hero__loader">
-                <motion.div
-                  className="hero__loader-dot"
-                  animate={
-                    reduce ? undefined : { scale: [1, 1.15, 1], opacity: [0.5, 1, 0.5] }
-                  }
-                  transition={
-                    reduce
-                      ? undefined
-                      : { duration: 1.2, repeat: Infinity, ease: 'easeInOut' }
-                  }
-                />
-                <span className="hero__loader-text">Loading dish&hellip;</span>
-              </div>
-            )}
+            <div className="hero__model-holder">
+              <model-viewer
+                ref={modelRef}
+                class="hero__model"
+                src={MODEL_SRC}
+                camera-controls=""
+                auto-rotate=""
+                auto-rotate-delay="1000"
+                rotation-per-second="18deg"
+                ar={true}
+                ar-modes="webxr scene-viewer quick-look"
+                min-camera-orbit="auto 25deg auto"
+                max-camera-orbit="auto 85deg auto"
+                camera-orbit="15deg 70deg auto"
+                interaction-prompt="none"
+                shadow-intensity="1"
+                exposure="1"
+                alt="A dish shown in 3D"
+              ></model-viewer>
+
+              {!loaded && (
+                <div className="hero__loader">
+                  <motion.div
+                    className="hero__loader-dot"
+                    animate={
+                      reduce
+                        ? undefined
+                        : { scale: [1, 1.15, 1], opacity: [0.5, 1, 0.5] }
+                    }
+                    transition={
+                      reduce
+                        ? undefined
+                        : { duration: 1.2, repeat: Infinity, ease: 'easeInOut' }
+                    }
+                  />
+                  <span className="hero__loader-text">Loading dish&hellip;</span>
+                </div>
+              )}
+            </div>
           </div>
 
           <p className="hero__hint">Drag to rotate</p>

@@ -36,10 +36,12 @@
   padding-bottom: 0.1em;
 }
 
+/* One step down from the old clamp(2.75rem, 6vw, 5rem): the headline is longer
+   now and needs to stay within three lines on a laptop. */
 .hero__headline {
   font-family: var(--font-display);
   color: var(--text-on-dark);
-  font-size: clamp(2.75rem, 6vw, 5rem);
+  font-size: clamp(2.25rem, 4.6vw, 3.75rem);
   line-height: 1.05;
   margin: 0;
 }
@@ -90,18 +92,90 @@
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Desktop scan cue. Hidden below 900px by the media block further down. */
+.hero__scan {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.hero__scan-card {
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 14px;
+  padding: 10px;
+  line-height: 0;
+}
+
+.hero__scan-card img {
+  display: block;
+  width: 110px;
+  height: 110px;
+}
+
+.hero__scan-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.hero__scan-line {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--text-on-dark-muted);
+  max-width: 24ch;
+}
+
 .hero__model-col {
   min-width: 0;
 }
 
+/* The phone sits right, the dish is pulled left across it so roughly a third
+   of the dish overlaps the screen and the rest floats free. */
 .hero__model-stage {
   position: relative;
   width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero__phone {
+  position: relative;
+  z-index: 1;
+  width: 52%;
+  max-width: 260px;
+  aspect-ratio: 9 / 16;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.hero__phone img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Above the phone, and never inside an overflow clip, so the dish stays whole
+   at every angle of its rotation. */
+.hero__model-holder {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 74%;
+  height: 86%;
+  z-index: 2;
 }
 
 .hero__model {
   width: 100%;
-  height: clamp(320px, 40vh, 480px);
+  height: 100%;
   background: transparent;
 }
 
@@ -130,7 +204,9 @@
   color: var(--text-on-dark-muted);
 }
 
+/* Matches the dish's width so the label centres under the dish, not the card. */
 .hero__hint {
+  width: 74%;
   text-align: center;
   margin: 0.75rem 0 0;
 }
@@ -140,6 +216,25 @@
 @media (max-width: 899px) {
   .hero {
     min-height: 0;
+  }
+
+  /* Desktop cue only. */
+  .hero__scan {
+    display: none;
+  }
+
+  /* Less overlap so the menu screenshot stays readable on a small screen. */
+  .hero__model-stage {
+    max-width: 420px;
+    margin-inline: auto;
+  }
+
+  .hero__model-holder {
+    width: 62%;
+  }
+
+  .hero__hint {
+    width: 62%;
   }
 }
 
@@ -151,5 +246,23 @@
   .hero__inner {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+}
+
+/* Short laptops: the taller text block would otherwise push the hero past 92vh
+   and hide the next section, so trim the padding and the scan cue. */
+@media (max-height: 800px) {
+  .hero {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero__scan {
+    margin-top: 1.5rem;
+  }
+
+  .hero__scan-card img {
+    width: 84px;
+    height: 84px;
   }
 }
