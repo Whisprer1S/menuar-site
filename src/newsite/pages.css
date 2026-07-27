@@ -47,8 +47,8 @@
 
 .page__h1 {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.15;
+  font-size: clamp(1.65rem, 3.3vw, 2.5rem);
+  line-height: 1.1;
   color: var(--text);
   margin: 0 0 1.5rem;
 }

@@ -1,0 +1,132 @@
+/* White, so this proof strip reads as a bright band between the dark hero
+   above and the stone how it works section below, with a clear boundary from
+   both. Compact padding keeps it a strip, not a full section. */
+.proof {
+  background: #ffffff;
+  color: var(--text);
+  padding: clamp(2.5rem, 6vw, 4rem) 1.5rem;
+}
+
+.proof__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.proof__header {
+  text-align: center;
+}
+
+.proof__label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0;
+}
+
+.proof__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  line-height: 1.1;
+  color: var(--text);
+  margin: 0.75rem 0 0;
+}
+
+.proof__intro {
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  max-width: 52ch;
+  margin: 1rem auto 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.proof__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.proof__card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-align: center;
+  padding: 1.75rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--stone-light);
+}
+
+/* The figure is the anchor: largest element, display font, terracotta. */
+.proof__figure {
+  font-family: var(--font-display);
+  /* Sized down from the old clamp(2.5rem, 6vw, 3.5rem). The max width plus
+     break-word guarantee a long figure like the Georgian "დაახლოებით 6%"
+     scales and wraps inside the card rather than crossing the padding. */
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.1;
+  color: var(--accent);
+  margin: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.proof__stat-label {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--text);
+  margin: 0.625rem 0 0;
+}
+
+.proof__body {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0.625rem 0 0;
+}
+
+/* Least emphasised: small uppercase muted, pinned to the bottom of the card so
+   sources align across cards. Subordinate to the figure but still legible. */
+.proof__source {
+  font-family: var(--font-body);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  color: var(--text-muted);
+  margin: auto 0 0;
+  padding-top: 1rem;
+}
+
+/* Set apart as an honest disclaimer: real spacing above, muted but legible,
+   not a faint light grey. */
+.proof__footnote {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 70ch;
+  margin: clamp(1.5rem, 3vw, 2rem) auto 0;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .proof__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .proof {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}

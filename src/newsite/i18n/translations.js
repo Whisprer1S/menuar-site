@@ -193,6 +193,24 @@ const en = {
   'faq.q11.answer': 'Cafes, restaurants, sushi and Asian spots, pizza places, brunch spots and wine bars, the kind of venue that already cares how it looks. We work with a small number of places in Tbilisi and Batumi',
   'faq.q12.question': 'How do I start?',
   'faq.q12.answer': 'You message us on WhatsApp and tell us about your venue. We talk through what your menu needs, then we build it and hand it over ready to put on your tables. That is the whole process',
+
+  // ---- Proof ----
+  'proof.eyebrow': 'Why it works',
+  'proof.title': 'A better menu is not decoration, it sells',
+  'proof.intro': 'We did not invent these numbers. They come from published research on the kind of menu we build',
+  'proof.stat1.figure': 'About 6%',
+  'proof.stat1.label': 'more orders per dish',
+  'proof.stat1.body': 'Menu items shown with real photos consistently outsell text only ones',
+  'proof.stat1.source': 'Industry studies, Cornell and ScienceDirect',
+  'proof.stat2.figure': 'Up to 25%',
+  'proof.stat2.label': 'higher conversion',
+  'proof.stat2.body': 'Moving from a text menu to a photo menu lifts how often a guest actually orders what they look at',
+  'proof.stat2.source': 'Menu conversion research',
+  'proof.stat3.figure': '3 Languages',
+  'proof.stat3.label': 'more guests who order',
+  'proof.stat3.body': 'Guests who cannot read the menu play it safe or leave, so a menu in their language keeps the order',
+  'proof.stat3.source': 'Hospitality and tourism research',
+  'proof.footnote': 'These are general findings about photo and multilingual menus, not a promise of a specific result for your venue',
 };
 
 // Georgian.
@@ -360,6 +378,24 @@ const ka = {
   'faq.q11.answer': 'კაფეები, რესტორნები, სუშისა და აზიური ადგილები, პიცერიები, ბრანჩის ადგილები და ღვინის ბარები, ის სივრცე, რომელსაც უკვე აინტერესებს, როგორ გამოიყურება. ჩვენ თბილისისა და ბათუმის რამდენიმე ადგილთან ვმუშაობთ',
   'faq.q12.question': 'როგორ დავიწყო?',
   'faq.q12.answer': 'მოგვწერეთ WhatsApp-ზე და გვიამბეთ თქვენს სივრცეზე. ჩვენ ერთად განვიხილავთ, რა სჭირდება თქვენს მენიუს, შემდეგ ავაგებთ და მზად გადმოგცემთ მაგიდებზე დასადებად. ეს არის მთელი პროცესი',
+
+  // ---- Proof ----
+  'proof.eyebrow': 'რატომ მუშაობს',
+  'proof.title': 'უკეთესი მენიუ დეკორაცია არ არის, ის ყიდის',
+  'proof.intro': 'ეს ციფრები ჩვენ არ მოგვიგონია. ისინი გამოქვეყნებული კვლევებიდანაა იმ ტიპის მენიუზე, რომელსაც ჩვენ ვქმნით',
+  'proof.stat1.figure': 'დაახლოებით 6%',
+  'proof.stat1.label': 'მეტი შეკვეთა კერძზე',
+  'proof.stat1.body': 'ნამდვილი ფოტოებით ნაჩვენები კერძები სტაბილურად უფრო იყიდება, ვიდრე მხოლოდ ტექსტით',
+  'proof.stat1.source': 'ინდუსტრიის კვლევები, Cornell და ScienceDirect',
+  'proof.stat2.figure': '25%-მდე',
+  'proof.stat2.label': 'უფრო მაღალი კონვერსია',
+  'proof.stat2.body': 'ტექსტური მენიუდან ფოტო მენიუზე გადასვლა ზრდის, რამდენად ხშირად უკვეთავს სტუმარი იმას, რასაც ათვალიერებს',
+  'proof.stat2.source': 'მენიუს კონვერსიის კვლევა',
+  'proof.stat3.figure': '3 ენა',
+  'proof.stat3.label': 'მეტი სტუმარი, ვინც შეუკვეთავს',
+  'proof.stat3.body': 'სტუმარი, რომელიც მენიუს ვერ კითხულობს, ან უსაფრთხოს ირჩევს ან მიდის, ამიტომ მისივე ენაზე მენიუ შეკვეთას ინარჩუნებს',
+  'proof.stat3.source': 'სასტუმრო და ტურიზმის კვლევა',
+  'proof.footnote': 'ეს ზოგადი დასკვნებია ფოტო და მრავალენოვან მენიუებზე და არა კონკრეტული შედეგის დაპირება თქვენი სივრცისთვის',
 };
 
 // Russian.
@@ -527,6 +563,24 @@ const ru = {
   'faq.q11.answer': 'Кафе, рестораны, суши и азиатские места, пиццерии, места для бранча и винные бары, те заведения, которым уже важно, как они выглядят. Мы работаем с небольшим числом мест в Тбилиси и Батуми',
   'faq.q12.question': 'Как начать?',
   'faq.q12.answer': 'Напишите нам в WhatsApp и расскажите о вашем заведении. Мы обсудим, что нужно вашему меню, затем создадим его и передадим готовым для ваших столов. Это весь процесс',
+
+  // ---- Proof ----
+  'proof.eyebrow': 'Почему это работает',
+  'proof.title': 'Хорошее меню это не украшение, оно продаёт',
+  'proof.intro': 'Мы не придумывали эти цифры. Они взяты из опубликованных исследований о таких меню, какие мы создаём',
+  'proof.stat1.figure': 'около 6%',
+  'proof.stat1.label': 'больше заказов на блюдо',
+  'proof.stat1.body': 'Блюда с настоящими фотографиями стабильно продаются лучше, чем только с текстом',
+  'proof.stat1.source': 'Отраслевые исследования, Cornell и ScienceDirect',
+  'proof.stat2.figure': 'до 25%',
+  'proof.stat2.label': 'выше конверсия',
+  'proof.stat2.body': 'Переход с текстового меню на меню с фото повышает то, как часто гость заказывает то, что рассматривает',
+  'proof.stat2.source': 'Исследования конверсии меню',
+  'proof.stat3.figure': '3 языка',
+  'proof.stat3.label': 'больше гостей, которые заказывают',
+  'proof.stat3.body': 'Гость, который не может прочитать меню, выбирает знакомое или уходит, поэтому меню на его языке сохраняет заказ',
+  'proof.stat3.source': 'Исследования гостеприимства и туризма',
+  'proof.footnote': 'Это общие выводы о меню с фото и на нескольких языках, а не обещание конкретного результата для вашего заведения',
 };
 
 export const translations = { en, ka, ru };
