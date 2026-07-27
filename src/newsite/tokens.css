@@ -10,7 +10,9 @@
   --text-on-dark: #F5F1EA;
   --text-on-dark-muted: #A8A099;
   --accent: #D97B45;
-  --font-display: 'Noto Serif Georgian', Georgia, serif;
+  /* Noto Serif Georgian covers Latin and Georgian but has no Cyrillic at all,
+     so Noto Serif sits behind it to catch Russian headings. */
+  --font-display: 'Noto Serif Georgian', 'Noto Serif', Georgia, serif;
   --font-body: 'FiraGO', system-ui, sans-serif;
 }
 
