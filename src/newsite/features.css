@@ -178,8 +178,70 @@
   margin: 0.5rem 0 0;
 }
 
-/* ---- Desktop (min-width 768px): fanned, overlapping stack with hover reveal ---- */
-@media (min-width: 768px) {
+/* ---- Mobile (max-width 899px): horizontal scroll-snap carousel ---- */
+@media (max-width: 899px) {
+  /* Negative margins cancel the section padding so the track spans the full
+     screen. That is what gives the next card room to peek in. */
+  .features__stack {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1rem;
+    margin-inline: -1.5rem;
+    padding-inline: 9vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 9vw;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .features__stack::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Flat, evenly spaced, no fan rotation, overlap or stacking. */
+  .feat-card {
+    flex: 0 0 82vw;
+    width: 82vw;
+    max-width: none;
+    scroll-snap-align: center;
+    transform: none;
+    margin-left: 0;
+    z-index: auto;
+  }
+
+  .features__dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .features__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.25;
+    transition: opacity 0.3s ease;
+  }
+
+  .features__dot--active {
+    opacity: 1;
+  }
+}
+
+/* Belt and braces: the dots are not rendered above 900px, but if they ever
+   are they must never take part in the two zone row. */
+@media (min-width: 900px) {
+  .features__dots {
+    display: none;
+  }
+}
+
+/* ---- Desktop (min-width 900px): fanned, overlapping stack with hover reveal ---- */
+@media (min-width: 900px) {
   .features__stack {
     flex-direction: row;
     justify-content: center;

@@ -1,7 +1,33 @@
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import './pricing.css';
 
 const EASE = [0.22, 1, 0.36, 1];
+
+const WHATSAPP_HREF = 'https://wa.me/995598119981';
+
+// The carousel and its dots exist below this width only. Above it the cards
+// stay in the three column grid and the dots are never rendered.
+const MOBILE_QUERY = '(max-width: 899px)';
+
+// Signature, the middle card, is where the carousel opens.
+const INITIAL_INDEX = 1;
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(
+    () => window.matchMedia(MOBILE_QUERY).matches
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia(MOBILE_QUERY);
+    const onChange = (e) => setIsMobile(e.matches);
+    setIsMobile(mq.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  return isMobile;
+}
 
 const TIERS = [
   {
@@ -89,6 +115,49 @@ function Arrow() {
 
 export default function Pricing() {
   const reduce = useReducedMotion();
+  const isMobile = useIsMobile();
+  const scrollerRef = useRef(null);
+  const cardRefs = useRef([]);
+  const [active, setActive] = useState(INITIAL_INDEX);
+
+  // Open on Signature. Setting scrollLeft on the track directly is deliberate:
+  // it is instant, it cannot move the page vertically and it cannot take focus,
+  // unlike scrollIntoView. Runs before paint so nothing appears to jump.
+  useLayoutEffect(() => {
+    if (!isMobile) return;
+    const root = scrollerRef.current;
+    const card = cardRefs.current[INITIAL_INDEX];
+    if (!root || !card) return;
+
+    const rootBox = root.getBoundingClientRect();
+    const cardBox = card.getBoundingClientRect();
+    const offset = cardBox.left - rootBox.left + root.scrollLeft;
+    root.scrollLeft = offset - (root.clientWidth - cardBox.width) / 2;
+  }, [isMobile]);
+
+  // Track which card is centred in the carousel so the dots can follow.
+  useEffect(() => {
+    if (!isMobile) return undefined;
+    const root = scrollerRef.current;
+    const cards = cardRefs.current.filter(Boolean);
+    if (!root || cards.length === 0) return undefined;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const i = cards.indexOf(entry.target);
+          if (i !== -1) setActive(i);
+        });
+      },
+      // 0.75 guarantees only one card can qualify at a time: two cards at 85vw
+      // cannot each show 75% of themselves inside a 100vw track.
+      { root, threshold: 0.75 }
+    );
+
+    cards.forEach((card) => io.observe(card));
+    return () => io.disconnect();
+  }, [isMobile]);
 
   const headerMotion = reduce
     ? {}
@@ -133,11 +202,14 @@ export default function Pricing() {
           </p>
         </motion.div>
 
-        <motion.div className="pricing__grid" {...gridMotion}>
-          {TIERS.map((tier) => (
+        <motion.div className="pricing__grid" ref={scrollerRef} {...gridMotion}>
+          {TIERS.map((tier, i) => (
             <motion.div
               key={tier.name}
               className={tier.featured ? 'tier tier--featured' : 'tier'}
+              ref={(el) => {
+                cardRefs.current[i] = el;
+              }}
               {...cardMotion}
             >
               {tier.featured && <span className="tier__pill">Most popular</span>}
@@ -175,7 +247,9 @@ export default function Pricing() {
                     ? 'tier__cta tier__cta--filled'
                     : 'tier__cta tier__cta--outline'
                 }
-                href="#contact"
+                href={WHATSAPP_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Talk to us
                 <Arrow />
@@ -183,6 +257,21 @@ export default function Pricing() {
             </motion.div>
           ))}
         </motion.div>
+
+        {isMobile && (
+          <div className="pricing__dots" aria-hidden="true">
+            {TIERS.map((tier, i) => (
+              <span
+                key={tier.name}
+                className={
+                  i === active
+                    ? 'pricing__dot pricing__dot--active'
+                    : 'pricing__dot'
+                }
+              />
+            ))}
+          </div>
+        )}
 
         <p className="pricing__footnote">
           Not sure which fits? Most venues start with six dishes and grow from

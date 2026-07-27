@@ -194,9 +194,57 @@
   text-align: center;
 }
 
-@media (max-width: 767px) {
+/* ---- Mobile (max-width 899px): horizontal scroll-snap carousel ---- */
+@media (max-width: 899px) {
+  .pricing {
+    overflow-x: clip;
+  }
+
+  /* Negative margins cancel the section padding so the track spans the full
+     screen. That is what gives the next card room to peek in. */
   .pricing__grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1rem;
+    margin-inline: -1.5rem;
+    padding-inline: 7.5vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 7.5vw;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .pricing__grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tier {
+    flex: 0 0 85vw;
+    max-width: none;
+    scroll-snap-align: center;
+  }
+
+  .pricing__dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .pricing__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.25;
+    transition: opacity 0.3s ease;
+  }
+
+  .pricing__dot--active {
+    opacity: 1;
   }
 }
 
@@ -204,5 +252,17 @@
   .pricing {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+  }
+
+  /* Section padding drops to 1.25rem here, so the bleed has to match. */
+  .pricing__grid {
+    margin-inline: -1.25rem;
+  }
+}
+
+/* Belt and braces: the dots are not rendered above 900px. */
+@media (min-width: 900px) {
+  .pricing__dots {
+    display: none;
   }
 }

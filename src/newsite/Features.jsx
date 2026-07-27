@@ -1,5 +1,26 @@
+import { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import './features.css';
+
+// The carousel and its dots exist below this width only. Above it the cards
+// stay in the fanned desktop stack and the dots are never rendered.
+const MOBILE_QUERY = '(max-width: 899px)';
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(
+    () => window.matchMedia(MOBILE_QUERY).matches
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia(MOBILE_QUERY);
+    const onChange = (e) => setIsMobile(e.matches);
+    setIsMobile(mq.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  return isMobile;
+}
 
 const MODEL_SRC =
   'https://xmwekpuaorzqlvkcfeyu.supabase.co/storage/v1/object/public/ar-models/a1111111-1111-4111-8111-111111111111/2886bb3d-500a-4534-9c11-97f886d0c263.glb';
@@ -37,6 +58,34 @@ const ROTATIONS = [-2, 0, 2, 4];
 
 export default function Features() {
   const reduce = useReducedMotion();
+  const isMobile = useIsMobile();
+  const scrollerRef = useRef(null);
+  const cardRefs = useRef([]);
+  const [active, setActive] = useState(0);
+
+  // Track which card is centred in the carousel so the dots can follow.
+  useEffect(() => {
+    if (!isMobile) return undefined;
+    const root = scrollerRef.current;
+    const cards = cardRefs.current.filter(Boolean);
+    if (!root || cards.length === 0) return undefined;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const i = cards.indexOf(entry.target);
+          if (i !== -1) setActive(i);
+        });
+      },
+      // 0.75 guarantees only one card can qualify at a time: two cards at 82vw
+      // cannot each show 75% of themselves inside a 100vw track.
+      { root, threshold: 0.75 }
+    );
+
+    cards.forEach((card) => io.observe(card));
+    return () => io.disconnect();
+  }, [isMobile]);
 
   const stackMotion = reduce
     ? {}
@@ -91,7 +140,7 @@ export default function Features() {
             </div>
           </div>
 
-          <div className="features__stack">
+          <div className="features__stack" ref={scrollerRef}>
             {CARDS.map((card, i) => {
               const style = {
                 '--rot': `${ROTATIONS[i]}deg`,
@@ -99,7 +148,14 @@ export default function Features() {
                 '--z': `${i + 1}`,
               };
               return (
-                <div key={card.id} className="feat-card" style={style}>
+                <div
+                  key={card.id}
+                  className="feat-card"
+                  style={style}
+                  ref={(el) => {
+                    cardRefs.current[i] = el;
+                  }}
+                >
                   <div className="feat-card__tile">
                     <img
                       src={card.image}
@@ -116,6 +172,21 @@ export default function Features() {
               );
             })}
           </div>
+
+          {isMobile && (
+            <div className="features__dots" aria-hidden="true">
+              {CARDS.map((card, i) => (
+                <span
+                  key={card.id}
+                  className={
+                    i === active
+                      ? 'features__dot features__dot--active'
+                      : 'features__dot'
+                  }
+                />
+              ))}
+            </div>
+          )}
         </motion.div>
       </div>
     </section>
