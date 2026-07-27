@@ -165,6 +165,34 @@ const en = {
   'privacy.changes.heading': 'Changes to this policy',
   'privacy.changes.body':
     'We may update this Privacy Policy from time to time. The latest version will be available on this page',
+
+  // ---- FAQ ----
+  'faq.eyebrow': 'Questions',
+  'faq.title': 'The things people ask before they message us',
+  'faq.q1.question': 'What exactly is Menuar?',
+  'faq.q1.answer': 'Menuar is a beautiful digital menu for your restaurant. Guests scan a QR code at the table and the menu opens on their phone, with your dishes photographed properly and your signature dishes shown in 3D. We design it around your venue and keep it running for you',
+  'faq.q2.question': 'Is this just AR, or a full menu?',
+  'faq.q2.answer': 'It is a full menu first. Every dish, every category, prices, ingredients and allergens, in three languages, laid out cleanly and fast on any phone. The 3D and AR dishes are the standout feature on top of that, not the whole thing',
+  'faq.q3.question': 'Do I need to install anything? Do my guests?',
+  'faq.q3.answer': 'Nobody installs anything. You do not, and your guests do not. They point their phone camera at the QR code on the table and the menu opens in their browser instantly, no app and no download',
+  'faq.q4.question': 'How is this different from the free QR menu my POS already gives me?',
+  'faq.q4.answer': 'A POS QR menu is usually a plain list or a PDF, the same template every venue gets. Menuar is designed around your brand, every dish is photographed, and your signature dishes appear in real 3D that guests can place on their own table. That is a different thing from a free menu bolted onto a cash register',
+  'faq.q5.question': 'Do you replace my POS or cash register?',
+  'faq.q5.answer': 'No. Menuar is the menu your guests see, not the system your kitchen and till run on. Your POS and fiscal register stay exactly as they are. We sit alongside them and make the part the guest touches beautiful',
+  'faq.q6.question': 'How much does it cost?',
+  'faq.q6.answer': 'There is a one off setup fee to build your menu, and a small monthly fee that covers hosting and updates. The setup depends on how many dishes and how much custom design you want, so we quote it after we talk. The monthly stays small on every plan',
+  'faq.q7.question': 'How long does it take to build?',
+  'faq.q7.answer': 'Each 3D dish is scanned and finished by hand from your real food, so a full menu takes a few weeks depending on the number of dishes. We take on a small number of venues at a time on purpose, because the quality of each model matters more than speed',
+  'faq.q8.question': 'What if my menu changes?',
+  'faq.q8.answer': 'You tell us and we handle it. Price changes, new dishes, seasonal swaps, all done by us, not left for you to figure out in a dashboard. Keeping the menu current is part of what the monthly covers',
+  'faq.q9.question': 'Are the 3D dishes real?',
+  'faq.q9.answer': 'Yes, and this is the rule we never break. Every 3D model is made from the actual dish the restaurant serves, scanned from the real food. What a guest sees on their table is exactly what arrives on it',
+  'faq.q10.question': 'What languages does the menu support?',
+  'faq.q10.answer': 'Georgian, English and Russian, on the same menu, switchable with one tap. A tourist reads it in their own language and orders instead of leaving, which is worth real money on a busy night',
+  'faq.q11.question': 'Which venues is this for?',
+  'faq.q11.answer': 'Cafes, restaurants, sushi and Asian spots, pizza places, brunch spots and wine bars, the kind of venue that already cares how it looks. We work with a small number of places in Tbilisi and Batumi',
+  'faq.q12.question': 'How do I start?',
+  'faq.q12.answer': 'You message us on WhatsApp and tell us about your venue. We talk through what your menu needs, then we build it and hand it over ready to put on your tables. That is the whole process',
 };
 
 // Georgian.
@@ -304,6 +332,34 @@ const ka = {
   'privacy.changes.heading': 'ცვლილებები ამ პოლიტიკაში',
   'privacy.changes.body':
     'შესაძლოა დროდადრო განვაახლოთ ეს კონფიდენციალურობის პოლიტიკა. უახლესი ვერსია ხელმისაწვდომი იქნება ამ გვერდზე',
+
+  // ---- FAQ ----
+  'faq.eyebrow': 'კითხვები',
+  'faq.title': 'რასაც ხალხი გვეკითხება, სანამ მოგვწერს',
+  'faq.q1.question': 'რა არის Menuar ზუსტად?',
+  'faq.q1.answer': 'Menuar არის ლამაზი ციფრული მენიუ თქვენი რესტორნისთვის. სტუმარი მაგიდასთან ასკანერებს QR კოდს და მენიუ ტელეფონში იხსნება, თქვენი კერძების სწორად გადაღებული ფოტოებით და ფირმული კერძებით 3D-ში. ჩვენ მას თქვენი სივრცის ირგვლივ ვქმნით და ვინახავთ მუშა მდგომარეობაში',
+  'faq.q2.question': 'ეს მხოლოდ AR-ია თუ სრული მენიუ?',
+  'faq.q2.answer': 'პირველ რიგში ეს სრული მენიუა. ყველა კერძი, ყველა კატეგორია, ფასები, ინგრედიენტები და ალერგენები, სამ ენაზე, სუფთად და სწრაფად ნებისმიერ ტელეფონზე. 3D და AR კერძები ამის თავზე დამატებული მთავარი მახასიათებელია და არა თავად მთელი მენიუ',
+  'faq.q3.question': 'რამე უნდა დავაინსტალირო? ჩემმა სტუმრებმა?',
+  'faq.q3.answer': 'არავინ არაფერს აინსტალირებს. არც თქვენ და არც თქვენი სტუმრები. ისინი ტელეფონის კამერას მიმართავენ მაგიდაზე არსებულ QR კოდს და მენიუ მყისვე იხსნება ბრაუზერში, აპლიკაციისა და ჩამოტვირთვის გარეშე',
+  'faq.q4.question': 'რით განსხვავდება ეს იმ უფასო QR მენიუსგან, რომელსაც ჩემი POS უკვე მაძლევს?',
+  'faq.q4.answer': 'POS-ის QR მენიუ ჩვეულებრივ უბრალო სიაა ან PDF, იგივე შაბლონი, რომელსაც ყველა სივრცე იღებს. Menuar თქვენი ბრენდის ირგვლივ იქმნება, ყველა კერძი გადაღებულია და თქვენი ფირმული კერძები ნამდვილ 3D-ში ჩნდება, რომელსაც სტუმარი საკუთარ მაგიდაზე დადებს. ეს სხვა რამეა, ვიდრე სალაროზე მიბმული უფასო მენიუ',
+  'faq.q5.question': 'ცვლით ჩემს POS-ს ან სალაროს?',
+  'faq.q5.answer': 'არა. Menuar ის მენიუა, რომელსაც სტუმარი ხედავს და არა სისტემა, რომელზეც სამზარეულო და სალარო მუშაობს. თქვენი POS და ფისკალური სალარო უცვლელი რჩება. ჩვენ მათ გვერდით ვდგავართ და იმ ნაწილს ვალამაზებთ, რომელსაც სტუმარი ეხება',
+  'faq.q6.question': 'რა ღირს?',
+  'faq.q6.answer': 'არის ერთჯერადი დაყენების საფასური მენიუს ასაგებად და მცირე ყოველთვიური საფასური, რომელიც ჰოსტინგსა და განახლებებს ფარავს. დაყენება დამოკიდებულია იმაზე, რამდენი კერძი და რამდენად ინდივიდუალური დიზაინი გინდათ, ამიტომ ფასს საუბრის შემდეგ გეტყვით. ყოველთვიური ყველა პაკეტზე მცირე რჩება',
+  'faq.q7.question': 'რამდენი დრო სჭირდება აგებას?',
+  'faq.q7.answer': 'ყოველი 3D კერძი ხელით სკანირდება და მუშავდება თქვენივე ნამდვილი საკვებისგან, ამიტომ სრულ მენიუს რამდენიმე კვირა სჭირდება კერძების რაოდენობის მიხედვით. ჩვენ განზრახ ვიღებთ რამდენიმე სივრცეს ერთდროულად, რადგან ყოველი მოდელის ხარისხი უფრო მნიშვნელოვანია, ვიდრე სისწრაფე',
+  'faq.q8.question': 'რა მოხდება, თუ ჩემი მენიუ შეიცვლება?',
+  'faq.q8.answer': 'თქვენ გვეუბნებით და ჩვენ ვაგვარებთ. ფასების ცვლილება, ახალი კერძები, სეზონური ცვლილებები, ყველაფერს ჩვენ ვაკეთებთ და არა თქვენ პანელში. მენიუს განახლება იმის ნაწილია, რასაც ყოველთვიური ფარავს',
+  'faq.q9.question': 'ნამდვილია 3D კერძები?',
+  'faq.q9.answer': 'დიახ, და ეს წესი ჩვენ არასდროს ვარღვევთ. ყოველი 3D მოდელი იმ ნამდვილი კერძისგან იქმნება, რომელსაც რესტორანი სთავაზობს, ნამდვილი საკვების სკანირებით. რასაც სტუმარი მაგიდაზე ხედავს, ზუსტად ის მიდის მაგიდაზე',
+  'faq.q10.question': 'რა ენებს უჭერს მხარს მენიუ?',
+  'faq.q10.answer': 'ქართული, ინგლისური და რუსული, ერთსა და იმავე მენიუში, ერთი შეხებით გადართვადი. ტურისტი მას თავის ენაზე კითხულობს და შეუკვეთავს ნაცვლად იმისა, რომ წავიდეს, რაც დატვირთულ საღამოს ნამდვილ ფულს ნიშნავს',
+  'faq.q11.question': 'რომელი სივრცეებისთვისაა ეს?',
+  'faq.q11.answer': 'კაფეები, რესტორნები, სუშისა და აზიური ადგილები, პიცერიები, ბრანჩის ადგილები და ღვინის ბარები, ის სივრცე, რომელსაც უკვე აინტერესებს, როგორ გამოიყურება. ჩვენ თბილისისა და ბათუმის რამდენიმე ადგილთან ვმუშაობთ',
+  'faq.q12.question': 'როგორ დავიწყო?',
+  'faq.q12.answer': 'მოგვწერეთ WhatsApp-ზე და გვიამბეთ თქვენს სივრცეზე. ჩვენ ერთად განვიხილავთ, რა სჭირდება თქვენს მენიუს, შემდეგ ავაგებთ და მზად გადმოგცემთ მაგიდებზე დასადებად. ეს არის მთელი პროცესი',
 };
 
 // Russian.
@@ -443,6 +499,34 @@ const ru = {
   'privacy.changes.heading': 'Изменения в этой политике',
   'privacy.changes.body':
     'Мы можем время от времени обновлять эту Политику конфиденциальности. Актуальная версия будет доступна на этой странице',
+
+  // ---- FAQ ----
+  'faq.eyebrow': 'Вопросы',
+  'faq.title': 'Что люди спрашивают, прежде чем написать нам',
+  'faq.q1.question': 'Что такое Menuar?',
+  'faq.q1.answer': 'Menuar это красивое цифровое меню для вашего ресторана. Гость сканирует QR код за столом и меню открывается на телефоне, с правильно снятыми блюдами и фирменными блюдами в 3D. Мы создаём его вокруг вашего заведения и поддерживаем в рабочем состоянии',
+  'faq.q2.question': 'Это только AR или полное меню?',
+  'faq.q2.answer': 'В первую очередь это полное меню. Каждое блюдо, каждая категория, цены, состав и аллергены, на трёх языках, аккуратно и быстро на любом телефоне. Блюда в 3D и AR это яркая особенность сверху, а не всё меню целиком',
+  'faq.q3.question': 'Нужно ли мне что-то устанавливать? А моим гостям?',
+  'faq.q3.answer': 'Никто ничего не устанавливает. Ни вы, ни ваши гости. Они наводят камеру телефона на QR код на столе и меню мгновенно открывается в браузере, без приложения и без загрузки',
+  'faq.q4.question': 'Чем это отличается от бесплатного QR меню, которое уже даёт мой POS?',
+  'faq.q4.answer': 'QR меню от POS это обычно простой список или PDF, один и тот же шаблон для всех. Menuar создаётся вокруг вашего бренда, каждое блюдо снято, а фирменные блюда появляются в настоящем 3D, который гость может поставить на свой стол. Это другое, чем бесплатное меню, привязанное к кассе',
+  'faq.q5.question': 'Вы заменяете мой POS или кассу?',
+  'faq.q5.answer': 'Нет. Menuar это меню, которое видит гость, а не система, на которой работают кухня и касса. Ваш POS и фискальная касса остаются как есть. Мы работаем рядом с ними и делаем красивой ту часть, которой касается гость',
+  'faq.q6.question': 'Сколько это стоит?',
+  'faq.q6.answer': 'Есть разовая плата за установку для создания меню и небольшая ежемесячная плата, которая покрывает хостинг и обновления. Установка зависит от количества блюд и объёма индивидуального дизайна, поэтому стоимость мы называем после разговора. Ежемесячная плата остаётся небольшой на любом плане',
+  'faq.q7.question': 'Сколько времени занимает создание?',
+  'faq.q7.answer': 'Каждое 3D блюдо сканируется и дорабатывается вручную из вашей настоящей еды, поэтому полное меню занимает несколько недель в зависимости от количества блюд. Мы намеренно берём несколько заведений одновременно, потому что качество каждой модели важнее скорости',
+  'faq.q8.question': 'Что если моё меню изменится?',
+  'faq.q8.answer': 'Вы говорите нам, и мы всё делаем. Изменения цен, новые блюда, сезонные замены, всё делаем мы, а не вы в панели. Поддержание меню в актуальном виде входит в ежемесячную плату',
+  'faq.q9.question': 'Настоящие ли 3D блюда?',
+  'faq.q9.answer': 'Да, и это правило мы не нарушаем никогда. Каждая 3D модель создаётся из настоящего блюда, которое подаёт ресторан, отсканированного с реальной еды. Что гость видит на столе, то и приносят',
+  'faq.q10.question': 'Какие языки поддерживает меню?',
+  'faq.q10.answer': 'Грузинский, английский и русский, в одном меню, переключение одним касанием. Турист читает на своём языке и делает заказ вместо того, чтобы уйти, а это реальные деньги в загруженный вечер',
+  'faq.q11.question': 'Для каких заведений это?',
+  'faq.q11.answer': 'Кафе, рестораны, суши и азиатские места, пиццерии, места для бранча и винные бары, те заведения, которым уже важно, как они выглядят. Мы работаем с небольшим числом мест в Тбилиси и Батуми',
+  'faq.q12.question': 'Как начать?',
+  'faq.q12.answer': 'Напишите нам в WhatsApp и расскажите о вашем заведении. Мы обсудим, что нужно вашему меню, затем создадим его и передадим готовым для ваших столов. Это весь процесс',
 };
 
 export const translations = { en, ka, ru };

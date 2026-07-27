@@ -5,6 +5,7 @@ import HowItWorks from './HowItWorks.jsx';
 import Features from './Features.jsx';
 import TryDemo from './TryDemo.jsx';
 import Pricing from './Pricing.jsx';
+import Faq from './Faq.jsx';
 import Contact from './Contact.jsx';
 
 export default function NewSite() {
@@ -16,6 +17,7 @@ export default function NewSite() {
       <Features />
       <TryDemo />
       <Pricing />
+      <Faq />
       <Contact />
     </div>
   );

@@ -1,0 +1,153 @@
+/* White, so it reads as a clear band between the stone pricing section above
+   and the dark contact band below, distinct from both. */
+.faq {
+  background: #ffffff;
+  color: var(--text);
+  padding: clamp(4rem, 8vw, 6rem) 1.5rem;
+}
+
+.faq__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.faq__header {
+  text-align: center;
+}
+
+.faq__label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0;
+}
+
+.faq__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  color: var(--text);
+  margin: 1rem 0 0;
+}
+
+/* Narrower than the 1200px container so the answers keep a comfortable
+   reading measure. Thin dividers cap the top and sit between every row. */
+.faq__list {
+  max-width: 760px;
+  margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
+  border-top: 1px solid var(--border);
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq__q-heading {
+  margin: 0;
+  font: inherit;
+}
+
+/* The whole row is the target. Flex keeps the icon pinned right while the
+   question text wraps in its own column, so a long Georgian or Russian
+   question can never push the icon off the row or overlap it. */
+.faq__question {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.1rem 0.25rem;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+
+.faq__question:hover {
+  color: var(--accent);
+}
+
+/* Open row takes the accent so the active question is obvious. */
+.faq__question--open {
+  color: var(--accent);
+}
+
+.faq__question:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.faq__q-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.faq__icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  margin-top: 0.15rem;
+  color: currentColor;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq__question--open .faq__icon {
+  transform: rotate(180deg);
+}
+
+/* Smooth height reveal without measuring: the panel is a grid that animates
+   from 0fr to 1fr, and the inner wrapper clips the overflow while it grows. */
+.faq__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq__item--open .faq__panel {
+  grid-template-rows: 1fr;
+}
+
+.faq__panel-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.faq__answer {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin: 0;
+  padding: 0 2.5rem 1.4rem 0.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq__panel {
+    transition: none;
+  }
+
+  .faq__icon {
+    transition: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .faq {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .faq__answer {
+    padding-right: 1.25rem;
+  }
+}
