@@ -1,9 +1,11 @@
+/* Sized to the content rather than the viewport, so a slice of the next
+   section stays visible at the bottom as a scroll hint. */
 .hero {
-  min-height: 100vh;
+  min-height: min(86vh, 760px);
   background: var(--ink);
   display: flex;
   align-items: center;
-  padding: 6rem 1.5rem;
+  padding: 3.5rem 1.5rem;
 }
 
 .hero__inner {
@@ -99,7 +101,7 @@
 
 .hero__model {
   width: 100%;
-  height: clamp(340px, 45vh, 560px);
+  height: clamp(320px, 40vh, 480px);
   background: transparent;
 }
 
@@ -133,9 +135,17 @@
   margin: 0.75rem 0 0;
 }
 
+/* Under 900px the hero grows to fit its content instead of being pinned to a
+   height, so the stacked layout can never be squeezed. */
+@media (max-width: 899px) {
+  .hero {
+    min-height: 0;
+  }
+}
+
 @media (max-width: 860px) {
   .hero {
-    padding: 5rem 1.25rem;
+    padding: 3rem 1.25rem;
   }
 
   .hero__inner {
