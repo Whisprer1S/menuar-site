@@ -1,0 +1,123 @@
+/* Pure white against pricing's stone, so the eye reads a hard boundary without
+   a rule. Top padding is untouched to keep the edge against features clean. */
+.trydemo {
+  background: #ffffff;
+  color: var(--text);
+  padding: clamp(5rem, 10vw, 8rem) 1.5rem 4rem;
+}
+
+.trydemo__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.trydemo__header {
+  text-align: center;
+}
+
+.trydemo__label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0;
+}
+
+.trydemo__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  color: var(--text);
+  margin: 1rem 0 0;
+}
+
+.trydemo__sub {
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  max-width: 54ch;
+  margin: 1.25rem auto 0;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.trydemo__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* No card any more: the section is already white, so the code sits directly on
+   it. The 300px floor below is a hard scannability limit. */
+.trydemo__qr-card {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.trydemo__qr-card img {
+  display: block;
+  width: 300px;
+  height: 300px;
+  min-width: 300px;
+  min-height: 300px;
+}
+
+.trydemo__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: var(--ink);
+}
+
+.trydemo__arrow {
+  display: inline-flex;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.trydemo__cta:hover .trydemo__arrow,
+.trydemo__cta:focus-visible .trydemo__arrow {
+  transform: translateX(5px);
+}
+
+.trydemo__note {
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  max-width: 60ch;
+  margin: 1.5rem auto 0;
+  text-align: center;
+}
+
+/* ---- Mobile (max-width 899px): header, then code, then a full width button ---- */
+@media (max-width: 899px) {
+  .trydemo__row {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .trydemo__cta {
+    width: 100%;
+  }
+}
+
+@media (max-width: 860px) {
+  .trydemo {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}

@@ -28,7 +28,7 @@ export default function Footer() {
           <div className="footer__brand">
             <p className="footer__brand-name">Menuar</p>
             <p className="footer__tagline">
-              Premium AR menus for restaurants and cafes
+              Beautiful digital menus for restaurants and cafes
             </p>
           </div>
 
