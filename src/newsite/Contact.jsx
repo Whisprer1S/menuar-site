@@ -1,15 +1,16 @@
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from './i18n/LanguageProvider.jsx';
 import './contact.css';
 
 const WHATSAPP_CTA =
   'https://wa.me/995598119981?text=Hi%20Menuar%2C%20I%20have%20a%20restaurant%20and%20I%27d%20like%20a%20menu';
 
 const MENU_LINKS = [
-  { label: 'How it works', href: '#how-it-works' },
-  { label: 'The menu', href: '#the-menu' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'About', href: '/about' },
-  { label: 'Privacy', href: '/privacy' },
+  { key: 'nav.howItWorks', href: '#how-it-works' },
+  { key: 'nav.theMenu', href: '#the-menu' },
+  { key: 'nav.pricing', href: '#pricing' },
+  { key: 'footer.about', href: '/about' },
+  { key: 'footer.privacy', href: '/privacy' },
 ];
 
 function Arrow() {
@@ -42,6 +43,7 @@ function WhatsAppIcon() {
 
 export default function Contact() {
   const reduce = useReducedMotion();
+  const { t } = useTranslation();
 
   const bandMotion = reduce
     ? {}
@@ -56,18 +58,15 @@ export default function Contact() {
     <>
       <section id="contact" className="contact">
         <motion.div className="contact__inner" {...bandMotion}>
-          <h2 className="contact__title">Let&rsquo;s build your menu</h2>
-          <p className="contact__text">
-            Send us a message and tell us about your venue, we will come back
-            with what your menu could look like and what it would cost
-          </p>
+          <h2 className="contact__title">{t('contact.title')}</h2>
+          <p className="contact__text">{t('contact.text')}</p>
           <a
             className="contact__cta"
             href={WHATSAPP_CTA}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Message us on WhatsApp
+            {t('common.messageUsOnWhatsApp')}
             <Arrow />
           </a>
         </motion.div>
@@ -78,18 +77,16 @@ export default function Contact() {
           <div className="footer__cols">
             <div className="footer__brand">
               <p className="footer__brand-name">Menuar</p>
-              <p className="footer__tagline">
-                Beautiful digital menus for restaurants and cafes
-              </p>
+              <p className="footer__tagline">{t('footer.tagline')}</p>
             </div>
 
             <nav className="footer__col">
-              <p className="footer__heading">Menu</p>
+              <p className="footer__heading">{t('footer.menuHeading')}</p>
               <ul className="footer__links">
                 {MENU_LINKS.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.key}>
                     <a className="footer__link" href={link.href}>
-                      {link.label}
+                      {t(link.key)}
                     </a>
                   </li>
                 ))}
@@ -97,7 +94,7 @@ export default function Contact() {
             </nav>
 
             <div className="footer__col">
-              <p className="footer__heading">Contact</p>
+              <p className="footer__heading">{t('footer.contactHeading')}</p>
               <ul className="footer__links">
                 <li>
                   <a
@@ -114,7 +111,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <p className="footer__bottom">© 2026 Menuar. All rights reserved</p>
+          <p className="footer__bottom">{t('footer.copyright')}</p>
         </div>
       </footer>
     </>

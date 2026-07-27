@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from './i18n/LanguageProvider.jsx';
 import './tokens.css';
 import './hero.css';
 
@@ -10,6 +11,7 @@ const EASE = [0.22, 1, 0.36, 1];
 
 export default function Hero() {
   const reduce = useReducedMotion();
+  const { t } = useTranslation();
   const modelRef = useRef(null);
   const [loaded, setLoaded] = useState(false);
   const [arrowHover, setArrowHover] = useState(false);
@@ -48,7 +50,7 @@ export default function Hero() {
           animate="show"
         >
           <motion.p className="hero__label" variants={item}>
-            Digital menus for restaurants
+            {t('hero.eyebrow')}
           </motion.p>
 
           <div className="hero__headline-mask">
@@ -58,14 +60,12 @@ export default function Hero() {
               animate={{ y: 0 }}
               transition={{ duration: 0.7, ease: EASE }}
             >
-              A digital menu your guests will actually enjoy using
+              {t('hero.headline')}
             </motion.h1>
           </div>
 
           <motion.p className="hero__para" variants={item}>
-            Beautiful on every phone, in three languages, with your signature
-            dishes in photorealistic 3D. Guests scan a QR code at the table and
-            the menu opens instantly
+            {t('hero.paragraph')}
           </motion.p>
 
           <motion.div className="hero__actions" variants={item}>
@@ -79,7 +79,7 @@ export default function Hero() {
               onFocus={() => setArrowHover(true)}
               onBlur={() => setArrowHover(false)}
             >
-              Open the demo menu
+              {t('common.openDemoMenu')}
               <span
                 className="btn__arrow"
                 aria-hidden="true"
@@ -104,19 +104,17 @@ export default function Hero() {
             </a>
 
             <a className="btn btn--secondary" href="#">
-              Talk to us
+              {t('common.talkToUs')}
             </a>
           </motion.div>
 
           <motion.div className="hero__scan" variants={item}>
             <span className="hero__scan-card">
-              <img src="/images/qr-demo.svg.svg" alt="QR code for the demo menu" />
+              <img src="/images/qr-demo.svg.svg" alt={t('common.qrAlt')} />
             </span>
             <span className="hero__scan-text">
-              <span className="hero__scan-line">Scan to try it</span>
-              <span className="hero__scan-line">
-                This is the same code that sits on the table
-              </span>
+              <span className="hero__scan-line">{t('hero.scanTitle')}</span>
+              <span className="hero__scan-line">{t('hero.scanNote')}</span>
             </span>
           </motion.div>
         </motion.div>
@@ -131,7 +129,7 @@ export default function Hero() {
             <div className="hero__phone">
               <img
                 src="/images/feature-menu.jpg"
-                alt="The Menuar menu open on a phone"
+                alt={t('hero.phoneAlt')}
               />
             </div>
 
@@ -152,7 +150,7 @@ export default function Hero() {
                 interaction-prompt="none"
                 shadow-intensity="1"
                 exposure="1"
-                alt="A dish shown in 3D"
+                alt={t('hero.modelAlt')}
               ></model-viewer>
 
               {!loaded && (
@@ -170,13 +168,13 @@ export default function Hero() {
                         : { duration: 1.2, repeat: Infinity, ease: 'easeInOut' }
                     }
                   />
-                  <span className="hero__loader-text">Loading dish&hellip;</span>
+                  <span className="hero__loader-text">{t('hero.loading')}</span>
                 </div>
               )}
             </div>
           </div>
 
-          <p className="hero__hint">Drag to rotate</p>
+          <p className="hero__hint">{t('hero.dragToRotate')}</p>
         </motion.div>
       </div>
     </section>

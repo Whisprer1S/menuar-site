@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from './i18n/LanguageProvider.jsx';
 import './pricing.css';
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -29,47 +30,48 @@ function useIsMobile() {
   return isMobile;
 }
 
+// Tier names, prices and the lari symbol stay in English in every language.
 const TIERS = [
   {
     name: 'Essential',
     featured: false,
-    blurb: 'A beautiful menu for a focused offering',
+    blurbKey: 'pricing.essential.blurb',
     monthly: '₾99',
     arDishes: 3,
-    features: [
-      'Your full menu, designed to match the venue',
-      '3 signature dishes in photorealistic 3D',
-      'Georgian, English and Russian',
-      'QR codes for your tables',
-      'Price and text updates handled by us',
+    featureKeys: [
+      'pricing.essential.feature1',
+      'pricing.essential.feature2',
+      'pricing.essential.feature3',
+      'pricing.essential.feature4',
+      'pricing.essential.feature5',
     ],
   },
   {
     name: 'Signature',
     featured: true,
-    blurb: 'For venues that want their table to stop people mid scroll',
+    blurbKey: 'pricing.signature.blurb',
     monthly: '₾149',
     arDishes: 6,
-    features: [
-      'Everything in Essential',
-      '6 signature dishes in photorealistic 3D',
-      'Deeper custom design around your brand',
-      'Seasonal dish swaps included',
-      'Priority on changes',
+    featureKeys: [
+      'pricing.signature.feature1',
+      'pricing.signature.feature2',
+      'pricing.signature.feature3',
+      'pricing.signature.feature4',
+      'pricing.signature.feature5',
     ],
   },
   {
     name: 'Bespoke',
     featured: false,
-    blurb: 'A one of a kind menu built from a blank page',
+    blurbKey: 'pricing.bespoke.blurb',
     monthly: '₾199',
     arDishes: 10,
-    features: [
-      'Everything in Signature',
-      '10 signature dishes in photorealistic 3D',
-      'A design built for you, not themed from a base',
-      'Extra AR dishes at a reduced rate',
-      'First in line for new features',
+    featureKeys: [
+      'pricing.bespoke.feature1',
+      'pricing.bespoke.feature2',
+      'pricing.bespoke.feature3',
+      'pricing.bespoke.feature4',
+      'pricing.bespoke.feature5',
     ],
   },
 ];
@@ -115,6 +117,7 @@ function Arrow() {
 
 export default function Pricing() {
   const reduce = useReducedMotion();
+  const { t } = useTranslation();
   const isMobile = useIsMobile();
   const scrollerRef = useRef(null);
   const cardRefs = useRef([]);
@@ -193,13 +196,9 @@ export default function Pricing() {
     <section id="pricing" className="pricing">
       <div className="pricing__inner">
         <motion.div className="pricing__header" {...headerMotion}>
-          <p className="pricing__label">Pricing</p>
-          <h2 className="pricing__title">We build it, then we keep it running</h2>
-          <p className="pricing__sub">
-            Every menu is built for the venue it belongs to, so we quote the
-            setup after we talk. The monthly covers hosting and updates, and it
-            stays small
-          </p>
+          <p className="pricing__label">{t('pricing.eyebrow')}</p>
+          <h2 className="pricing__title">{t('pricing.title')}</h2>
+          <p className="pricing__sub">{t('pricing.subtitle')}</p>
         </motion.div>
 
         <motion.div className="pricing__grid" ref={scrollerRef} {...gridMotion}>
@@ -212,31 +211,35 @@ export default function Pricing() {
               }}
               {...cardMotion}
             >
-              {tier.featured && <span className="tier__pill">Most popular</span>}
+              {tier.featured && (
+                <span className="tier__pill">{t('pricing.mostPopular')}</span>
+              )}
 
               <h3 className="tier__name">{tier.name}</h3>
-              <p className="tier__blurb">{tier.blurb}</p>
+              <p className="tier__blurb">{t(tier.blurbKey)}</p>
 
               <div className="tier__price">
                 <p className="tier__price-value">
                   {tier.monthly}
-                  <span className="tier__price-monthly"> / month</span>
+                  <span className="tier__price-monthly">
+                    {t('pricing.perMonth')}
+                  </span>
                 </p>
                 <p
                   className="tier__price-monthly"
                   style={{ fontSize: '0.8rem' }}
                 >
-                  + one off setup fee
+                  {t('pricing.setupFee')}
                 </p>
               </div>
 
               <hr className="tier__divider" />
 
               <ul className="tier__features">
-                {tier.features.map((f) => (
-                  <li key={f} className="tier__feature">
+                {tier.featureKeys.map((key) => (
+                  <li key={key} className="tier__feature">
                     <Check />
-                    <span>{f}</span>
+                    <span>{t(key)}</span>
                   </li>
                 ))}
               </ul>
@@ -251,7 +254,7 @@ export default function Pricing() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Talk to us
+                {t('common.talkToUs')}
                 <Arrow />
               </a>
             </motion.div>
@@ -273,10 +276,7 @@ export default function Pricing() {
           </div>
         )}
 
-        <p className="pricing__footnote">
-          Not sure which fits? Most venues start with six dishes and grow from
-          there, we will tell you honestly what your menu needs
-        </p>
+        <p className="pricing__footnote">{t('pricing.footnote')}</p>
       </div>
     </section>
   );

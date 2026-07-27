@@ -1,61 +1,47 @@
 import PageLayout from './PageLayout.jsx';
+import { useTranslation } from './i18n/LanguageProvider.jsx';
+
+const NOT_COLLECTED_KEYS = [
+  'privacy.notCollected.item1',
+  'privacy.notCollected.item2',
+  'privacy.notCollected.item3',
+  'privacy.notCollected.item4',
+  'privacy.notCollected.item5',
+];
 
 export default function PrivacyPage() {
+  const { t } = useTranslation();
+
   return (
     <PageLayout>
-      <h1 className="page__h1">Privacy Policy</h1>
-      <p className="page__meta">Last updated: July 2026</p>
+      <h1 className="page__h1">{t('privacy.title')}</h1>
+      <p className="page__meta">{t('privacy.lastUpdated')}</p>
 
-      <p className="page__p">
-        Menuar provides premium digital menu experiences for restaurants, cafes
-        and hospitality venues. We respect guest privacy. Visitors can browse
-        Menuar menus without creating an account, logging in, or submitting
-        sensitive personal information
-      </p>
+      <p className="page__p">{t('privacy.intro')}</p>
 
-      <h2 className="page__h2">Information we do not collect</h2>
-      <p className="page__p">
-        Menuar does not require guests to provide any of the following:
-      </p>
+      <h2 className="page__h2">{t('privacy.notCollected.heading')}</h2>
+      <p className="page__p">{t('privacy.notCollected.intro')}</p>
       <ul className="page__list">
-        <li>account details</li>
-        <li>passwords</li>
-        <li>payment information</li>
-        <li>government ID information</li>
-        <li>sensitive personal information</li>
+        {NOT_COLLECTED_KEYS.map((key) => (
+          <li key={key}>{t(key)}</li>
+        ))}
       </ul>
 
-      <h2 className="page__h2">Basic technical information</h2>
-      <p className="page__p">
-        Like most websites, Menuar may process basic technical information
-        needed to operate, protect and improve the website. This may include
-        browser type, device type, page performance, approximate usage activity
-        and technical logs handled by hosting or analytics providers
-      </p>
+      <h2 className="page__h2">{t('privacy.technical.heading')}</h2>
+      <p className="page__p">{t('privacy.technical.body')}</p>
 
-      <h2 className="page__h2">Preferences</h2>
-      <p className="page__p">
-        Menuar may save simple preferences on the user&rsquo;s device, such as
-        selected language or theme, to improve the browsing experience
-      </p>
+      <h2 className="page__h2">{t('privacy.preferences.heading')}</h2>
+      <p className="page__p">{t('privacy.preferences.body')}</p>
 
-      <h2 className="page__h2">Restaurant information</h2>
-      <p className="page__p">
-        Restaurant menu pages may display public information provided by the
-        restaurant, such as dish names, prices, photos, ingredients, working
-        hours and contact links
-      </p>
+      <h2 className="page__h2">{t('privacy.restaurant.heading')}</h2>
+      <p className="page__p">{t('privacy.restaurant.body')}</p>
 
-      <h2 className="page__h2">Third party links</h2>
-      <p className="page__p">
-        Menuar may link to third party services such as Instagram, TikTok,
-        Facebook, WhatsApp or restaurant owned pages. These services have their
-        own privacy policies and data practices
-      </p>
+      <h2 className="page__h2">{t('privacy.thirdParty.heading')}</h2>
+      <p className="page__p">{t('privacy.thirdParty.body')}</p>
 
-      <h2 className="page__h2">Contact</h2>
+      <h2 className="page__h2">{t('privacy.contact.heading')}</h2>
       <p className="page__p">
-        For privacy questions, contact us on WhatsApp at{' '}
+        {t('privacy.contact.body')}{' '}
         <a
           className="page__link page__phone"
           href="https://wa.me/995598119981"
@@ -66,11 +52,8 @@ export default function PrivacyPage() {
         </a>
       </p>
 
-      <h2 className="page__h2">Changes to this policy</h2>
-      <p className="page__p">
-        We may update this Privacy Policy from time to time. The latest version
-        will be available on this page
-      </p>
+      <h2 className="page__h2">{t('privacy.changes.heading')}</h2>
+      <p className="page__p">{t('privacy.changes.body')}</p>
     </PageLayout>
   );
 }

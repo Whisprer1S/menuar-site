@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from './i18n/LanguageProvider.jsx';
+import LanguageSwitcher from './LanguageSwitcher.jsx';
 import './nav.css';
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -25,19 +28,22 @@ export default function Nav() {
 
         <div className="nav__links">
           <a className="nav__link" href="#how-it-works">
-            How it works
+            {t('nav.howItWorks')}
           </a>
           <a className="nav__link" href="#the-menu">
-            The menu
+            {t('nav.theMenu')}
           </a>
           <a className="nav__link" href="#pricing">
-            Pricing
+            {t('nav.pricing')}
           </a>
         </div>
 
-        <a className="nav__cta" href="#contact">
-          Talk to us
-        </a>
+        <div className="nav__end">
+          <LanguageSwitcher />
+          <a className="nav__cta" href="#contact">
+            {t('common.talkToUs')}
+          </a>
+        </div>
       </div>
     </nav>
   );

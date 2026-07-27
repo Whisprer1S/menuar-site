@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from './i18n/LanguageProvider.jsx';
 import './trydemo.css';
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -27,6 +28,7 @@ function Arrow() {
 
 export default function TryDemo() {
   const reduce = useReducedMotion();
+  const { t } = useTranslation();
 
   const headerMotion = reduce
     ? {}
@@ -50,20 +52,14 @@ export default function TryDemo() {
     <section id="try-it" className="trydemo">
       <div className="trydemo__inner">
         <motion.div className="trydemo__header" {...headerMotion}>
-          <p className="trydemo__label">TRY IT</p>
-          <h2 className="trydemo__title">Scan it the way your guests will</h2>
-          <p className="trydemo__sub">
-            Point your phone at the code, or open the demo menu here. This is a
-            real menu, running live, with real dishes in 3D
-          </p>
+          <p className="trydemo__label">{t('tryDemo.eyebrow')}</p>
+          <h2 className="trydemo__title">{t('tryDemo.title')}</h2>
+          <p className="trydemo__sub">{t('tryDemo.paragraph')}</p>
         </motion.div>
 
         <motion.div className="trydemo__row" {...rowMotion}>
           <div className="trydemo__qr-card">
-            <img
-              src="/images/qr-demo.svg.svg"
-              alt="QR code for the demo menu"
-            />
+            <img src="/images/qr-demo.svg.svg" alt={t('common.qrAlt')} />
           </div>
 
           <a
@@ -72,14 +68,12 @@ export default function TryDemo() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Open the demo menu
+            {t('common.openDemoMenu')}
             <Arrow />
           </a>
         </motion.div>
 
-        <p className="trydemo__note">
-          Every code we make is designed to match the venue it belongs to
-        </p>
+        <p className="trydemo__note">{t('tryDemo.note')}</p>
       </div>
     </section>
   );

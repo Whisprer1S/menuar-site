@@ -1,28 +1,18 @@
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from './i18n/LanguageProvider.jsx';
 import './howitworks.css';
 
 const EASE = [0.22, 1, 0.36, 1];
 
 const STEPS = [
-  {
-    num: '01',
-    title: 'We talk',
-    body: 'You tell us about the venue, your menu and how you want it to feel. We look at your space and your dishes and agree what goes into the menu',
-  },
-  {
-    num: '02',
-    title: 'We build it',
-    body: 'Design, photography and 3D scanning of your signature dishes. Every model is made from your real food, so what a guest sees is what arrives at the table',
-  },
-  {
-    num: '03',
-    title: 'You hand it to your guests',
-    body: 'QR codes for your tables and a live menu in three languages. Menu changes and new dishes are handled by us, not left to you',
-  },
+  { num: '01', titleKey: 'howItWorks.step1.title', bodyKey: 'howItWorks.step1.body' },
+  { num: '02', titleKey: 'howItWorks.step2.title', bodyKey: 'howItWorks.step2.body' },
+  { num: '03', titleKey: 'howItWorks.step3.title', bodyKey: 'howItWorks.step3.body' },
 ];
 
 export default function HowItWorks() {
   const reduce = useReducedMotion();
+  const { t } = useTranslation();
 
   const headerMotion = reduce
     ? {}
@@ -58,22 +48,17 @@ export default function HowItWorks() {
     <section id="how-it-works" className="how">
       <div className="how__inner">
         <motion.div {...headerMotion}>
-          <p className="how__label">How it works</p>
-          <h2 className="how__title">
-            A menu built for your restaurant, not a template
-          </h2>
-          <p className="how__intro">
-            We don&rsquo;t hand you a page builder. We build the whole thing for
-            you, then keep it up to date as your menu changes
-          </p>
+          <p className="how__label">{t('howItWorks.eyebrow')}</p>
+          <h2 className="how__title">{t('howItWorks.title')}</h2>
+          <p className="how__intro">{t('howItWorks.intro')}</p>
         </motion.div>
 
         <motion.div className="how__steps" {...gridMotion}>
           {STEPS.map((step) => (
             <motion.div key={step.num} className="how__card" {...cardMotion}>
               <div className="how__num">{step.num}</div>
-              <h3 className="how__card-title">{step.title}</h3>
-              <p className="how__card-body">{step.body}</p>
+              <h3 className="how__card-title">{t(step.titleKey)}</h3>
+              <p className="how__card-body">{t(step.bodyKey)}</p>
             </motion.div>
           ))}
         </motion.div>

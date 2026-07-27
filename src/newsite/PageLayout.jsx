@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import Footer from './Footer.jsx';
+import { useTranslation } from './i18n/LanguageProvider.jsx';
 import './tokens.css';
 import './pages.css';
 
 export default function PageLayout({ children }) {
+  const { t } = useTranslation();
+
   return (
     <div className="page">
       <header className="page__topbar">
@@ -11,7 +14,7 @@ export default function PageLayout({ children }) {
           Menuar
         </Link>
         <Link to="/" className="page__back">
-          Back to site
+          {t('pageLayout.backToSite')}
         </Link>
       </header>
 

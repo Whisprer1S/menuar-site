@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from './i18n/LanguageProvider.jsx';
 import './contact.css';
 
 // Footer for the standalone pages (About, Privacy). Matches the landing-page
 // footer styling, but its section links are absolute (/#...) so they route back
 // to the landing page from any route.
 const MENU_LINKS = [
-  { label: 'How it works', href: '/#how-it-works', internal: false },
-  { label: 'The menu', href: '/#the-menu', internal: false },
-  { label: 'Pricing', href: '/#pricing', internal: false },
-  { label: 'About', href: '/about', internal: true },
-  { label: 'Privacy', href: '/privacy', internal: true },
+  { key: 'nav.howItWorks', href: '/#how-it-works', internal: false },
+  { key: 'nav.theMenu', href: '/#the-menu', internal: false },
+  { key: 'nav.pricing', href: '/#pricing', internal: false },
+  { key: 'footer.about', href: '/about', internal: true },
+  { key: 'footer.privacy', href: '/privacy', internal: true },
 ];
 
 function WhatsAppIcon() {
@@ -21,29 +22,29 @@ function WhatsAppIcon() {
 }
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="footer">
       <div className="footer__inner">
         <div className="footer__cols">
           <div className="footer__brand">
             <p className="footer__brand-name">Menuar</p>
-            <p className="footer__tagline">
-              Beautiful digital menus for restaurants and cafes
-            </p>
+            <p className="footer__tagline">{t('footer.tagline')}</p>
           </div>
 
           <nav className="footer__col">
-            <p className="footer__heading">Menu</p>
+            <p className="footer__heading">{t('footer.menuHeading')}</p>
             <ul className="footer__links">
               {MENU_LINKS.map((link) => (
-                <li key={link.label}>
+                <li key={link.key}>
                   {link.internal ? (
                     <Link className="footer__link" to={link.href}>
-                      {link.label}
+                      {t(link.key)}
                     </Link>
                   ) : (
                     <a className="footer__link" href={link.href}>
-                      {link.label}
+                      {t(link.key)}
                     </a>
                   )}
                 </li>
@@ -52,7 +53,7 @@ export default function Footer() {
           </nav>
 
           <div className="footer__col">
-            <p className="footer__heading">Contact</p>
+            <p className="footer__heading">{t('footer.contactHeading')}</p>
             <ul className="footer__links">
               <li>
                 <a
@@ -69,7 +70,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <p className="footer__bottom">© 2026 Menuar. All rights reserved</p>
+        <p className="footer__bottom">{t('footer.copyright')}</p>
       </div>
     </footer>
   );

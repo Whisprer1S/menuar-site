@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from './i18n/LanguageProvider.jsx';
 import './features.css';
 
 // The carousel and its dots exist below this width only. Above it the cards
@@ -29,26 +30,26 @@ const CARDS = [
   {
     id: 'menu',
     image: '/images/feature-menu.jpg',
-    title: 'Every dish photographed',
-    body: 'A clean, fast menu where every plate is shot properly, not a PDF someone zoomed into',
+    titleKey: 'features.menu.title',
+    bodyKey: 'features.menu.body',
   },
   {
     id: 'ingredients',
     image: '/images/feature-ingredients.jpg',
-    title: 'Ingredients at a glance',
-    body: 'Allergies, vegetarian, spice level, all tagged on the dish so nobody has to ask',
+    titleKey: 'features.ingredients.title',
+    bodyKey: 'features.ingredients.body',
   },
   {
     id: 'language',
     image: '/images/feature-language.jpg',
-    title: 'Read in their language',
-    body: 'Georgian, English and Russian on the same menu, so a tourist orders instead of leaving',
+    titleKey: 'features.language.title',
+    bodyKey: 'features.language.body',
   },
   {
     id: 'selection',
     image: '/images/feature-selection.jpg',
-    title: 'Chosen before you arrive',
-    body: 'Guests add dishes as they browse and read the list back, so ordering takes seconds',
+    titleKey: 'features.selection.title',
+    bodyKey: 'features.selection.body',
   },
 ];
 
@@ -58,6 +59,7 @@ const ROTATIONS = [-2, 0, 2, 4];
 
 export default function Features() {
   const reduce = useReducedMotion();
+  const { t } = useTranslation();
   const isMobile = useIsMobile();
   const scrollerRef = useRef(null);
   const cardRefs = useRef([]);
@@ -106,10 +108,8 @@ export default function Features() {
       />
 
       <div className="features__inner">
-        <p className="features__label">Inside the menu</p>
-        <h2 className="features__title">
-          Everything a guest needs, in the palm of their hand
-        </h2>
+        <p className="features__label">{t('features.eyebrow')}</p>
+        <h2 className="features__title">{t('features.title')}</h2>
 
         <motion.div className="features__layout" {...stackMotion}>
           <div className="features__ar">
@@ -129,14 +129,12 @@ export default function Features() {
                 interaction-prompt="none"
                 shadow-intensity="1"
                 exposure="1"
-                alt="A dish shown in 3D on your table"
+                alt={t('features.ar.modelAlt')}
               ></model-viewer>
             </div>
             <div className="ar-card__caption">
-              <p className="ar-card__eyebrow">THE DIFFERENCE</p>
-              <p className="ar-card__line">
-                Guests see the real dish on their own table before they order
-              </p>
+              <p className="ar-card__eyebrow">{t('features.ar.eyebrow')}</p>
+              <p className="ar-card__line">{t('features.ar.line')}</p>
             </div>
           </div>
 
@@ -165,8 +163,8 @@ export default function Features() {
                     />
                   </div>
                   <div className="feat-card__text">
-                    <h3 className="feat-card__title">{card.title}</h3>
-                    <p className="feat-card__body">{card.body}</p>
+                    <h3 className="feat-card__title">{t(card.titleKey)}</h3>
+                    <p className="feat-card__body">{t(card.bodyKey)}</p>
                   </div>
                 </div>
               );
