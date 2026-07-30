@@ -112,10 +112,6 @@ export default function Hero() {
             <span className="hero__scan-card">
               <img src="/images/qr-demo.svg.svg" alt={t('common.qrAlt')} />
             </span>
-            <span className="hero__scan-text">
-              <span className="hero__scan-line">{t('hero.scanTitle')}</span>
-              <span className="hero__scan-line">{t('hero.scanNote')}</span>
-            </span>
           </motion.div>
         </motion.div>
 

@@ -5,8 +5,8 @@ import './faq.css';
 
 const EASE = [0.22, 1, 0.36, 1];
 
-// q1 through q12, looped rather than written out by hand.
-const QUESTIONS = Array.from({ length: 12 }, (_, i) => `faq.q${i + 1}`);
+// q1 through q11, looped rather than written out by hand.
+const QUESTIONS = Array.from({ length: 11 }, (_, i) => `faq.q${i + 1}`);
 
 function Chevron() {
   return (

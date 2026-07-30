@@ -189,10 +189,8 @@ const en = {
   'faq.q9.answer': 'Yes, and this is the rule we never break. Every 3D model is made from the actual dish the restaurant serves, scanned from the real food. What a guest sees on their table is exactly what arrives on it',
   'faq.q10.question': 'What languages does the menu support?',
   'faq.q10.answer': 'Georgian, English and Russian, on the same menu, switchable with one tap. A tourist reads it in their own language and orders instead of leaving, which is worth real money on a busy night',
-  'faq.q11.question': 'Which venues is this for?',
-  'faq.q11.answer': 'Cafes, restaurants, sushi and Asian spots, pizza places, brunch spots and wine bars, the kind of venue that already cares how it looks. We work with a small number of places in Tbilisi and Batumi',
-  'faq.q12.question': 'How do I start?',
-  'faq.q12.answer': 'You message us on WhatsApp and tell us about your venue. We talk through what your menu needs, then we build it and hand it over ready to put on your tables. That is the whole process',
+  'faq.q11.question': 'How do I start?',
+  'faq.q11.answer': 'You message us on WhatsApp and tell us about your venue. We talk through what your menu needs, then we build it and hand it over ready to put on your tables. That is the whole process',
 
   // ---- Proof ----
   'proof.eyebrow': 'Why it works',
@@ -374,10 +372,8 @@ const ka = {
   'faq.q9.answer': 'დიახ, და ეს წესი ჩვენ არასდროს ვარღვევთ. ყოველი 3D მოდელი იმ ნამდვილი კერძისგან იქმნება, რომელსაც რესტორანი სთავაზობს, ნამდვილი საკვების სკანირებით. რასაც სტუმარი მაგიდაზე ხედავს, ზუსტად ის მიდის მაგიდაზე',
   'faq.q10.question': 'რა ენებს უჭერს მხარს მენიუ?',
   'faq.q10.answer': 'ქართული, ინგლისური და რუსული, ერთსა და იმავე მენიუში, ერთი შეხებით გადართვადი. ტურისტი მას თავის ენაზე კითხულობს და შეუკვეთავს ნაცვლად იმისა, რომ წავიდეს, რაც დატვირთულ საღამოს ნამდვილ ფულს ნიშნავს',
-  'faq.q11.question': 'რომელი სივრცეებისთვისაა ეს?',
-  'faq.q11.answer': 'კაფეები, რესტორნები, სუშისა და აზიური ადგილები, პიცერიები, ბრანჩის ადგილები და ღვინის ბარები, ის სივრცე, რომელსაც უკვე აინტერესებს, როგორ გამოიყურება. ჩვენ თბილისისა და ბათუმის რამდენიმე ადგილთან ვმუშაობთ',
-  'faq.q12.question': 'როგორ დავიწყო?',
-  'faq.q12.answer': 'მოგვწერეთ WhatsApp-ზე და გვიამბეთ თქვენს სივრცეზე. ჩვენ ერთად განვიხილავთ, რა სჭირდება თქვენს მენიუს, შემდეგ ავაგებთ და მზად გადმოგცემთ მაგიდებზე დასადებად. ეს არის მთელი პროცესი',
+  'faq.q11.question': 'როგორ დავიწყო?',
+  'faq.q11.answer': 'მოგვწერეთ WhatsApp-ზე და გვიამბეთ თქვენს სივრცეზე. ჩვენ ერთად განვიხილავთ, რა სჭირდება თქვენს მენიუს, შემდეგ ავაგებთ და მზად გადმოგცემთ მაგიდებზე დასადებად. ეს არის მთელი პროცესი',
 
   // ---- Proof ----
   'proof.eyebrow': 'რატომ მუშაობს',
@@ -559,10 +555,8 @@ const ru = {
   'faq.q9.answer': 'Да, и это правило мы не нарушаем никогда. Каждая 3D модель создаётся из настоящего блюда, которое подаёт ресторан, отсканированного с реальной еды. Что гость видит на столе, то и приносят',
   'faq.q10.question': 'Какие языки поддерживает меню?',
   'faq.q10.answer': 'Грузинский, английский и русский, в одном меню, переключение одним касанием. Турист читает на своём языке и делает заказ вместо того, чтобы уйти, а это реальные деньги в загруженный вечер',
-  'faq.q11.question': 'Для каких заведений это?',
-  'faq.q11.answer': 'Кафе, рестораны, суши и азиатские места, пиццерии, места для бранча и винные бары, те заведения, которым уже важно, как они выглядят. Мы работаем с небольшим числом мест в Тбилиси и Батуми',
-  'faq.q12.question': 'Как начать?',
-  'faq.q12.answer': 'Напишите нам в WhatsApp и расскажите о вашем заведении. Мы обсудим, что нужно вашему меню, затем создадим его и передадим готовым для ваших столов. Это весь процесс',
+  'faq.q11.question': 'Как начать?',
+  'faq.q11.answer': 'Напишите нам в WhatsApp и расскажите о вашем заведении. Мы обсудим, что нужно вашему меню, затем создадим его и передадим готовым для ваших столов. Это весь процесс',
 
   // ---- Proof ----
   'proof.eyebrow': 'Почему это работает',

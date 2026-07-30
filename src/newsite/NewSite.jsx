@@ -1,7 +1,6 @@
 import './tokens.css';
 import Nav from './Nav.jsx';
 import Hero from './Hero.jsx';
-import Proof from './Proof.jsx';
 import HowItWorks from './HowItWorks.jsx';
 import Features from './Features.jsx';
 import TryDemo from './TryDemo.jsx';
@@ -14,7 +13,6 @@ export default function NewSite() {
     <div style={{ background: 'var(--ink)' }}>
       <Nav />
       <Hero />
-      <Proof />
       <HowItWorks />
       <Features />
       <TryDemo />
