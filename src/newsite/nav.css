@@ -56,21 +56,26 @@
   color: var(--text-on-dark);
 }
 
+/* Frosted glass over the dark hero: a low translucent fill plus a blur, so it
+   reads as a soft panel rather than a hard near-white chip. */
 .nav__cta {
   justify-self: end;
   font-family: var(--font-body);
   font-size: 0.9375rem;
   color: var(--text-on-dark);
   text-decoration: none;
-  background: transparent;
-  border: 1px solid var(--text-on-dark-muted);
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(11px);
+  backdrop-filter: blur(11px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 0.5rem 1.125rem;
   border-radius: 6px;
-  transition: border-color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .nav__cta:hover {
-  border-color: var(--text-on-dark);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.28);
 }
 
 @media (max-width: 860px) {
