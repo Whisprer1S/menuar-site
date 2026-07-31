@@ -207,8 +207,8 @@ const en = {
 
   // ---- Inside the menu ----
   'inside.eyebrow': 'inside the menu',
-  'inside.heading': 'Everything your guests get',
-  'inside.subhead': 'A menu built around your dishes, your venue and your guests, not a template',
+  'inside.heading': 'The experience your guests receive',
+  'inside.subhead': 'A menu created around your dishes, your space, and your guests',
   'inside.f1': 'Faster, streamlined service with fewer ordering mistakes',
   'inside.f2': 'Calories, ingredients, and allergens - information that\'s easy to access and understand',
   'inside.f3': 'Guests can easily understand the menu and visualize portion sizes before ordering',
@@ -399,8 +399,8 @@ const ka = {
 
   // ---- Inside the menu ----
   'inside.eyebrow': 'მენიუს შიგნით',
-  'inside.heading': 'ყველაფერი, რასაც თქვენი სტუმარი იღებს',
-  'inside.subhead': 'მენიუ, აგებული თქვენს კერძებზე, თქვენს ობიექტსა და თქვენს სტუმრებზე, და არა შაბლონზე',
+  'inside.heading': 'რას იღებენ თქვენი სტუმრები',
+  'inside.subhead': 'მენიუ, შექმნილი თქვენი კერძების, თქვენი სივრცისა და თქვენი სტუმრებისთვის',
   'inside.f1': 'სწრაფი, გამარტივებული მომსახურება და შეკვეთისას ნაკლები შეცდომები',
   'inside.f2': 'კალორიები, ინგრედიენტები, ალერგენები — ინფორმაცია, რომელიც კომფორტულია',
   'inside.f3': 'სტუმრები მენიუს მარტივად აღიქვამენ და პორციის ზომას ვიზუალურად ხედავენ',
@@ -591,8 +591,8 @@ const ru = {
 
   // ---- Inside the menu ----
   'inside.eyebrow': 'внутри меню',
-  'inside.heading': 'Всё, что получают ваши гости',
-  'inside.subhead': 'Меню, построенное вокруг ваших блюд, вашего заведения и ваших гостей, а не шаблон',
+  'inside.heading': 'Впечатление, которое получают ваши гости',
+  'inside.subhead': 'Меню, созданное вокруг ваших блюд, вашего пространства и ваших гостей',
   'inside.f1': 'Быстрое, отлаженное обслуживание и меньше ошибок при заказе',
   'inside.f2': 'Калории, ингредиенты и аллергены: информация, которую легко найти и понять',
   'inside.f3': 'Гости легко понимают меню и видят размер порции ещё до заказа',
