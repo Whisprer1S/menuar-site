@@ -4,40 +4,34 @@ import './insidemenu.css';
 
 const EASE = [0.22, 1, 0.36, 1];
 
-// Minimal inline line icons in the accent colour, matching the new site's
-// convention (Check, Arrow, Chevron are all inline SVG). One per feature, in
-// neutral shapes that suit whatever the six feature strings turn out to be.
+// Inline line icons in the accent colour, matching the site's inline-SVG style.
+// One per card: speed, info list, eye, languages, sparkle, then the 3D cube for
+// the steps card.
 const ICONS = [
-  // camera
+  // 1 - lightning bolt (faster service)
+  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />,
+  // 2 - clipboard / list (calories, ingredients, allergens)
   <>
-    <rect x="3" y="7" width="18" height="13" rx="2" />
-    <circle cx="12" cy="13.5" r="3.5" />
-    <path d="M8 7l1.4-2h5.2L20 7" />
+    <rect x="5" y="4" width="14" height="17" rx="2" />
+    <path d="M9 4V3.2A1.2 1.2 0 0 1 10.2 2h3.6A1.2 1.2 0 0 1 15 3.2V4" />
+    <path d="M8.5 10.5h7M8.5 14h7M8.5 17.5h4.5" />
   </>,
-  // 3D cube
+  // 3 - eye (understand, visualise)
   <>
-    <path d="M12 2.5l8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5z" />
-    <path d="M12 12l8.5-4.75M12 12v9.5M12 12L3.5 7.25" />
+    <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />
+    <circle cx="12" cy="12" r="3" />
   </>,
-  // globe / languages
+  // 4 - globe (updated, 3 languages)
   <>
     <circle cx="12" cy="12" r="9" />
     <path d="M3 12h18M12 3c2.8 2.8 2.8 15.2 0 18M12 3c-2.8 2.8-2.8 15.2 0 18" />
   </>,
-  // tag / info
+  // 5 - sparkle (engaging, modern)
+  <path d="M12 3l1.6 6.4L20 11l-6.4 1.6L12 19l-1.6-6.4L4 11l6.4-1.6z" />,
+  // 6 - 3D cube (scan, explore, 3D)
   <>
-    <path d="M4 4h7l9 9-7 7-9-9z" />
-    <circle cx="8.5" cy="8.5" r="1.4" />
-  </>,
-  // scan / QR
-  <>
-    <path d="M4 8V5.5a1.5 1.5 0 0 1 1.5-1.5H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16" />
-    <path d="M4 12h16" />
-  </>,
-  // refresh / updates
-  <>
-    <path d="M20 11a8 8 0 0 0-13.7-5.3L4 8M4 13a8 8 0 0 0 13.7 5.3L20 16" />
-    <path d="M4 4.5V8h3.5M20 19.5V16h-3.5" />
+    <path d="M12 2.5l8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5z" />
+    <path d="M12 12l8.5-4.75M12 12v9.5M12 12L3.5 7.25" />
   </>,
 ];
 
@@ -59,11 +53,14 @@ function Icon({ children }) {
   );
 }
 
-const FEATURES = Array.from({ length: 6 }, (_, i) => ({
-  titleKey: `inside.f${i + 1}Title`,
-  bodyKey: `inside.f${i + 1}Body`,
-  icon: ICONS[i],
-}));
+// Cards 1 to 5 are single statements.
+const STATEMENTS = [
+  'inside.f1',
+  'inside.f2',
+  'inside.f3',
+  'inside.f4',
+  'inside.f5',
+];
 
 export default function InsideMenu() {
   const reduce = useReducedMotion();
@@ -121,15 +118,29 @@ export default function InsideMenu() {
           </div>
 
           <motion.div className="inside__cards" {...gridMotion}>
-            {FEATURES.map((f) => (
-              <motion.div key={f.titleKey} className="inside__card" {...cardMotion}>
+            {STATEMENTS.map((key, i) => (
+              <motion.div key={key} className="inside__card" {...cardMotion}>
                 <span className="inside__icon">
-                  <Icon>{f.icon}</Icon>
+                  <Icon>{ICONS[i]}</Icon>
                 </span>
-                <h3 className="inside__card-title">{t(f.titleKey)}</h3>
-                <p className="inside__card-body">{t(f.bodyKey)}</p>
+                <p className="inside__card-text">{t(key)}</p>
               </motion.div>
             ))}
+
+            <motion.div
+              className="inside__card inside__card--steps"
+              {...cardMotion}
+            >
+              <span className="inside__icon">
+                <Icon>{ICONS[5]}</Icon>
+              </span>
+              <h3 className="inside__card-title">{t('inside.f6Title')}</h3>
+              <ol className="inside__steps">
+                <li>{t('inside.f6Step1')}</li>
+                <li>{t('inside.f6Step2')}</li>
+                <li>{t('inside.f6Step3')}</li>
+              </ol>
+            </motion.div>
           </motion.div>
         </div>
       </div>
