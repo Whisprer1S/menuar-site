@@ -220,9 +220,10 @@
     min-height: 0;
   }
 
-  /* Desktop cue only. */
+  /* Kept visible on mobile: it sits in the text column, under the buttons and
+     above the stacked model, so it never overlaps the phone or the dish. */
   .hero__scan {
-    display: none;
+    margin-top: 1.75rem;
   }
 
   /* Less overlap so the menu screenshot stays readable on a small screen. */
@@ -245,9 +246,43 @@
     padding: 3rem 1.25rem;
   }
 
+  /* One clean vertical stack with tightened, even spacing so there is no large
+     empty gap. */
   .hero__inner {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 1.5rem;
+  }
+
+  .hero__para {
+    margin-top: 1rem;
+  }
+
+  .hero__actions {
+    margin-top: 1.5rem;
+  }
+
+  /* Modest QR sitting in the flow under the buttons. */
+  .hero__scan {
+    margin-top: 1.5rem;
+  }
+
+  .hero__scan-card img {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Phone and dish presented as one overlapping pairing, sized to fill the
+     column rather than floating small. */
+  .hero__model-stage {
+    max-width: 360px;
+  }
+
+  .hero__phone {
+    width: 56%;
+  }
+
+  .hero__model-holder {
+    width: 76%;
   }
 }
 
@@ -266,5 +301,15 @@
   .hero__scan-card img {
     width: 84px;
     height: 84px;
+  }
+}
+
+/* On short phones the short-laptop rule above would shrink the QR too far, so
+   keep it at its modest mobile size. Scoped to mobile widths, so the desktop
+   and laptop short-screen behaviour is unchanged. */
+@media (max-width: 860px) and (max-height: 800px) {
+  .hero__scan-card img {
+    width: 100px;
+    height: 100px;
   }
 }
