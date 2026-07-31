@@ -76,9 +76,9 @@ const en = {
 
   // ---- Try the demo ----
   'tryDemo.eyebrow': 'TRY IT',
-  'tryDemo.title': 'Scan it the way your guests will',
+  'tryDemo.title': 'Your guests\' first impression starts with the menu',
   'tryDemo.paragraph':
-    'Point your phone at the code, or open the menu here. This is a real menu, running live, with real dishes in 3D',
+    'See how Menuar transforms a traditional menu into an interactive experience where guests can discover dishes before ordering',
   'tryDemo.note':
     'Every code we make is designed to match the venue it belongs to',
 
@@ -278,9 +278,9 @@ const ka = {
   'features.selection.body':
     'სტუმრები კერძებს დათვალიერებისას ამატებენ და სიას უკან კითხულობენ, ამიტომ შეკვეთას წამები სჭირდება',
   'tryDemo.eyebrow': 'სცადეთ',
-  'tryDemo.title': 'დაასკანერეთ ისე, როგორც თქვენი სტუმარი',
+  'tryDemo.title': 'თქვენი სტუმრების პირველი შთაბეჭდილება იწყება მენიუდან',
   'tryDemo.paragraph':
-    'მიმართეთ ტელეფონი კოდისკენ, ან გახსენით მენიუ აქვე. ეს ნამდვილი მენიუა, ცოცხლად მომუშავე, ნამდვილი კერძებით 3D-ში',
+    'ნახეთ, როგორ გარდაქმნის Menuar ჩვეულებრივ მენიუს ინტერაქტიულ გამოცდილებად, სადაც სტუმრებს შეუძლიათ კერძების ნახვა ჯერ კიდევ შეკვეთამდე.',
   'tryDemo.note': 'ყოველი კოდი იმ სივრცეს ერგება, რომელსაც ეკუთვნის',
   'pricing.eyebrow': 'ფასები',
   'pricing.title': 'ჩვენ ვქმნით და შემდეგ ვინახავთ მუშა მდგომარეობაში',
@@ -469,9 +469,9 @@ const ru = {
   'features.selection.body':
     'Гости добавляют блюда пока смотрят и зачитывают список, поэтому заказ занимает секунды',
   'tryDemo.eyebrow': 'Попробуйте',
-  'tryDemo.title': 'Отсканируйте так, как это сделает ваш гость',
+  'tryDemo.title': 'Первое впечатление ваших гостей начинается с меню',
   'tryDemo.paragraph':
-    'Наведите телефон на код или откройте меню здесь. Это настоящее меню, работающее вживую, с настоящими блюдами в 3D',
+    'Посмотрите, как Menuar превращает обычное меню в интерактивный опыт, где гости могут увидеть блюда ещё до заказа',
   'tryDemo.note':
     'Каждый код мы делаем под то заведение, которому он принадлежит',
   'pricing.eyebrow': 'Цены',
