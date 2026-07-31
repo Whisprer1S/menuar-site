@@ -27,14 +27,17 @@ export default function Nav() {
         </button>
 
         <div className="nav__links">
-          <a className="nav__link" href="#how-it-works">
-            {t('nav.howItWorks')}
+          <a className="nav__link" href="#inside-menu">
+            {t('nav.insideMenu')}
           </a>
-          <a className="nav__link" href="#the-menu">
-            {t('nav.theMenu')}
+          <a className="nav__link" href="#try-it">
+            {t('nav.tryMenu')}
           </a>
           <a className="nav__link" href="#pricing">
             {t('nav.pricing')}
+          </a>
+          <a className="nav__link" href="#faq">
+            {t('nav.questions')}
           </a>
         </div>
 
