@@ -16,9 +16,12 @@
   text-align: center;
 }
 
+/* Now the section's sole title: sized up from the old 14px eyebrow so it
+   carries the header alone, while keeping the uppercase accent look. */
 .faq__label {
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--accent);
@@ -37,7 +40,7 @@
    reading measure. Thin dividers cap the top and sit between every row. */
 .faq__list {
   max-width: 760px;
-  margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
+  margin: clamp(1.5rem, 3vw, 2.25rem) auto 0;
   border-top: 1px solid var(--border);
 }
 
