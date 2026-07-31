@@ -11,7 +11,7 @@
 const en = {
   // ---- shared across more than one component ----
   'common.talkToUs': 'Talk to us',
-  'common.openDemoMenu': 'Open the demo menu',
+  'common.openDemoMenu': 'Open the menu',
   'common.messageUsOnWhatsApp': 'Message us on WhatsApp',
   'common.qrAlt': 'QR code for the demo menu',
 
@@ -78,7 +78,7 @@ const en = {
   'tryDemo.eyebrow': 'TRY IT',
   'tryDemo.title': 'Scan it the way your guests will',
   'tryDemo.paragraph':
-    'Point your phone at the code, or open the demo menu here. This is a real menu, running live, with real dishes in 3D',
+    'Point your phone at the code, or open the menu here. This is a real menu, running live, with real dishes in 3D',
   'tryDemo.note':
     'Every code we make is designed to match the venue it belongs to',
 
@@ -223,7 +223,7 @@ const en = {
 // Georgian.
 const ka = {
   'common.talkToUs': 'დაგვიკავშირდით',
-  'common.openDemoMenu': 'დემო მენიუს გახსნა',
+  'common.openDemoMenu': 'გახსენით მენიუ',
   'common.messageUsOnWhatsApp': 'მოგვწერეთ WhatsApp-ზე',
   'common.qrAlt': 'QR კოდი დემო მენიუსთვის',
   'nav.howItWorks': 'როგორ მუშაობს',
@@ -278,9 +278,9 @@ const ka = {
   'features.selection.body':
     'სტუმრები კერძებს დათვალიერებისას ამატებენ და სიას უკან კითხულობენ, ამიტომ შეკვეთას წამები სჭირდება',
   'tryDemo.eyebrow': 'სცადეთ',
-  'tryDemo.title': 'დაასკანერეთ ისე, როგორც თქვენი სტუმრები გააკეთებენ',
+  'tryDemo.title': 'დაასკანერეთ ისე, როგორც თქვენი სტუმარი',
   'tryDemo.paragraph':
-    'მიმართეთ ტელეფონი კოდს ან გახსენით დემო მენიუ აქვე. ეს რეალური მენიუა, ცოცხლად მუშაობს, ნამდვილი კერძებით 3D-ში',
+    'მიმართეთ ტელეფონი კოდისკენ, ან გახსენით მენიუ აქვე. ეს ნამდვილი მენიუა, ცოცხლად მომუშავე, ნამდვილი კერძებით 3D-ში',
   'tryDemo.note': 'ყოველი კოდი იმ სივრცეს ერგება, რომელსაც ეკუთვნის',
   'pricing.eyebrow': 'ფასები',
   'pricing.title': 'ჩვენ ვქმნით და შემდეგ ვინახავთ მუშა მდგომარეობაში',
@@ -415,7 +415,7 @@ const ka = {
 // Russian.
 const ru = {
   'common.talkToUs': 'Напишите нам',
-  'common.openDemoMenu': 'Открыть демо меню',
+  'common.openDemoMenu': 'Открыть меню',
   'common.messageUsOnWhatsApp': 'Написать в WhatsApp',
   'common.qrAlt': 'QR код для демо меню',
   'nav.howItWorks': 'Как это работает',
@@ -469,9 +469,9 @@ const ru = {
   'features.selection.body':
     'Гости добавляют блюда пока смотрят и зачитывают список, поэтому заказ занимает секунды',
   'tryDemo.eyebrow': 'Попробуйте',
-  'tryDemo.title': 'Отсканируйте так, как это сделают ваши гости',
+  'tryDemo.title': 'Отсканируйте так, как это сделает ваш гость',
   'tryDemo.paragraph':
-    'Наведите телефон на код или откройте демо меню здесь. Это настоящее меню, работающее вживую, с настоящими блюдами в 3D',
+    'Наведите телефон на код или откройте меню здесь. Это настоящее меню, работающее вживую, с настоящими блюдами в 3D',
   'tryDemo.note':
     'Каждый код мы делаем под то заведение, которому он принадлежит',
   'pricing.eyebrow': 'Цены',
