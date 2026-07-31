@@ -109,17 +109,15 @@ export default function InsideMenu() {
         </motion.div>
 
         <div className="inside__row">
-          <div className="inside__phone-col">
-            <div className="inside__phone">
-              <div className="inside__screen">
-                {/* VIDEO GOES HERE */}
-                <span className="inside__play" aria-hidden="true">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </span>
-              </div>
-            </div>
+          <div className="inside__video-col">
+            <video
+              className="inside__video"
+              src="/menu-demo.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
           </div>
 
           <motion.div className="inside__cards" {...gridMotion}>
