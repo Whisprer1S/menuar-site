@@ -197,8 +197,6 @@ export default function Pricing() {
       <div className="pricing__inner">
         <motion.div className="pricing__header" {...headerMotion}>
           <p className="pricing__label">{t('pricing.eyebrow')}</p>
-          <h2 className="pricing__title">{t('pricing.title')}</h2>
-          <p className="pricing__sub">{t('pricing.subtitle')}</p>
         </motion.div>
 
         <motion.div className="pricing__grid" ref={scrollerRef} {...gridMotion}>
@@ -224,12 +222,6 @@ export default function Pricing() {
                   <span className="tier__price-monthly">
                     {t('pricing.perMonth')}
                   </span>
-                </p>
-                <p
-                  className="tier__price-monthly"
-                  style={{ fontSize: '0.8rem' }}
-                >
-                  {t('pricing.setupFee')}
                 </p>
               </div>
 

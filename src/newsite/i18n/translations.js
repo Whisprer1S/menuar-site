@@ -110,7 +110,7 @@ const en = {
   'pricing.bespoke.feature4': 'Extra AR dishes at a reduced rate',
   'pricing.bespoke.feature5': 'First in line for new features',
   'pricing.footnote':
-    'Not sure which fits? Most venues start with six dishes and grow from there, we will tell you honestly what your menu needs',
+    'A one time setup fee applies, quoted after we talk',
 
   // ---- Contact band ----
   'contact.title': 'Let’s build your menu',
@@ -312,7 +312,7 @@ const ka = {
   'pricing.bespoke.feature4': 'დამატებითი AR კერძები შემცირებულ ფასად',
   'pricing.bespoke.feature5': 'პირველები ახალ ფუნქციებზე',
   'pricing.footnote':
-    'ვერ ირჩევთ? სივრცეების უმეტესობა ექვსი კერძით იწყებს და შემდეგ ზრდის, ჩვენ გულწრფელად გეტყვით, რა სჭირდება თქვენს მენიუს',
+    'ემატება ერთჯერადი დაყენების საფასური, რომელსაც შეთანხმების შემდეგ განვსაზღვრავთ',
   'contact.title': 'მოდით, ავაწყოთ თქვენი მენიუ',
   'contact.text':
     'მოგვწერეთ და გვიამბეთ თქვენს სივრცეზე, ჩვენ დაგიბრუნდებით იმით, როგორი შეიძლება იყოს თქვენი მენიუ და რა დაჯდება',
@@ -503,7 +503,7 @@ const ru = {
   'pricing.bespoke.feature4': 'Дополнительные AR блюда по сниженной цене',
   'pricing.bespoke.feature5': 'Первыми получаете новые функции',
   'pricing.footnote':
-    'Не уверены, что подойдёт? Большинство заведений начинают с шести блюд и растут дальше, мы честно скажем, что нужно вашему меню',
+    'Добавляется разовая плата за настройку, которую мы называем после разговора',
   'contact.title': 'Давайте создадим ваше меню',
   'contact.text':
     'Напишите нам и расскажите о вашем заведении, мы вернёмся с тем, как может выглядеть ваше меню и сколько это будет стоить',
