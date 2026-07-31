@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from './i18n/LanguageProvider.jsx';
 import './insidemenu.css';
@@ -68,6 +69,25 @@ const FEATURES = Array.from({ length: 6 }, (_, i) => ({
 export default function InsideMenu() {
   const reduce = useReducedMotion();
   const { t } = useTranslation();
+  const videoRef = useRef(null);
+  const fillRef = useRef(null);
+
+  // Drive the progress fill straight from the real video via refs, so it stays
+  // in sync with the actual loop (including the reset to 0 on restart). Setting
+  // the width imperatively avoids a React re-render on every timeupdate.
+  useEffect(() => {
+    const video = videoRef.current;
+    const fill = fillRef.current;
+    if (!video || !fill) return undefined;
+    const onTimeUpdate = () => {
+      const pct = video.duration
+        ? (video.currentTime / video.duration) * 100
+        : 0;
+      fill.style.width = `${pct}%`;
+    };
+    video.addEventListener('timeupdate', onTimeUpdate);
+    return () => video.removeEventListener('timeupdate', onTimeUpdate);
+  }, []);
 
   const headerMotion = reduce
     ? {}
@@ -110,14 +130,20 @@ export default function InsideMenu() {
 
         <div className="inside__row">
           <div className="inside__video-col">
-            <video
-              className="inside__video"
-              src="/menu-demo.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
+            <div className="inside__video-frame">
+              <video
+                ref={videoRef}
+                className="inside__video"
+                src="/menu-demo.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+              <div className="inside__progress" aria-hidden="true">
+                <div className="inside__progress-fill" ref={fillRef} />
+              </div>
+            </div>
           </div>
 
           <motion.div className="inside__cards" {...gridMotion}>

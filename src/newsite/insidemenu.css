@@ -56,16 +56,44 @@
   justify-content: center;
 }
 
-/* The looping demo at its own natural aspect ratio, never cropped. The dark
-   background stops a white flash before the first frame paints. */
+/* Rounded frame around the video so the progress bar can be pinned to the
+   bottom and clipped to the same rounded corners. The dark background stops a
+   white flash before the first frame paints. */
+.inside__video-frame {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: var(--ink);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+/* The looping demo at its own natural aspect ratio, never cropped. */
 .inside__video {
   display: block;
   width: 100%;
-  max-width: 300px;
   height: auto;
-  border-radius: 28px;
-  background: var(--ink);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+/* Thin YouTube-style progress line pinned to the bottom of the video, inside
+   the rounded frame. Display only: never clickable or interactive. */
+.inside__progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.18);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.inside__progress-fill {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  pointer-events: none;
 }
 
 .inside__cards {
