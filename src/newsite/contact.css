@@ -144,6 +144,16 @@
   color: var(--text-on-dark-muted);
 }
 
+/* Sits just under the copyright in the same small muted style. Fixed English
+   in every language, so it is hardcoded rather than translated. */
+.footer__designed {
+  margin: 0.5rem 0 0;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--text-on-dark-muted);
+}
+
 @media (max-width: 767px) {
   .footer__cols {
     grid-template-columns: 1fr;

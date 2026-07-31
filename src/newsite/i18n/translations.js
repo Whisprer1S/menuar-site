@@ -118,7 +118,7 @@ const en = {
     'Send us a message and tell us about your venue, we will come back with what your menu could look like and what it would cost',
 
   // ---- Footer (shared by Contact.jsx and Footer.jsx) ----
-  'footer.tagline': 'Beautiful digital menus for restaurants and cafes',
+  'footer.tagline': 'Digital menus for restaurants and cafes',
   'footer.menuHeading': 'Menu',
   'footer.contactHeading': 'Contact',
   'footer.about': 'About',
@@ -316,7 +316,7 @@ const ka = {
   'contact.title': 'თქვენი მენიუ იწყება აქ',
   'contact.text':
     'მოგვწერეთ და გვიამბეთ თქვენს სივრცეზე, ჩვენ დაგიბრუნდებით იმით, როგორი შეიძლება იყოს თქვენი მენიუ და რა დაჯდება',
-  'footer.tagline': 'ლამაზი ციფრული მენიუები რესტორნებისა და კაფეებისთვის',
+  'footer.tagline': 'ციფრული მენიუები რესტორნებისა და კაფეებისთვის',
   'footer.menuHeading': 'მენიუ',
   'footer.contactHeading': 'კონტაქტი',
   'footer.about': 'შესახებ',
@@ -507,7 +507,7 @@ const ru = {
   'contact.title': 'Ваше меню начинается здесь',
   'contact.text':
     'Напишите нам и расскажите о вашем заведении, мы вернёмся с тем, как может выглядеть ваше меню и сколько это будет стоить',
-  'footer.tagline': 'Красивые цифровые меню для ресторанов и кафе',
+  'footer.tagline': 'Цифровые меню для ресторанов и кафе',
   'footer.menuHeading': 'Меню',
   'footer.contactHeading': 'Контакты',
   'footer.about': 'О нас',
