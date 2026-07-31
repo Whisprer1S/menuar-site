@@ -110,7 +110,8 @@ export default function Contact() {
             </div>
           </div>
 
-          <p className="footer__bottom">{t('footer.copyright')}</p>
+          {/* Fixed English in every language, like the designed-by line below. */}
+          <p className="footer__bottom">© 2026 Menuar. All rights reserved</p>
           {/* Fixed English wordmark line, identical in every language. */}
           <p className="footer__designed">Designed with 🤍 by Menuar</p>
         </div>

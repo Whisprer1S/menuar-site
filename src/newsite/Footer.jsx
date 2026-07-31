@@ -70,7 +70,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <p className="footer__bottom">{t('footer.copyright')}</p>
+        {/* Fixed English in every language. */}
+        <p className="footer__bottom">© 2026 Menuar. All rights reserved</p>
       </div>
     </footer>
   );
