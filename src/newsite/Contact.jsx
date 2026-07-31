@@ -59,7 +59,6 @@ export default function Contact() {
       <section id="contact" className="contact">
         <motion.div className="contact__inner" {...bandMotion}>
           <h2 className="contact__title">{t('contact.title')}</h2>
-          <p className="contact__text">{t('contact.text')}</p>
           <a
             className="contact__cta"
             href={WHATSAPP_CTA}

@@ -113,7 +113,7 @@ const en = {
     'A one time setup fee applies, quoted after we talk',
 
   // ---- Contact band ----
-  'contact.title': 'Let’s build your menu',
+  'contact.title': 'Your menu starts here',
   'contact.text':
     'Send us a message and tell us about your venue, we will come back with what your menu could look like and what it would cost',
 
@@ -313,7 +313,7 @@ const ka = {
   'pricing.bespoke.feature5': 'პირველები ახალ ფუნქციებზე',
   'pricing.footnote':
     'ემატება ერთჯერადი დაყენების საფასური, რომელსაც შეთანხმების შემდეგ განვსაზღვრავთ',
-  'contact.title': 'მოდით, ავაწყოთ თქვენი მენიუ',
+  'contact.title': 'თქვენი მენიუ იწყება აქ',
   'contact.text':
     'მოგვწერეთ და გვიამბეთ თქვენს სივრცეზე, ჩვენ დაგიბრუნდებით იმით, როგორი შეიძლება იყოს თქვენი მენიუ და რა დაჯდება',
   'footer.tagline': 'ლამაზი ციფრული მენიუები რესტორნებისა და კაფეებისთვის',
@@ -504,7 +504,7 @@ const ru = {
   'pricing.bespoke.feature5': 'Первыми получаете новые функции',
   'pricing.footnote':
     'Добавляется разовая плата за настройку, которую мы называем после разговора',
-  'contact.title': 'Давайте создадим ваше меню',
+  'contact.title': 'Ваше меню начинается здесь',
   'contact.text':
     'Напишите нам и расскажите о вашем заведении, мы вернёмся с тем, как может выглядеть ваше меню и сколько это будет стоить',
   'footer.tagline': 'Красивые цифровые меню для ресторанов и кафе',
