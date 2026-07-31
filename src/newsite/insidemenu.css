@@ -1,0 +1,153 @@
+/* Stone background: a clear boundary from the dark hero above and distinct
+   from the white demo section below. Matches the other light sections. */
+.inside {
+  background: var(--stone);
+  color: var(--text);
+  padding: clamp(5rem, 10vw, 8rem) 1.5rem;
+}
+
+.inside__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.inside__header {
+  text-align: center;
+}
+
+.inside__label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0;
+}
+
+.inside__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3.3vw, 2.5rem);
+  line-height: 1.1;
+  color: var(--text);
+  margin: 1rem 0 0;
+}
+
+.inside__sub {
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  max-width: 54ch;
+  margin: 1.25rem auto 0;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+/* Phone on the left, the six cards on the right. */
+.inside__row {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.inside__phone-col {
+  display: flex;
+  justify-content: center;
+}
+
+/* Rounded device frame with a dark screen reserved for the looping demo. */
+.inside__phone {
+  width: 100%;
+  max-width: 260px;
+  background: var(--ink);
+  border-radius: 34px;
+  padding: 10px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+.inside__screen {
+  position: relative;
+  aspect-ratio: 9 / 19.5;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #0b0a09;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inside__play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  color: var(--accent);
+  background: rgba(217, 123, 69, 0.14);
+  border: 1px solid rgba(217, 123, 69, 0.4);
+}
+
+/* Nudge the triangle to sit optically centred in its circle. */
+.inside__play svg {
+  margin-left: 3px;
+}
+
+.inside__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.inside__card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+
+.inside__icon {
+  display: inline-flex;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.inside__card-title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  line-height: 1.25;
+  color: var(--text);
+  margin: 0;
+}
+
+.inside__card-body {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0.5rem 0 0;
+}
+
+/* Mobile: stack the columns, phone first, then the cards in one column. */
+@media (max-width: 860px) {
+  .inside {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .inside__row {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    justify-items: center;
+  }
+
+  .inside__cards {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+}

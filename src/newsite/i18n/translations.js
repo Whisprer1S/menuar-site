@@ -209,6 +209,23 @@ const en = {
   'proof.stat3.body': 'Guests who cannot read the menu play it safe or leave, so a menu in their language keeps the order',
   'proof.stat3.source': 'Hospitality and tourism research',
   'proof.footnote': 'These are general findings about photo and multilingual menus, not a promise of a specific result for your venue',
+
+  // ---- Inside the menu ----
+  'inside.eyebrow': 'inside the menu',
+  'inside.heading': 'Everything your guests get',
+  'inside.subhead': 'A menu built around your dishes, your venue and your guests, not a template',
+  'inside.f1Title': 'See it in 3D',
+  'inside.f1Body': 'Your real dish on their own table before they order',
+  'inside.f2Title': 'Calories, ingredients, allergens',
+  'inside.f2Body': 'The information guests want, laid out clearly on every dish',
+  'inside.f3Title': 'Real portion sizes',
+  'inside.f3Body': 'Guests see what arrives, they don\'t guess it from a line of text',
+  'inside.f4Title': 'Show the waiter',
+  'inside.f4Body': 'One tap builds a selection to show at the table, fewer mistakes and faster service',
+  'inside.f5Title': 'Three languages, always current',
+  'inside.f5Body': 'The menu updates the moment you change a dish, in all three languages',
+  'inside.f6Title': 'Made for your venue',
+  'inside.f6Body': 'A beautiful, modern menu tuned to your restaurant, updated whenever you need',
 };
 
 // Georgian.
@@ -392,6 +409,23 @@ const ka = {
   'proof.stat3.body': 'სტუმარი, რომელიც მენიუს ვერ კითხულობს, ან უსაფრთხოს ირჩევს ან მიდის, ამიტომ მისივე ენაზე მენიუ შეკვეთას ინარჩუნებს',
   'proof.stat3.source': 'სასტუმრო და ტურიზმის კვლევა',
   'proof.footnote': 'ეს ზოგადი დასკვნებია ფოტო და მრავალენოვან მენიუებზე და არა კონკრეტული შედეგის დაპირება თქვენი სივრცისთვის',
+
+  // ---- Inside the menu ----
+  'inside.eyebrow': 'მენიუს შიგნით',
+  'inside.heading': 'ყველაფერი, რასაც თქვენი სტუმარი იღებს',
+  'inside.subhead': 'მენიუ, აგებული თქვენს კერძებზე, თქვენს ობიექტსა და თქვენს სტუმრებზე, და არა შაბლონზე',
+  'inside.f1Title': 'ნახეთ 3D-ში',
+  'inside.f1Body': 'თქვენი ნამდვილი კერძი მათ მაგიდაზე, შეკვეთამდე',
+  'inside.f2Title': 'კალორიები, ინგრედიენტები, ალერგენები',
+  'inside.f2Body': 'ინფორმაცია, რომელიც სტუმარს სჭირდება, გადმოცემული ნათლად ყველა კერძზე',
+  'inside.f3Title': 'ნამდვილი პორციის ზომა',
+  'inside.f3Body': 'სტუმარი ხედავს, რა მოვა, და არ ხვდება ტექსტის ხაზიდან',
+  'inside.f4Title': 'აჩვენეთ მიმტანს',
+  'inside.f4Body': 'ერთი შეხებით იქმნება შერჩევა, რომელსაც მაგიდასთან აჩვენებთ, ნაკლები შეცდომა და უფრო სწრაფი მომსახურება',
+  'inside.f5Title': 'სამი ენა, ყოველთვის განახლებული',
+  'inside.f5Body': 'მენიუ ახლდება იმ წამს, როცა კერძს შეცვლით, სამივე ენაზე',
+  'inside.f6Title': 'თქვენს ობიექტზე მორგებული',
+  'inside.f6Body': 'ლამაზი, თანამედროვე მენიუ, მორგებული თქვენს რესტორანზე, განახლებადი მაშინ, როცა დაგჭირდებათ',
 };
 
 // Russian.
@@ -575,6 +609,23 @@ const ru = {
   'proof.stat3.body': 'Гость, который не может прочитать меню, выбирает знакомое или уходит, поэтому меню на его языке сохраняет заказ',
   'proof.stat3.source': 'Исследования гостеприимства и туризма',
   'proof.footnote': 'Это общие выводы о меню с фото и на нескольких языках, а не обещание конкретного результата для вашего заведения',
+
+  // ---- Inside the menu ----
+  'inside.eyebrow': 'внутри меню',
+  'inside.heading': 'Всё, что получают ваши гости',
+  'inside.subhead': 'Меню, построенное вокруг ваших блюд, вашего заведения и ваших гостей, а не шаблон',
+  'inside.f1Title': 'Покажите в 3D',
+  'inside.f1Body': 'Ваше настоящее блюдо у них на столе ещё до заказа',
+  'inside.f2Title': 'Калории, ингредиенты, аллергены',
+  'inside.f2Body': 'Информация, которая нужна гостю, ясно показана на каждом блюде',
+  'inside.f3Title': 'Реальный размер порции',
+  'inside.f3Body': 'Гость видит, что придёт, а не гадает по строчке текста',
+  'inside.f4Title': 'Покажите официанту',
+  'inside.f4Body': 'Одно касание собирает список, чтобы показать за столом, меньше ошибок и быстрее обслуживание',
+  'inside.f5Title': 'Три языка, всегда актуально',
+  'inside.f5Body': 'Меню обновляется в тот момент, когда вы меняете блюдо, на всех трёх языках',
+  'inside.f6Title': 'Под ваше заведение',
+  'inside.f6Body': 'Красивое, современное меню под ваш ресторан, обновляется тогда, когда нужно',
 };
 
 export const translations = { en, ka, ru };
