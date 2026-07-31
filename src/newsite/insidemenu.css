@@ -18,9 +18,10 @@
 
 .inside__label {
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--eyebrow-tracking);
   color: var(--accent);
   margin: 0;
 }
