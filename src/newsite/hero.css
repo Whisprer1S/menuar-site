@@ -177,6 +177,8 @@
   width: 100%;
   height: 100%;
   background: transparent;
+  /* Display only: ignore all tap, drag and pinch input. */
+  pointer-events: none;
 }
 
 .hero__loader {

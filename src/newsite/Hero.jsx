@@ -134,14 +134,9 @@ export default function Hero() {
                 ref={modelRef}
                 class="hero__model"
                 src={MODEL_SRC}
-                camera-controls=""
                 auto-rotate=""
-                auto-rotate-delay="1000"
-                rotation-per-second="18deg"
-                ar={true}
-                ar-modes="webxr scene-viewer quick-look"
-                min-camera-orbit="auto 25deg auto"
-                max-camera-orbit="auto 85deg auto"
+                auto-rotate-delay="0"
+                rotation-per-second="20deg"
                 camera-orbit="15deg 70deg auto"
                 interaction-prompt="none"
                 shadow-intensity="1"
@@ -169,8 +164,6 @@ export default function Hero() {
               )}
             </div>
           </div>
-
-          <p className="hero__hint">{t('hero.dragToRotate')}</p>
         </motion.div>
       </div>
     </section>
