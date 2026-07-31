@@ -1,10 +1,10 @@
 /* ---- Part A: contact band ---- */
-/* Roughly 40% off the old clamp(4rem, 8vw, 6rem) so this reads as a compact
-   closing band rather than a full screen. */
+/* Compact closing band. Tightened again once the subhead was removed so just
+   the heading and button sit balanced with no large empty black area. */
 .contact {
   background: var(--ink);
   color: var(--text-on-dark);
-  padding: clamp(2.5rem, 5vw, 3.5rem) 1.5rem;
+  padding: clamp(2rem, 4vw, 2.75rem) 1.5rem;
   text-align: center;
 }
 
@@ -16,8 +16,10 @@
 
 .contact__title {
   font-family: var(--font-display);
-  font-size: clamp(1.65rem, 3.3vw, 2.5rem);
-  line-height: 1.1;
+  font-size: var(--section-heading-size);
+  line-height: 1.18;
+  /* Room under the last line for the deepest Georgian descender (წ). */
+  padding-bottom: 0.15em;
   color: var(--text-on-dark);
   margin: 0;
 }
@@ -32,7 +34,7 @@
 }
 
 .contact__cta {
-  margin: 1.5rem auto 0;
+  margin: 1.25rem auto 0;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -138,6 +140,16 @@
   margin-top: clamp(2.5rem, 5vw, 3.5rem);
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--text-on-dark-muted);
+}
+
+/* Sits just under the copyright in the same small muted style. Fixed English
+   in every language, so it is hardcoded rather than translated. */
+.footer__designed {
+  margin: 0.5rem 0 0;
   text-align: center;
   font-family: var(--font-body);
   font-size: 0.8125rem;

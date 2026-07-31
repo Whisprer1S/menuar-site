@@ -5,8 +5,8 @@ import './faq.css';
 
 const EASE = [0.22, 1, 0.36, 1];
 
-// q1 through q11, looped rather than written out by hand.
-const QUESTIONS = Array.from({ length: 11 }, (_, i) => `faq.q${i + 1}`);
+// q1 through q7, looped rather than written out by hand.
+const QUESTIONS = Array.from({ length: 7 }, (_, i) => `faq.q${i + 1}`);
 
 function Chevron() {
   return (
@@ -47,7 +47,6 @@ export default function Faq() {
       <div className="faq__inner">
         <motion.div className="faq__header" {...headerMotion}>
           <p className="faq__label">{t('faq.eyebrow')}</p>
-          <h2 className="faq__title">{t('faq.title')}</h2>
         </motion.div>
 
         <div className="faq__list">

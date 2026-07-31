@@ -14,6 +14,16 @@
      so Noto Serif sits behind it to catch Russian headings. */
   --font-display: 'Noto Serif Georgian', 'Noto Serif', Georgia, serif;
   --font-body: 'FiraGO', system-ui, sans-serif;
+  /* Shared by the four section eyebrow labels (Inside the menu, Try it,
+     Pricing, Questions) so they stay identical in size and weight. Colour is
+     --accent, transform uppercase and family --font-body in each rule. */
+  --eyebrow-size: clamp(1rem, 1.8vw, 1.25rem);
+  --eyebrow-weight: 500;
+  --eyebrow-tracking: 0.1em;
+  /* Main section H2 headings (Inside the menu, Try it, Pricing, Questions,
+     Contact) share this so they stay proportional. Reduced ~12% from the old
+     clamp(1.65rem, 3.3vw, 2.5rem). The hero H1 is larger and sets its own. */
+  --section-heading-size: clamp(1.45rem, 2.9vw, 2.2rem);
 }
 
 * {

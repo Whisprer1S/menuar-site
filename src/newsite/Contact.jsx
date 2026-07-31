@@ -5,12 +5,12 @@ import './contact.css';
 const WHATSAPP_CTA =
   'https://wa.me/995598119981?text=Hi%20Menuar%2C%20I%20have%20a%20restaurant%20and%20I%27d%20like%20a%20menu';
 
+// Mirrors the top nav exactly: same label keys, same section anchors.
 const MENU_LINKS = [
-  { key: 'nav.howItWorks', href: '#how-it-works' },
-  { key: 'nav.theMenu', href: '#the-menu' },
+  { key: 'nav.insideMenu', href: '#inside-menu' },
+  { key: 'nav.tryMenu', href: '#try-it' },
   { key: 'nav.pricing', href: '#pricing' },
-  { key: 'footer.about', href: '/about' },
-  { key: 'footer.privacy', href: '/privacy' },
+  { key: 'nav.questions', href: '#faq' },
 ];
 
 function Arrow() {
@@ -59,7 +59,6 @@ export default function Contact() {
       <section id="contact" className="contact">
         <motion.div className="contact__inner" {...bandMotion}>
           <h2 className="contact__title">{t('contact.title')}</h2>
-          <p className="contact__text">{t('contact.text')}</p>
           <a
             className="contact__cta"
             href={WHATSAPP_CTA}
@@ -111,7 +110,10 @@ export default function Contact() {
             </div>
           </div>
 
-          <p className="footer__bottom">{t('footer.copyright')}</p>
+          {/* Fixed English in every language, like the designed-by line below. */}
+          <p className="footer__bottom">© 2026 Menuar. All rights reserved</p>
+          {/* Fixed English wordmark line, identical in every language. */}
+          <p className="footer__designed">Designed with 🤍 by Menuar</p>
         </div>
       </footer>
     </>

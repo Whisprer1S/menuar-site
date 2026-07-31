@@ -31,18 +31,24 @@
   margin: 0 0 1.25rem;
 }
 
+/* overflow:hidden drives the headline slide-up reveal, so it stays. The bottom
+   padding is the room descenders (Georgian/Russian) need to clear the clip. */
 .hero__headline-mask {
   overflow: hidden;
-  padding-bottom: 0.1em;
+  padding-bottom: 0.5rem;
 }
 
-/* One step down from the old clamp(2.75rem, 6vw, 5rem): the headline is longer
-   now and needs to stay within three lines on a laptop. */
+/* Trimmed ~12% from clamp(1.85rem, 3.8vw, 3.1rem) to match the section-heading
+   reduction; still the largest heading, and stays within three lines on a
+   laptop. */
 .hero__headline {
   font-family: var(--font-display);
   color: var(--text-on-dark);
-  font-size: clamp(1.85rem, 3.8vw, 3.1rem);
-  line-height: 1.05;
+  font-size: clamp(1.63rem, 3.34vw, 2.73rem);
+  line-height: 1.18;
+  /* Room under the last line for the deepest Georgian descender (წ), without
+     loosening the spacing between lines. */
+  padding-bottom: 0.15em;
   margin: 0;
 }
 

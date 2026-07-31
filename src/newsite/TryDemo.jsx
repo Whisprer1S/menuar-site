@@ -72,8 +72,6 @@ export default function TryDemo() {
             <Arrow />
           </a>
         </motion.div>
-
-        <p className="trydemo__note">{t('tryDemo.note')}</p>
       </div>
     </section>
   );
