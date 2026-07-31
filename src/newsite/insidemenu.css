@@ -28,7 +28,7 @@
 
 .inside__title {
   font-family: var(--font-display);
-  font-size: clamp(1.65rem, 3.3vw, 2.5rem);
+  font-size: var(--section-heading-size);
   line-height: 1.1;
   color: var(--text);
   margin: 1rem 0 0;

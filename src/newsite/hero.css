@@ -36,12 +36,13 @@
   padding-bottom: 0.1em;
 }
 
-/* One step down from the old clamp(2.75rem, 6vw, 5rem): the headline is longer
-   now and needs to stay within three lines on a laptop. */
+/* Trimmed ~12% from clamp(1.85rem, 3.8vw, 3.1rem) to match the section-heading
+   reduction; still the largest heading, and stays within three lines on a
+   laptop. */
 .hero__headline {
   font-family: var(--font-display);
   color: var(--text-on-dark);
-  font-size: clamp(1.85rem, 3.8vw, 3.1rem);
+  font-size: clamp(1.63rem, 3.34vw, 2.73rem);
   line-height: 1.05;
   margin: 0;
 }

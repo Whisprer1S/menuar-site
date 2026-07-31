@@ -20,6 +20,10 @@
   --eyebrow-size: clamp(1rem, 1.8vw, 1.25rem);
   --eyebrow-weight: 500;
   --eyebrow-tracking: 0.1em;
+  /* Main section H2 headings (Inside the menu, Try it, Pricing, Questions,
+     Contact) share this so they stay proportional. Reduced ~12% from the old
+     clamp(1.65rem, 3.3vw, 2.5rem). The hero H1 is larger and sets its own. */
+  --section-heading-size: clamp(1.45rem, 2.9vw, 2.2rem);
 }
 
 * {
