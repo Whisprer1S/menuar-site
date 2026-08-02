@@ -42,11 +42,10 @@ const TIERS = [
       'pricing.essential.feature2',
       'pricing.essential.feature3',
       'pricing.essential.feature4',
-      'pricing.essential.feature5',
     ],
   },
   {
-    name: 'Signature',
+    name: 'Essential',
     featured: true,
     monthly: '₾149',
     arDishes: 6,
@@ -56,6 +55,7 @@ const TIERS = [
       'pricing.signature.feature3',
       'pricing.signature.feature4',
       'pricing.signature.feature5',
+      'pricing.signature.feature6',
     ],
   },
   {
@@ -69,7 +69,6 @@ const TIERS = [
       'pricing.bespoke.feature2',
       'pricing.bespoke.feature3',
       'pricing.bespoke.feature4',
-      'pricing.bespoke.feature5',
     ],
   },
 ];
