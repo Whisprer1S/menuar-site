@@ -64,8 +64,15 @@
   flex-direction: column;
 }
 
+/* Illuminated "most popular" card: terracotta border plus a soft blurred halo
+   in the same accent. color-mix keeps the glow tied to the theme --accent
+   rather than a hardcoded hex. position:relative anchors the floating pill. */
 .tier--featured {
+  position: relative;
   border: 2px solid var(--accent);
+  box-shadow:
+    0 0 26px color-mix(in srgb, var(--accent) 30%, transparent),
+    0 18px 50px color-mix(in srgb, var(--accent) 26%, transparent);
 }
 
 .tier__pill {
@@ -79,6 +86,20 @@
   padding: 4px 12px;
   border-radius: 6px;
   margin-bottom: 1rem;
+}
+
+/* The badge floats as a pill centred on the card's top edge, overlapping it,
+   with its own soft accent glow. Absolute so it no longer occupies flow, which
+   also lines the card's content up with its neighbours. */
+.tier--featured .tier__pill {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 4px 18px color-mix(in srgb, var(--accent) 45%, transparent);
 }
 
 .tier__name {
@@ -216,6 +237,9 @@
     gap: 1rem;
     margin-inline: -1.5rem;
     padding-inline: 7.5vw;
+    /* Room inside the clip region for the featured card's floating pill and
+       halo, which would otherwise be cropped by overflow-y: hidden. */
+    padding-block: 1.5rem;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;

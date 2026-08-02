@@ -33,7 +33,7 @@ function useIsMobile() {
 // Tier names, prices and the lari symbol stay in English in every language.
 const TIERS = [
   {
-    name: 'Essential',
+    name: 'Basic',
     featured: false,
     blurbKey: 'pricing.essential.blurb',
     monthly: '₾99',
@@ -61,10 +61,11 @@ const TIERS = [
     ],
   },
   {
-    name: 'Bespoke',
+    name: 'Custom',
     featured: false,
     blurbKey: 'pricing.bespoke.blurb',
-    monthly: '₾199',
+    monthly: null,
+    priceText: "Let's talk",
     arDishes: 10,
     featureKeys: [
       'pricing.bespoke.feature1',
@@ -218,10 +219,16 @@ export default function Pricing() {
 
               <div className="tier__price">
                 <p className="tier__price-value">
-                  {tier.monthly}
-                  <span className="tier__price-monthly">
-                    {t('pricing.perMonth')}
-                  </span>
+                  {tier.monthly ? (
+                    <>
+                      {tier.monthly}
+                      <span className="tier__price-monthly">
+                        {t('pricing.perMonth')}
+                      </span>
+                    </>
+                  ) : (
+                    tier.priceText
+                  )}
                 </p>
               </div>
 

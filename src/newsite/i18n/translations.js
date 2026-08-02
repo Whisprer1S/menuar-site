@@ -103,12 +103,12 @@ const en = {
   'pricing.signature.feature3': 'Deeper custom design around your brand',
   'pricing.signature.feature4': 'Seasonal dish swaps included',
   'pricing.signature.feature5': 'Priority on changes',
-  'pricing.bespoke.blurb': 'A one of a kind menu built from a blank page',
+  'pricing.bespoke.blurb': 'For one of a kind venues and special projects, shaped entirely around you',
   'pricing.bespoke.feature1': 'Everything in Signature',
-  'pricing.bespoke.feature2': '10 signature dishes in photorealistic 3D',
+  'pricing.bespoke.feature2': 'Photorealistic 3D dishes scoped to your menu',
   'pricing.bespoke.feature3': 'A design built for you, not themed from a base',
-  'pricing.bespoke.feature4': 'Extra AR dishes at a reduced rate',
-  'pricing.bespoke.feature5': 'First in line for new features',
+  'pricing.bespoke.feature4': 'Ideal for flagship venues and special projects',
+  'pricing.bespoke.feature5': 'Every detail discussed and decided together',
   'pricing.footnote':
     'A one time setup fee applies, quoted after we talk',
 
