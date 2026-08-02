@@ -109,16 +109,10 @@
   margin: 0;
 }
 
-.tier__blurb {
-  font-family: var(--font-body);
-  font-size: 0.9375rem;
-  line-height: 1.5;
-  color: var(--text-muted);
-  margin: 0.5rem 0 0;
-}
-
+/* No description line any more, so the price sits close under the title for a
+   tight title-then-price pairing. Same value on every card keeps prices aligned. */
 .tier__price {
-  margin-top: 1.5rem;
+  margin-top: 0.75rem;
 }
 
 .tier__price-label {

@@ -35,7 +35,6 @@ const TIERS = [
   {
     name: 'Basic',
     featured: false,
-    blurbKey: 'pricing.essential.blurb',
     monthly: '₾99',
     arDishes: 3,
     featureKeys: [
@@ -49,7 +48,6 @@ const TIERS = [
   {
     name: 'Signature',
     featured: true,
-    blurbKey: 'pricing.signature.blurb',
     monthly: '₾149',
     arDishes: 6,
     featureKeys: [
@@ -63,7 +61,6 @@ const TIERS = [
   {
     name: 'Custom',
     featured: false,
-    blurbKey: 'pricing.bespoke.blurb',
     monthly: null,
     priceText: "Let's talk",
     arDishes: 10,
@@ -215,7 +212,6 @@ export default function Pricing() {
               )}
 
               <h3 className="tier__name">{tier.name}</h3>
-              <p className="tier__blurb">{t(tier.blurbKey)}</p>
 
               <div className="tier__price">
                 <p className="tier__price-value">
