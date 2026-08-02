@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from './i18n/LanguageProvider.jsx';
 import './contact.css';
@@ -110,8 +111,15 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Fixed English in every language, like the designed-by line below. */}
-          <p className="footer__bottom">© 2026 Menuar. All rights reserved</p>
+          {/* Copyright and the Privacy link, both fixed English in every
+              language, sit together on the bottom bar. */}
+          <p className="footer__bottom">
+            © 2026 Menuar. All rights reserved
+            <span className="footer__bottom-sep" aria-hidden="true">·</span>
+            <Link className="footer__legal" to="/privacy">
+              Privacy Policy
+            </Link>
+          </p>
           {/* Fixed English wordmark line, identical in every language. */}
           <p className="footer__designed">Designed with 🤍 by Menuar</p>
         </div>

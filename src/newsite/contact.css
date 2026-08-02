@@ -146,6 +146,23 @@
   color: var(--text-on-dark-muted);
 }
 
+/* Small legal link sitting beside the copyright, in the same muted style. */
+.footer__bottom-sep {
+  margin: 0 0.5rem;
+  color: var(--text-on-dark-muted);
+}
+
+.footer__legal {
+  color: var(--text-on-dark-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer__legal:hover,
+.footer__legal:focus-visible {
+  color: var(--text-on-dark);
+}
+
 /* Sits just under the copyright in the same small muted style. Fixed English
    in every language, so it is hardcoded rather than translated. */
 .footer__designed {
